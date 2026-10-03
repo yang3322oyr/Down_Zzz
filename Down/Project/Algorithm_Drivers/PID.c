@@ -71,7 +71,12 @@ void PID_Incress_Calculate(PID_Struct_TypeDef *PID_Struct, float Target, float F
  * @brief PID参数初始化
  *
  * @param PID结构体
- * @param Kp, Ki, Kd, Kf, I_Output_Max, Output_Max
+ * @param Kp
+ * @param Ki
+ * @param Kd
+ * @param Kf
+ * @param I_Output_Max
+ * @param Output_Max
  */
 void PID_Init(PID_Struct_TypeDef *PID_Struct, float Kp, float Ki, float Kd, float Kf, float I_Output_Max, float Output_Max)
 {
@@ -81,6 +86,6 @@ void PID_Init(PID_Struct_TypeDef *PID_Struct, float Kp, float Ki, float Kd, floa
     PID_Struct->Kf = Kf;
     PID_Struct->I_Output_Max = I_Output_Max;
     PID_Struct->Output_Max = Output_Max;
-	PID_Struct->Targer_LowPass_K = 1;
+	PID_Struct->Targer_LowPass_K = 1.0f;
 }
 

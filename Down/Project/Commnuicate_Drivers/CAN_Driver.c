@@ -32,19 +32,6 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
     if(hfdcan == &hfdcan3) CAN3_Err_Ticker = 0;
 	
     CAN_RX_ID = RxHeader.Identifier;
-    
-        /*===| 云台电机数据 |===*/
-//        if (hfdcan == &Gimbal_Yaw_CAN      && CAN_RX_ID == Gimbal_Yaw_Feedback_CAN_ID)    ;     //Motor_DM1to4_Storage_Data(CAN_RX_Data1, &Motor_Data_Struct[Gimbal_Yaw_ID]);
-//        else if      (hfdcan == &Gimbal_Pitch_CAN    && CAN_RX_ID == Gimbal_Pitch_Feedback_CAN_ID)  ;     //Motor_DM1to4_Storage_Data(CAN_RX_Data1, &Motor_Data_Struct[Gimbal_Pitch_ID]);
-
-        /*===| 发射机构电机数据 |===*/
-//        if (hfdcan == &Shoot_Trigger_CAN     && CAN_RX_ID == Shoot_Trigger_Feedback_CAN_ID)      Motor_DJI_Storage_Data(CAN_RX_Data1, &Motor_Data_Struct[Shoot_Trigger_ID]);
-//        else if (hfdcan == &Shoot_Fric_First_CAN  && CAN_RX_ID == Shoot_Fric_First_Left_Feedback_CAN_ID)    Motor_DJI_Storage_Data(CAN_RX_Data1, &Motor_Data_Struct[Shoot_Fric_First_Left_ID]);
-//        else if (hfdcan == &Shoot_Fric_First_CAN  && CAN_RX_ID == Shoot_Fric_First_Right_Feedback_CAN_ID)   Motor_DJI_Storage_Data(CAN_RX_Data1, &Motor_Data_Struct[Shoot_Fric_First_Right_ID]);
-//        else if (hfdcan == &Shoot_Fric_First_CAN  && CAN_RX_ID == Shoot_Fric_First_Middle_Feedback_CAN_ID)  Motor_DJI_Storage_Data(CAN_RX_Data1, &Motor_Data_Struct[Shoot_Fric_First_Middle_ID]);
-//        else if (hfdcan == &Shoot_Fric_Second_CAN && CAN_RX_ID == Shoot_Fric_Second_Left_Feedback_CAN_ID)    Motor_DJI_Storage_Data(CAN_RX_Data1, &Motor_Data_Struct[Shoot_Fric_Second_Left_ID]);
-//        else if (hfdcan == &Shoot_Fric_Second_CAN && CAN_RX_ID == Shoot_Fric_Second_Right_Feedback_CAN_ID)   Motor_DJI_Storage_Data(CAN_RX_Data1, &Motor_Data_Struct[Shoot_Fric_Second_Right_ID]);
-//        else if (hfdcan == &Shoot_Fric_Second_CAN && CAN_RX_ID == Shoot_Fric_Second_Middle_Feedback_CAN_ID)  Motor_DJI_Storage_Data(CAN_RX_Data1, &Motor_Data_Struct[Shoot_Fric_Second_Middle_ID]);
 
         /*===| 轮电机数据 |===*/
 	    if 		(hfdcan == &Chassis_DriverMotor_CAN  && CAN_RX_ID == Chassis_Motor1_Feedback_CAN_ID)   Motor_DJI_Storage_Data(CAN_RX_Data1,&Motor_Data_Struct[Chassis_DriverMotor1_ID]);

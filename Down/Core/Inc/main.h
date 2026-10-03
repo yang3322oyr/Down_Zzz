@@ -58,6 +58,7 @@ extern "C" {
 #include "USB_Driver.h"
 #include "Function.h"
 #include "DWT.h"
+#include "Buzzer.h"
 #include "crc8_crc16.h"
 #include "Motor_Driver.h"
 #include "flash.h"

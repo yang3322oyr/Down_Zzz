@@ -50,14 +50,12 @@
 osThreadId defaultTaskHandle;
 osThreadId RoboHandle;
 osThreadId INSHandle;
-osThreadId GimbalHandle;
+osThreadId ErrorHandleHandle;
 osThreadId ChassisHandle;
 osThreadId CommunicateHandle;
 osThreadId Key_LEDHandle;
 osThreadId BuzzerHandle;
 osThreadId UIHandle;
-osThreadId ShootHandle;
-osThreadId AimHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -67,14 +65,12 @@ osThreadId AimHandle;
 void StartDefaultTask(void const * argument);
 void Robo_Task(void const * argument);
 void INS_Task(void const * argument);
-void Gimbal_Task(void const * argument);
+void ErrorHandle_Task(void const * argument);
 void Chassis_Task(void const * argument);
 void Communicate_Task(void const * argument);
 void Key_LED_Task(void const * argument);
 void Buzzer_Task(void const * argument);
 void UI_Task(void const * argument);
-void Shoot_Task(void const * argument);
-void Aim_Task(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -110,23 +106,23 @@ void MX_FREERTOS_Init(void) {
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* definition and creation of Robo */
-  osThreadDef(Robo, Robo_Task, osPriorityRealtime, 0, 512);
+  osThreadDef(Robo, Robo_Task, osPriorityIdle, 0, 512);
   RoboHandle = osThreadCreate(osThread(Robo), NULL);
 
   /* definition and creation of INS */
-  osThreadDef(INS, INS_Task, osPriorityLow, 0, 1024);
+  osThreadDef(INS, INS_Task, osPriorityIdle, 0, 1024);
   INSHandle = osThreadCreate(osThread(INS), NULL);
 
-//  /* definition and creation of Gimbal */
-//  osThreadDef(Gimbal, Gimbal_Task, osPriorityIdle, 0, 512);
-//  GimbalHandle = osThreadCreate(osThread(Gimbal), NULL);
+  /* definition and creation of ErrorHandle */
+  osThreadDef(ErrorHandle, ErrorHandle_Task, osPriorityIdle, 0, 512);
+  ErrorHandleHandle = osThreadCreate(osThread(ErrorHandle), NULL);
 
   /* definition and creation of Chassis */
-  osThreadDef(Chassis, WheelLeg_Chassis_Task, osPriorityHigh, 0, 2048);
+  osThreadDef(Chassis, Chassis_Task, osPriorityIdle, 0, 512);
   ChassisHandle = osThreadCreate(osThread(Chassis), NULL);
 
   /* definition and creation of Communicate */
-  osThreadDef(Communicate, Communicate_Task, osPriorityBelowNormal, 0, 512);
+  osThreadDef(Communicate, Communicate_Task, osPriorityIdle, 0, 512);
   CommunicateHandle = osThreadCreate(osThread(Communicate), NULL);
 
   /* definition and creation of Key_LED */
@@ -138,16 +134,8 @@ void MX_FREERTOS_Init(void) {
   BuzzerHandle = osThreadCreate(osThread(Buzzer), NULL);
 
   /* definition and creation of UI */
-  osThreadDef(UI, UI_Task, osPriorityIdle, 0, 512);
+  osThreadDef(UI, UI_Task, osPriorityIdle, 0, 256);
   UIHandle = osThreadCreate(osThread(UI), NULL);
-
-  /* definition and creation of Shoot */
-//  osThreadDef(Shoot, Shoot_Task, osPriorityIdle, 0, 512);
-//  ShootHandle = osThreadCreate(osThread(Shoot), NULL);
-
-  /* definition and creation of Aim */
-//  osThreadDef(Aim, Aim_Task, osPriorityIdle, 0, 512);
-//  AimHandle = osThreadCreate(osThread(Aim), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -185,7 +173,7 @@ void StartDefaultTask(void const * argument)
 * @retval None
 */__weak
 /* USER CODE END Header_Robo_Task */
-void Robo_Task(void const * argument)
+__weak void Robo_Task(void const * argument)
 {
   /* USER CODE BEGIN Robo_Task */
   /* Infinite loop */
@@ -203,7 +191,7 @@ void Robo_Task(void const * argument)
 * @retval None
 */__weak
 /* USER CODE END Header_INS_Task */
-void INS_Task(void const * argument)
+__weak void INS_Task(void const * argument)
 {
   /* USER CODE BEGIN INS_Task */
   /* Infinite loop */
@@ -214,22 +202,22 @@ void INS_Task(void const * argument)
   /* USER CODE END INS_Task */
 }
 
-/* USER CODE BEGIN Header_Gimbal_Task */
+/* USER CODE BEGIN Header_ErrorHandle_Task */
 /**
-* @brief Function implementing the Gimbal thread.
+* @brief Function implementing the ErrorHandle thread.
 * @param argument: Not used
 * @retval None
-*/__weak
-/* USER CODE END Header_Gimbal_Task */
-void Gimbal_Task(void const * argument)
+*/
+/* USER CODE END Header_ErrorHandle_Task */
+__weak void ErrorHandle_Task(void const * argument)
 {
-  /* USER CODE BEGIN Gimbal_Task */
+  /* USER CODE BEGIN ErrorHandle_Task */
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
   }
-  /* USER CODE END Gimbal_Task */
+  /* USER CODE END ErrorHandle_Task */
 }
 
 /* USER CODE BEGIN Header_Chassis_Task */
@@ -239,7 +227,7 @@ void Gimbal_Task(void const * argument)
 * @retval None
 */__weak
 /* USER CODE END Header_Chassis_Task */
-void Chassis_Task(void const * argument)
+__weak void Chassis_Task(void const * argument)
 {
   /* USER CODE BEGIN Chassis_Task */
   /* Infinite loop */
@@ -257,7 +245,7 @@ void Chassis_Task(void const * argument)
 * @retval None
 */__weak
 /* USER CODE END Header_Communicate_Task */
-void Communicate_Task(void const * argument)
+__weak void Communicate_Task(void const * argument)
 {
   /* USER CODE BEGIN Communicate_Task */
   /* Infinite loop */
@@ -275,7 +263,7 @@ void Communicate_Task(void const * argument)
 * @retval None
 */__weak
 /* USER CODE END Header_Key_LED_Task */
-void Key_LED_Task(void const * argument)
+__weak void Key_LED_Task(void const * argument)
 {
   /* USER CODE BEGIN Key_LED_Task */
   /* Infinite loop */
@@ -293,7 +281,7 @@ void Key_LED_Task(void const * argument)
 * @retval None
 */__weak
 /* USER CODE END Header_Buzzer_Task */
-void Buzzer_Task(void const * argument)
+__weak void Buzzer_Task(void const * argument)
 {
   /* USER CODE BEGIN Buzzer_Task */
   /* Infinite loop */
@@ -311,7 +299,7 @@ void Buzzer_Task(void const * argument)
 * @retval None
 */__weak
 /* USER CODE END Header_UI_Task */
-void UI_Task(void const * argument)
+__weak void UI_Task(void const * argument)
 {
   /* USER CODE BEGIN UI_Task */
   /* Infinite loop */
@@ -320,42 +308,6 @@ void UI_Task(void const * argument)
     osDelay(1);
   }
   /* USER CODE END UI_Task */
-}
-
-/* USER CODE BEGIN Header_Shoot_Task */
-/**
-* @brief Function implementing the Shoot thread.
-* @param argument: Not used
-* @retval None
-*/__weak
-/* USER CODE END Header_Shoot_Task */
-void Shoot_Task(void const * argument)
-{
-  /* USER CODE BEGIN Shoot_Task */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END Shoot_Task */
-}
-
-/* USER CODE BEGIN Header_Aim_Task */
-/**
-* @brief Function implementing the Aim thread.
-* @param argument: Not used
-* @retval None
-*/__weak
-/* USER CODE END Header_Aim_Task */
-void Aim_Task(void const * argument)
-{
-  /* USER CODE BEGIN Aim_Task */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END Aim_Task */
 }
 
 /* Private application code --------------------------------------------------*/

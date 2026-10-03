@@ -4,7 +4,7 @@
 #include "Referee_Unpack.h"
 #include "INS.h"
 #include "Aim.h"
-#include "Gimbal.h"
+#include "ErrorHandle.h"
 
 float CAM_Angle_X = 64.4;
 float CAM_Angle_Y = 40;

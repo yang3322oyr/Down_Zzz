@@ -4,7 +4,7 @@
 #include "main.h"
 #include "Chassis.h"
 #include "Shoot.h"
-#include "Gimbal.h"
+#include "ErrorHandle.h"
 
 #define RoboWz_PID_Kp					0.15f
 #define RoboWz_PID_Ki					0.0f

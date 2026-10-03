@@ -11,7 +11,6 @@
 #include "Vofa.h"
 #include "Remote_Control.h"
 #include "Referee_Unpack.h"
-#include "Laser.h"
 
 uint8_t RS485_1_RX_Data[64]     = {0};
 uint8_t RS485_2_RX_Data[64]     = {0};

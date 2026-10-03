@@ -10,7 +10,6 @@
 #include "Shoot.h"
 #include "SuperCap_Driver.h"
 #include "Vofa.h"
-#include "Laser.h"
 #include "Aim.h"
 #include "Remote_Control.h"
 

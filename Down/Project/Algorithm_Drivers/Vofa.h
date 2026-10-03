@@ -4,5 +4,7 @@
 #include "main.h"
 
 void VOFA_Rx_CallBack(uint8_t *VOFA_RxDataBuff);
+void VOFA_JustFloat_AddValue(uint8_t NUM, float Data);
+void VOFA_JustFloat_Send(UART_HandleTypeDef *huart);
 
 #endif

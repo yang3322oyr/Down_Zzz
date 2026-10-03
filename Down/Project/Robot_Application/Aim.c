@@ -6,9 +6,8 @@
 #include "Aim.h"
 #include "INS.h"
 #include "RoboControl.h"
-#include "Gimbal.h"
+#include "ErrorHandle.h"
 #include "Referee_Unpack.h"
-#include "Laser.h"
 
 #define Bullet_Speed_Average_Count_Number 5
 float Bullet_Speed_Average = 20.0f;

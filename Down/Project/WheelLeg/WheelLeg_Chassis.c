@@ -1,15 +1,22 @@
+/**
+ * @file    Chassis.c[底盘控制]
+ * @brief   轮腿底盘控制
+ * @details 统一接口,外部控制底盘数据和传感器数据统一从 Chassis_Task 传入；
+ *          Chassis_Task 调用 WheelLeg 文件的上层函数实现底盘的控制；
+ *          底盘数据定义在各个 WheelLeg 前缀文件中，并通过 Chassis_Control_Struct 内部指针指向必要数据
+ */
+#include "Motor_DJI_Driver.h"
+#include "Motor_DAMIAO_Driver.h"
+
 #include "WheelLeg_Chassis.h"
 #include "WheelLeg_Motor.h"
 #include "WheelLeg_Kinematics.h"
-#include "Define.h"
-#include "Motor_DJI_Driver.h"
-#include "Motor_DAMIAO_Driver.h"
-#include "DWT.h"
 #include "WheelLeg_VMC.h"
 #include "WheelLeg_LegController.h"
 #include "WheelLeg_SpringComp.h"
 #include "WheelLeg_LQR.h"
 #include "WheelLeg_Output.h"
+
 #include <math.h>
 
 //调试变量
@@ -49,36 +56,6 @@ volatile uint8_t WheelLeg_Balance_Request = 0;
 
 // 正常平衡阶段目标腿长
 #define WHEELLEG_BALANCE_LENGTH_M    0.18f
-
-static float WheelLeg_LimitFloat(float value,float limit)
-{
-    if(value > limit)
-    {
-        return limit;
-    }
-
-    if(value < -limit)
-    {
-        return -limit;
-    }
-
-    return value;
-}
-
-static void WheelLeg_Clear_ControlCommand(void)
-{
-    wheelLeg_controlCommand.left_force_n = 0.0f;
-    wheelLeg_controlCommand.right_force_n = 0.0f;
-
-    wheelLeg_controlCommand.left_tp_nm = 0.0f;
-    wheelLeg_controlCommand.right_tp_nm = 0.0f;
-
-    wheelLeg_controlCommand.left_wheel_torque_nm = 0.0f;
-    wheelLeg_controlCommand.right_wheel_torque_nm = 0.0f;
-
-    wheelLeg_controlCommand.valid = 0;
-}
-
 void WheelLeg_Chassis_Task(void const *argument)
 {
 	uint32_t wheelleg_dwt_count = 0;
@@ -217,12 +194,42 @@ void WheelLeg_Chassis_Task(void const *argument)
      * 11. 控制周期
      * ========================================================= */
 
-    osDelay(10);
+    osDelay(1);
 }
 		
 
 	
 }
+
+static float WheelLeg_LimitFloat(float value,float limit)
+{
+    if(value > limit)
+    {
+        return limit;
+    }
+
+    if(value < -limit)
+    {
+        return -limit;
+    }
+
+    return value;
+}
+
+static void WheelLeg_Clear_ControlCommand(void)
+{
+    wheelLeg_controlCommand.left_force_n = 0.0f;
+    wheelLeg_controlCommand.right_force_n = 0.0f;
+
+    wheelLeg_controlCommand.left_tp_nm = 0.0f;
+    wheelLeg_controlCommand.right_tp_nm = 0.0f;
+
+    wheelLeg_controlCommand.left_wheel_torque_nm = 0.0f;
+    wheelLeg_controlCommand.right_wheel_torque_nm = 0.0f;
+
+    wheelLeg_controlCommand.valid = 0;
+}
+
 
 //发送0力矩
 static void WheelLeg_Wheel_ZeroCurrent(void)

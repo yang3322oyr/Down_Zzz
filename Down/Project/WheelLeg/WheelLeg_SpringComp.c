@@ -1,9 +1,7 @@
 /**
  * @file    WheelLeg_SpringComp.c[氮气弹簧补偿]
  * @brief   氮气弹簧标定和补偿
- * @details 统一接口,外部控制底盘数据和传感器数据统一从 Chassis_Task 传入；
- *          Chassis_Task 调用 WheelLeg 文件的上层函数实现底盘的控制；
- *          底盘数据定义在各个 WheelLeg 前缀文件中，并通过 Chassis_Control_Struct 内部指针指向必要数据
+ * @details 包含初始化函数和补偿函数，还有阻塞式氮气弹簧标定任务
  * 
  */
 #include "WheelLeg_SpringComp.h"
@@ -312,7 +310,7 @@ if(Leg_LR==Leg_L)
             //电管底盘失能 关节电机也失能
             if( *Enable_Output == 0)
             {
-                Fun_Motor_Joint_Output(0, 0, 0, 0, 0);
+                Fun_Motor_Joint_Output(0, 0, 0, 0);
                 Fun_Motor_Wheel_Output(0,0);
                 return 0;
             }		
@@ -378,7 +376,7 @@ else if(Leg_LR==Leg_R)
             //电管底盘失能 关节电机也失能
             if( *Enable_Output == 0)
             {
-                Fun_Motor_Joint_Output(0, 0, 0, 0, 0);
+                Fun_Motor_Joint_Output(0, 0, 0, 0);
                 Fun_Motor_Wheel_Output(0,0);
                 return 0;
             }		

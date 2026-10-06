@@ -214,6 +214,7 @@ void WheelLeg_SpringComp_Init(void)
 /**
  * ===| 氮气弹簧补偿 |===
  * @param Leg_Length_Feedback---当前腿长
+ * @param Leg_Length_Target-----目标腿长
  * @param GasSpring_Output------[out]输出补偿力矩，沿腿方向，一般为负值(收腿方向为负方向)
  * @param Leg_LR----------------0:左腿(Leg_L)，1:右腿(Leg_R)
  **/

@@ -26,8 +26,6 @@ typedef struct
     PID_Struct_TypeDef Leg_Length_PID;
     //腿长速度环PID
     PID_Struct_TypeDef Leg_Length_Speed_PID;
-    //腿长速度环PID
-    PID_Struct_TypeDef Leg_Length_Speed_PID;
 
 //Motor
     //关节电机力矩的期望力矩NM(未限幅)

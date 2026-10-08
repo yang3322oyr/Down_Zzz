@@ -25,151 +25,152 @@ float Shoot_Fric_Second_Middle_Speed = 20.0;
 
 void Shoot_Task(void *argument)
 {
-    /*===| 发射机构PID参数初始化 |===*/
-    PID_Init(&Shoot_Control_Struct.Fric_First_Left_Speed_PID_Struct,      Shoot_Fric_Speed_PID_Kp,     Shoot_Fric_Speed_PID_Ki,    Shoot_Fric_Speed_PID_Kd,    0, Shoot_Fric_Speed_PID_I_Output_Max,      Shoot_Fric_Speed_PID_Output_Max);
-    PID_Init(&Shoot_Control_Struct.Fric_First_Right_Speed_PID_Struct,     Shoot_Fric_Speed_PID_Kp,     Shoot_Fric_Speed_PID_Ki,    Shoot_Fric_Speed_PID_Kd,    0, Shoot_Fric_Speed_PID_I_Output_Max,      Shoot_Fric_Speed_PID_Output_Max);  
-    PID_Init(&Shoot_Control_Struct.Fric_First_Middle_Speed_PID_Struct,    Shoot_Fric_Speed_PID_Kp,     Shoot_Fric_Speed_PID_Ki,    Shoot_Fric_Speed_PID_Kd,    0, Shoot_Fric_Speed_PID_I_Output_Max,      Shoot_Fric_Speed_PID_Output_Max);    
-    PID_Init(&Shoot_Control_Struct.Fric_Second_Left_Speed_PID_Struct,      Shoot_Fric_Speed_PID_Kp,     Shoot_Fric_Speed_PID_Ki,    Shoot_Fric_Speed_PID_Kd,    0, Shoot_Fric_Speed_PID_I_Output_Max,      Shoot_Fric_Speed_PID_Output_Max);
-    PID_Init(&Shoot_Control_Struct.Fric_Second_Right_Speed_PID_Struct,     Shoot_Fric_Speed_PID_Kp,     Shoot_Fric_Speed_PID_Ki,    Shoot_Fric_Speed_PID_Kd,    0, Shoot_Fric_Speed_PID_I_Output_Max,      Shoot_Fric_Speed_PID_Output_Max);  
-    PID_Init(&Shoot_Control_Struct.Fric_Second_Middle_Speed_PID_Struct,    Shoot_Fric_Speed_PID_Kp,     Shoot_Fric_Speed_PID_Ki,    Shoot_Fric_Speed_PID_Kd,    0, Shoot_Fric_Speed_PID_I_Output_Max,      Shoot_Fric_Speed_PID_Output_Max);    
-    PID_Init(&Shoot_Control_Struct.Trigger_Angle_PID_Struct,        Shoot_Trigger_Angle_PID_Kp,  Shoot_Trigger_Angle_PID_Ki, Shoot_Trigger_Angle_PID_Kd, 0, Shoot_Trigger_Angle_PID_I_Output_Max,   Shoot_Trigger_Angle_PID_Output_Max);
-    PID_Init(&Shoot_Control_Struct.Trigger_Single_Speed_PID_Struct,        Shoot_Trigger_Single_Speed_PID_Kp,  Shoot_Trigger_Single_Speed_PID_Ki, Shoot_Trigger_Single_Speed_PID_Kd, 0, Shoot_Trigger_Single_Speed_PID_I_Output_Max,   Shoot_Trigger_Single_Speed_PID_Output_Max);
+//     /*===| 发射机构PID参数初始化 |===*/
+//     PID_Init(&Shoot_Control_Struct.Fric_First_Left_Speed_PID_Struct,      Shoot_Fric_Speed_PID_Kp,     Shoot_Fric_Speed_PID_Ki,    Shoot_Fric_Speed_PID_Kd,    0, Shoot_Fric_Speed_PID_I_Output_Max,      Shoot_Fric_Speed_PID_Output_Max);
+//     PID_Init(&Shoot_Control_Struct.Fric_First_Right_Speed_PID_Struct,     Shoot_Fric_Speed_PID_Kp,     Shoot_Fric_Speed_PID_Ki,    Shoot_Fric_Speed_PID_Kd,    0, Shoot_Fric_Speed_PID_I_Output_Max,      Shoot_Fric_Speed_PID_Output_Max);  
+//     PID_Init(&Shoot_Control_Struct.Fric_First_Middle_Speed_PID_Struct,    Shoot_Fric_Speed_PID_Kp,     Shoot_Fric_Speed_PID_Ki,    Shoot_Fric_Speed_PID_Kd,    0, Shoot_Fric_Speed_PID_I_Output_Max,      Shoot_Fric_Speed_PID_Output_Max);    
+//     PID_Init(&Shoot_Control_Struct.Fric_Second_Left_Speed_PID_Struct,      Shoot_Fric_Speed_PID_Kp,     Shoot_Fric_Speed_PID_Ki,    Shoot_Fric_Speed_PID_Kd,    0, Shoot_Fric_Speed_PID_I_Output_Max,      Shoot_Fric_Speed_PID_Output_Max);
+//     PID_Init(&Shoot_Control_Struct.Fric_Second_Right_Speed_PID_Struct,     Shoot_Fric_Speed_PID_Kp,     Shoot_Fric_Speed_PID_Ki,    Shoot_Fric_Speed_PID_Kd,    0, Shoot_Fric_Speed_PID_I_Output_Max,      Shoot_Fric_Speed_PID_Output_Max);  
+//     PID_Init(&Shoot_Control_Struct.Fric_Second_Middle_Speed_PID_Struct,    Shoot_Fric_Speed_PID_Kp,     Shoot_Fric_Speed_PID_Ki,    Shoot_Fric_Speed_PID_Kd,    0, Shoot_Fric_Speed_PID_I_Output_Max,      Shoot_Fric_Speed_PID_Output_Max);    
+//     PID_Init(&Shoot_Control_Struct.Trigger_Angle_PID_Struct,        Shoot_Trigger_Angle_PID_Kp,  Shoot_Trigger_Angle_PID_Ki, Shoot_Trigger_Angle_PID_Kd, 0, Shoot_Trigger_Angle_PID_I_Output_Max,   Shoot_Trigger_Angle_PID_Output_Max);
+//     PID_Init(&Shoot_Control_Struct.Trigger_Single_Speed_PID_Struct,        Shoot_Trigger_Single_Speed_PID_Kp,  Shoot_Trigger_Single_Speed_PID_Ki, Shoot_Trigger_Single_Speed_PID_Kd, 0, Shoot_Trigger_Single_Speed_PID_I_Output_Max,   Shoot_Trigger_Single_Speed_PID_Output_Max);
    
-	Shoot_Control_Struct.Shoot_Frequency = 10;
+// 	Shoot_Control_Struct.Shoot_Frequency = 10;
 	
-    for(;;)
-    {     
-		float Dt = DWT_GetDeltaT(&Shoot_Control_Struct.DWT_Count);
-        Shoot_Control_Struct.Cool_Down -= Dt;
-        Limit_float(&Shoot_Control_Struct.Cool_Down, 100, 0);
-        /*===| 得到发射状态 |===*/
-        Shoot_Control_Struct.Shoot_State = RoboControl_Struct.Shoot_State;
+//     for(;;)
+//     {     
+// 		float Dt = DWT_GetDeltaT(&Shoot_Control_Struct.DWT_Count);
+//         Shoot_Control_Struct.Cool_Down -= Dt;
+//         Limit_float(&Shoot_Control_Struct.Cool_Down, 100, 0);
+//         /*===| 得到发射状态 |===*/
+//         Shoot_Control_Struct.Shoot_State = RoboControl_Struct.Shoot_State;
                            
-        /*===| 摩擦轮堵弹检测与处理 |===*/
-        //Fric_Stuck_Handle();    
+//         /*===| 摩擦轮堵弹检测与处理 |===*/
+//         //Fric_Stuck_Handle();    
         
-        /*===| 根据发射状态控制摩擦轮和拨弹轮 |===*/
-            /*===| 发射机构关闭 |===*/
-            if      (Shoot_Control_Struct.Shoot_State == Shoot_State_Off)
-            {
-                /*===| 摩擦轮关闭，拨弹轮速度0 |===*/
-                Shoot_Control_Struct.Fric_First_Left_Target_Speed   = 0;
-                Shoot_Control_Struct.Fric_First_Right_Target_Speed  = 0;
-                Shoot_Control_Struct.Fric_First_Middle_Target_Speed = 0;
-                Shoot_Control_Struct.Fric_Second_Left_Target_Speed  = 0;
-                Shoot_Control_Struct.Fric_Second_Right_Target_Speed = 0;
-                Shoot_Control_Struct.Fric_Second_Middle_Target_Speed= 0;
+//         /*===| 根据发射状态控制摩擦轮和拨弹轮 |===*/
+//             /*===| 发射机构关闭 |===*/
+//             if      (Shoot_Control_Struct.Shoot_State == Shoot_State_Off)
+//             {
+//                 /*===| 摩擦轮关闭，拨弹轮速度0 |===*/
+//                 Shoot_Control_Struct.Fric_First_Left_Target_Speed   = 0;
+//                 Shoot_Control_Struct.Fric_First_Right_Target_Speed  = 0;
+//                 Shoot_Control_Struct.Fric_First_Middle_Target_Speed = 0;
+//                 Shoot_Control_Struct.Fric_Second_Left_Target_Speed  = 0;
+//                 Shoot_Control_Struct.Fric_Second_Right_Target_Speed = 0;
+//                 Shoot_Control_Struct.Fric_Second_Middle_Target_Speed= 0;
 
-                /*===| 重置拨弹轮角度环，防止单发位置错误 |===*/
-                Motor_Data_Struct[Shoot_Trigger_ID].Round %= (int)(Triger_Reduction);
-                Shoot_Control_Struct.Trigger_Target_Angle = Motor_Data_Struct[Shoot_Trigger_ID].Total_Angle / Triger_Reduction;
-            }
-            /*===| 发射机构开启，准备单发或者连发 |===*/
-            else if (Shoot_Control_Struct.Shoot_State == Shoot_State_Ready)
-            {
-                /*===| 摩擦轮开启，拨弹轮角度环控制 |===*/
-//                Shoot_Control_Struct.Fric_First_Left_Target_Speed   = Shoot_Fric_First_Left_Speed  ;
-//                Shoot_Control_Struct.Fric_First_Right_Target_Speed  = Shoot_Fric_First_Right_Speed ;
-//                Shoot_Control_Struct.Fric_First_Middle_Target_Speed = Shoot_Fric_First_Middle_Speed;
-//                Shoot_Control_Struct.Fric_Second_Left_Target_Speed  = Shoot_Fric_Second_Left_Speed  ;
-//                Shoot_Control_Struct.Fric_Second_Right_Target_Speed = Shoot_Fric_Second_Right_Speed ;
-//                Shoot_Control_Struct.Fric_Second_Middle_Target_Speed= Shoot_Fric_Second_Middle_Speed;
+//                 /*===| 重置拨弹轮角度环，防止单发位置错误 |===*/
+//                 Motor_Data_Struct[Shoot_Trigger_ID].Round %= (int)(Triger_Reduction);
+//                 Shoot_Control_Struct.Trigger_Target_Angle = Motor_Data_Struct[Shoot_Trigger_ID].Total_Angle / Triger_Reduction;
+//             }
+//             /*===| 发射机构开启，准备单发或者连发 |===*/
+//             else if (Shoot_Control_Struct.Shoot_State == Shoot_State_Ready)
+//             {
+//                 /*===| 摩擦轮开启，拨弹轮角度环控制 |===*/
+// //                Shoot_Control_Struct.Fric_First_Left_Target_Speed   = Shoot_Fric_First_Left_Speed  ;
+// //                Shoot_Control_Struct.Fric_First_Right_Target_Speed  = Shoot_Fric_First_Right_Speed ;
+// //                Shoot_Control_Struct.Fric_First_Middle_Target_Speed = Shoot_Fric_First_Middle_Speed;
+// //                Shoot_Control_Struct.Fric_Second_Left_Target_Speed  = Shoot_Fric_Second_Left_Speed  ;
+// //                Shoot_Control_Struct.Fric_Second_Right_Target_Speed = Shoot_Fric_Second_Right_Speed ;
+// //                Shoot_Control_Struct.Fric_Second_Middle_Target_Speed= Shoot_Fric_Second_Middle_Speed;
                 
                 
-            }
-            /*===| 发射机构开启，摩擦轮拨弹轮倒转 |===*/
-            else if (Shoot_Control_Struct.Shoot_State == Shoot_State_Unload)
-            {
-                /*===| 摩擦轮开启，拨弹轮角度环控制 |===*/
-//                Shoot_Control_Struct.Fric_First_Left_Target_Speed   = -Shoot_Fric_First_Left_Speed  ;
-//                Shoot_Control_Struct.Fric_First_Right_Target_Speed  = -Shoot_Fric_First_Right_Speed ;
-//                Shoot_Control_Struct.Fric_First_Middle_Target_Speed = -Shoot_Fric_First_Middle_Speed;
-//                Shoot_Control_Struct.Fric_Second_Left_Target_Speed  = -Shoot_Fric_Second_Left_Speed  ;
-//                Shoot_Control_Struct.Fric_Second_Right_Target_Speed = -Shoot_Fric_Second_Right_Speed ;
-//                Shoot_Control_Struct.Fric_Second_Middle_Target_Speed= -Shoot_Fric_Second_Middle_Speed;
+//             }
+//             /*===| 发射机构开启，摩擦轮拨弹轮倒转 |===*/
+//             else if (Shoot_Control_Struct.Shoot_State == Shoot_State_Unload)
+//             {
+//                 /*===| 摩擦轮开启，拨弹轮角度环控制 |===*/
+// //                Shoot_Control_Struct.Fric_First_Left_Target_Speed   = -Shoot_Fric_First_Left_Speed  ;
+// //                Shoot_Control_Struct.Fric_First_Right_Target_Speed  = -Shoot_Fric_First_Right_Speed ;
+// //                Shoot_Control_Struct.Fric_First_Middle_Target_Speed = -Shoot_Fric_First_Middle_Speed;
+// //                Shoot_Control_Struct.Fric_Second_Left_Target_Speed  = -Shoot_Fric_Second_Left_Speed  ;
+// //                Shoot_Control_Struct.Fric_Second_Right_Target_Speed = -Shoot_Fric_Second_Right_Speed ;
+// //                Shoot_Control_Struct.Fric_Second_Middle_Target_Speed= -Shoot_Fric_Second_Middle_Speed;
                 
                 
-            }
-            /*===| 连发模式 |===*/
-            else if (Shoot_Control_Struct.Shoot_State == Shoot_State_Continue)
-            {
-                /*===| 摩擦轮开启，拨弹轮速度环控制 |===*/
-//                Shoot_Control_Struct.Fric_First_Left_Target_Speed   = Shoot_Fric_First_Left_Speed  ;
-//                Shoot_Control_Struct.Fric_First_Right_Target_Speed  = Shoot_Fric_First_Right_Speed ;
-//                Shoot_Control_Struct.Fric_First_Middle_Target_Speed = Shoot_Fric_First_Middle_Speed;
-//                Shoot_Control_Struct.Fric_Second_Left_Target_Speed  = Shoot_Fric_Second_Left_Speed  ;
-//                Shoot_Control_Struct.Fric_Second_Right_Target_Speed = Shoot_Fric_Second_Right_Speed ;
-//                Shoot_Control_Struct.Fric_Second_Middle_Target_Speed= Shoot_Fric_Second_Middle_Speed;
-				 Shoot_Single(1);
-            }
+//             }
+//             /*===| 连发模式 |===*/
+//             else if (Shoot_Control_Struct.Shoot_State == Shoot_State_Continue)
+//             {
+//                 /*===| 摩擦轮开启，拨弹轮速度环控制 |===*/
+// //                Shoot_Control_Struct.Fric_First_Left_Target_Speed   = Shoot_Fric_First_Left_Speed  ;
+// //                Shoot_Control_Struct.Fric_First_Right_Target_Speed  = Shoot_Fric_First_Right_Speed ;
+// //                Shoot_Control_Struct.Fric_First_Middle_Target_Speed = Shoot_Fric_First_Middle_Speed;
+// //                Shoot_Control_Struct.Fric_Second_Left_Target_Speed  = Shoot_Fric_Second_Left_Speed  ;
+// //                Shoot_Control_Struct.Fric_Second_Right_Target_Speed = Shoot_Fric_Second_Right_Speed ;
+// //                Shoot_Control_Struct.Fric_Second_Middle_Target_Speed= Shoot_Fric_Second_Middle_Speed;
+// 				 Shoot_Single(1);
+//             }
             
-            /*===| 摩擦轮斜坡加减速，防止瞬时功率过大导致Shoot断电 |===*/
-            if      (Shoot_Control_Struct.Fric_First_Left_Set_Speed     <= Shoot_Control_Struct.Fric_First_Left_Target_Speed)    Shoot_Control_Struct.Fric_First_Left_Set_Speed +=    Fric_Acc;
-            else if (Shoot_Control_Struct.Fric_First_Left_Set_Speed     >= Shoot_Control_Struct.Fric_First_Left_Target_Speed)    Shoot_Control_Struct.Fric_First_Left_Set_Speed -=    Fric_Acc;
-            if      (Shoot_Control_Struct.Fric_First_Right_Set_Speed    <= Shoot_Control_Struct.Fric_First_Right_Target_Speed)   Shoot_Control_Struct.Fric_First_Right_Set_Speed +=   Fric_Acc;
-            else if (Shoot_Control_Struct.Fric_First_Right_Set_Speed    >= Shoot_Control_Struct.Fric_First_Right_Target_Speed)   Shoot_Control_Struct.Fric_First_Right_Set_Speed -=   Fric_Acc;
-            if      (Shoot_Control_Struct.Fric_First_Middle_Set_Speed   <= Shoot_Control_Struct.Fric_First_Middle_Target_Speed)  Shoot_Control_Struct.Fric_First_Middle_Set_Speed +=  Fric_Acc;
-            else if (Shoot_Control_Struct.Fric_First_Middle_Set_Speed   >= Shoot_Control_Struct.Fric_First_Middle_Target_Speed)  Shoot_Control_Struct.Fric_First_Middle_Set_Speed -=  Fric_Acc;
-            if      (Shoot_Control_Struct.Fric_Second_Left_Set_Speed    <= Shoot_Control_Struct.Fric_Second_Left_Target_Speed)   Shoot_Control_Struct.Fric_Second_Left_Set_Speed +=   Fric_Acc;
-            else if (Shoot_Control_Struct.Fric_Second_Left_Set_Speed    >= Shoot_Control_Struct.Fric_Second_Left_Target_Speed)   Shoot_Control_Struct.Fric_Second_Left_Set_Speed -=   Fric_Acc;
-            if      (Shoot_Control_Struct.Fric_Second_Right_Set_Speed   <= Shoot_Control_Struct.Fric_Second_Right_Target_Speed)  Shoot_Control_Struct.Fric_Second_Right_Set_Speed +=  Fric_Acc;
-            else if (Shoot_Control_Struct.Fric_Second_Right_Set_Speed   >= Shoot_Control_Struct.Fric_Second_Right_Target_Speed)  Shoot_Control_Struct.Fric_Second_Right_Set_Speed -=  Fric_Acc;
-            if      (Shoot_Control_Struct.Fric_Second_Middle_Set_Speed  <= Shoot_Control_Struct.Fric_Second_Middle_Target_Speed) Shoot_Control_Struct.Fric_Second_Middle_Set_Speed += Fric_Acc;
-            else if (Shoot_Control_Struct.Fric_Second_Middle_Set_Speed  >= Shoot_Control_Struct.Fric_Second_Middle_Target_Speed) Shoot_Control_Struct.Fric_Second_Middle_Set_Speed -= Fric_Acc;
+//             /*===| 摩擦轮斜坡加减速，防止瞬时功率过大导致Shoot断电 |===*/
+//             if      (Shoot_Control_Struct.Fric_First_Left_Set_Speed     <= Shoot_Control_Struct.Fric_First_Left_Target_Speed)    Shoot_Control_Struct.Fric_First_Left_Set_Speed +=    Fric_Acc;
+//             else if (Shoot_Control_Struct.Fric_First_Left_Set_Speed     >= Shoot_Control_Struct.Fric_First_Left_Target_Speed)    Shoot_Control_Struct.Fric_First_Left_Set_Speed -=    Fric_Acc;
+//             if      (Shoot_Control_Struct.Fric_First_Right_Set_Speed    <= Shoot_Control_Struct.Fric_First_Right_Target_Speed)   Shoot_Control_Struct.Fric_First_Right_Set_Speed +=   Fric_Acc;
+//             else if (Shoot_Control_Struct.Fric_First_Right_Set_Speed    >= Shoot_Control_Struct.Fric_First_Right_Target_Speed)   Shoot_Control_Struct.Fric_First_Right_Set_Speed -=   Fric_Acc;
+//             if      (Shoot_Control_Struct.Fric_First_Middle_Set_Speed   <= Shoot_Control_Struct.Fric_First_Middle_Target_Speed)  Shoot_Control_Struct.Fric_First_Middle_Set_Speed +=  Fric_Acc;
+//             else if (Shoot_Control_Struct.Fric_First_Middle_Set_Speed   >= Shoot_Control_Struct.Fric_First_Middle_Target_Speed)  Shoot_Control_Struct.Fric_First_Middle_Set_Speed -=  Fric_Acc;
+//             if      (Shoot_Control_Struct.Fric_Second_Left_Set_Speed    <= Shoot_Control_Struct.Fric_Second_Left_Target_Speed)   Shoot_Control_Struct.Fric_Second_Left_Set_Speed +=   Fric_Acc;
+//             else if (Shoot_Control_Struct.Fric_Second_Left_Set_Speed    >= Shoot_Control_Struct.Fric_Second_Left_Target_Speed)   Shoot_Control_Struct.Fric_Second_Left_Set_Speed -=   Fric_Acc;
+//             if      (Shoot_Control_Struct.Fric_Second_Right_Set_Speed   <= Shoot_Control_Struct.Fric_Second_Right_Target_Speed)  Shoot_Control_Struct.Fric_Second_Right_Set_Speed +=  Fric_Acc;
+//             else if (Shoot_Control_Struct.Fric_Second_Right_Set_Speed   >= Shoot_Control_Struct.Fric_Second_Right_Target_Speed)  Shoot_Control_Struct.Fric_Second_Right_Set_Speed -=  Fric_Acc;
+//             if      (Shoot_Control_Struct.Fric_Second_Middle_Set_Speed  <= Shoot_Control_Struct.Fric_Second_Middle_Target_Speed) Shoot_Control_Struct.Fric_Second_Middle_Set_Speed += Fric_Acc;
+//             else if (Shoot_Control_Struct.Fric_Second_Middle_Set_Speed  >= Shoot_Control_Struct.Fric_Second_Middle_Target_Speed) Shoot_Control_Struct.Fric_Second_Middle_Set_Speed -= Fric_Acc;
             
-            Limit_float(&Shoot_Control_Struct.Fric_First_Left_Set_Speed,    Shoot_Control_Struct.Fric_First_Left_Target_Speed,      -Shoot_Control_Struct.Fric_First_Left_Target_Speed   );
-            Limit_float(&Shoot_Control_Struct.Fric_First_Right_Set_Speed,   Shoot_Control_Struct.Fric_First_Right_Target_Speed,     -Shoot_Control_Struct.Fric_First_Right_Target_Speed  );
-            Limit_float(&Shoot_Control_Struct.Fric_First_Middle_Set_Speed,  Shoot_Control_Struct.Fric_First_Middle_Target_Speed,    -Shoot_Control_Struct.Fric_First_Middle_Target_Speed );
-            Limit_float(&Shoot_Control_Struct.Fric_Second_Left_Set_Speed,   Shoot_Control_Struct.Fric_Second_Left_Target_Speed,     -Shoot_Control_Struct.Fric_Second_Left_Target_Speed  );
-            Limit_float(&Shoot_Control_Struct.Fric_Second_Right_Set_Speed,  Shoot_Control_Struct.Fric_Second_Right_Target_Speed,    -Shoot_Control_Struct.Fric_Second_Right_Target_Speed );
-            Limit_float(&Shoot_Control_Struct.Fric_Second_Middle_Set_Speed, Shoot_Control_Struct.Fric_Second_Middle_Target_Speed,   -Shoot_Control_Struct.Fric_Second_Middle_Target_Speed);
+//             Limit_float(&Shoot_Control_Struct.Fric_First_Left_Set_Speed,    Shoot_Control_Struct.Fric_First_Left_Target_Speed,      -Shoot_Control_Struct.Fric_First_Left_Target_Speed   );
+//             Limit_float(&Shoot_Control_Struct.Fric_First_Right_Set_Speed,   Shoot_Control_Struct.Fric_First_Right_Target_Speed,     -Shoot_Control_Struct.Fric_First_Right_Target_Speed  );
+//             Limit_float(&Shoot_Control_Struct.Fric_First_Middle_Set_Speed,  Shoot_Control_Struct.Fric_First_Middle_Target_Speed,    -Shoot_Control_Struct.Fric_First_Middle_Target_Speed );
+//             Limit_float(&Shoot_Control_Struct.Fric_Second_Left_Set_Speed,   Shoot_Control_Struct.Fric_Second_Left_Target_Speed,     -Shoot_Control_Struct.Fric_Second_Left_Target_Speed  );
+//             Limit_float(&Shoot_Control_Struct.Fric_Second_Right_Set_Speed,  Shoot_Control_Struct.Fric_Second_Right_Target_Speed,    -Shoot_Control_Struct.Fric_Second_Right_Target_Speed );
+//             Limit_float(&Shoot_Control_Struct.Fric_Second_Middle_Set_Speed, Shoot_Control_Struct.Fric_Second_Middle_Target_Speed,   -Shoot_Control_Struct.Fric_Second_Middle_Target_Speed);
         
-        /*===| PID计算 |===*/
-            /*===| 摩擦轮 |===*/
-//            PID_Position_Calculate(&Shoot_Control_Struct.Fric_First_Left_Speed_PID_Struct,    Shoot_Control_Struct.Fric_First_Left_Set_Speed,     Motor_Data_Struct[Shoot_Fric_First_Left_ID].Speed_RPM * Fric_RPM_to_m_s);
-//            PID_Position_Calculate(&Shoot_Control_Struct.Fric_First_Right_Speed_PID_Struct,  -Shoot_Control_Struct.Fric_First_Right_Set_Speed,    Motor_Data_Struct[Shoot_Fric_First_Right_ID].Speed_RPM * Fric_RPM_to_m_s);
+//         /*===| PID计算 |===*/
+//             /*===| 摩擦轮 |===*/
+// //            PID_Position_Calculate(&Shoot_Control_Struct.Fric_First_Left_Speed_PID_Struct,    Shoot_Control_Struct.Fric_First_Left_Set_Speed,     Motor_Data_Struct[Shoot_Fric_First_Left_ID].Speed_RPM * Fric_RPM_to_m_s);
+// //            PID_Position_Calculate(&Shoot_Control_Struct.Fric_First_Right_Speed_PID_Struct,  -Shoot_Control_Struct.Fric_First_Right_Set_Speed,    Motor_Data_Struct[Shoot_Fric_First_Right_ID].Speed_RPM * Fric_RPM_to_m_s);
 
-            /*===| 拨弹轮 |===*/
-                /*===| 发送机构关闭无PID输出 |===*/
-                if(Shoot_Control_Struct.Shoot_State == Shoot_State_Off)
-                {
-                    Shoot_Control_Struct.Trigger_Send_Current = 0;
-                }
-                /*===| 角度环控制 |===*/
-                else 
-                {
-                    PID_Position_Calculate(&Shoot_Control_Struct.Trigger_Angle_PID_Struct,   Shoot_Control_Struct.Trigger_Target_Angle ,            Motor_Data_Struct[Shoot_Trigger_ID].Total_Angle / Triger_Reduction);
-                    PID_Position_Calculate(&Shoot_Control_Struct.Trigger_Single_Speed_PID_Struct,   Shoot_Control_Struct.Trigger_Angle_PID_Struct.Output, Motor_Data_Struct[Shoot_Trigger_ID].Speed_RPM / Triger_Reduction);
-                    Shoot_Control_Struct.Trigger_Send_Current = Shoot_Control_Struct.Trigger_Single_Speed_PID_Struct.Output;
-                }
+//             /*===| 拨弹轮 |===*/
+//                 /*===| 发送机构关闭无PID输出 |===*/
+//                 if(Shoot_Control_Struct.Shoot_State == Shoot_State_Off)
+//                 {
+//                     Shoot_Control_Struct.Trigger_Send_Current = 0;
+//                 }
+//                 /*===| 角度环控制 |===*/
+//                 else 
+//                 {
+//                     PID_Position_Calculate(&Shoot_Control_Struct.Trigger_Angle_PID_Struct,   Shoot_Control_Struct.Trigger_Target_Angle ,            Motor_Data_Struct[Shoot_Trigger_ID].Total_Angle / Triger_Reduction);
+//                     PID_Position_Calculate(&Shoot_Control_Struct.Trigger_Single_Speed_PID_Struct,   Shoot_Control_Struct.Trigger_Angle_PID_Struct.Output, Motor_Data_Struct[Shoot_Trigger_ID].Speed_RPM / Triger_Reduction);
+//                     Shoot_Control_Struct.Trigger_Send_Current = Shoot_Control_Struct.Trigger_Single_Speed_PID_Struct.Output;
+//                 }
                 
                 
-            /*===| 拨弹轮堵弹检测与处理 |===*/
-            Trigger_Stuck_Handle();
+//             /*===| 拨弹轮堵弹检测与处理 |===*/
+//             Trigger_Stuck_Handle();
         
-            /*===| 发送电流参数 |===*/
-            if(RoboControl_Struct.Robo_Enable) 
-            {
-//                Motor_DJI_SendCurrent(&Shoot_Fric_First_CAN, Shoot_Fric_First_Send_CAN_ID,  
-//                                    Shoot_Control_Struct.Fric_First_Left_Speed_PID_Struct.Output,
-//                                    Shoot_Control_Struct.Fric_First_Right_Speed_PID_Struct.Output,
-//                                    0, 
-//                                    Shoot_Control_Struct.Trigger_Send_Current);
-//				 Motor_DJI_SendCurrent(&Shoot_Trigger_CAN, 
-//										Shoot_Trigger_Send_CAN_ID,
-//										Shoot_Control_Struct.Trigger_Send_Current,  
-//										0,
-//										0, 
-//										0);
-            }
-            else
-            {
-//                Motor_DJI_SendCurrent(&Shoot_Trigger_CAN, Shoot_Trigger_Send_CAN_ID,  0, 0, 0, 0);
-                //Motor_DJI_SendCurrent(&Shoot_Fric_Second_CAN, Shoot_Fric_Second_Send_CAN_ID, 0, 0, 0, 0); 
-            }
+//             /*===| 发送电流参数 |===*/
+//             if(RoboControl_Struct.Robo_Enable) 
+//             {
+// //                Motor_DJI_SendCurrent(&Shoot_Fric_First_CAN, Shoot_Fric_First_Send_CAN_ID,  
+// //                                    Shoot_Control_Struct.Fric_First_Left_Speed_PID_Struct.Output,
+// //                                    Shoot_Control_Struct.Fric_First_Right_Speed_PID_Struct.Output,
+// //                                    0, 
+// //                                    Shoot_Control_Struct.Trigger_Send_Current);
+// //				 Motor_DJI_SendCurrent(&Shoot_Trigger_CAN, 
+// //										Shoot_Trigger_Send_CAN_ID,
+// //										Shoot_Control_Struct.Trigger_Send_Current,  
+// //										0,
+// //										0, 
+// //										0);
+//             }
+//             else
+//             {
+// //                Motor_DJI_SendCurrent(&Shoot_Trigger_CAN, Shoot_Trigger_Send_CAN_ID,  0, 0, 0, 0);
+//                 //Motor_DJI_SendCurrent(&Shoot_Fric_Second_CAN, Shoot_Fric_Second_Send_CAN_ID, 0, 0, 0, 0); 
+//             }
                                                                   
-        osDelay(1);
-    }
+//         osDelay(1);
+//     }
+ osDelay(1000);
 }
 
 

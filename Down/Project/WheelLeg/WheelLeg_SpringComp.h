@@ -5,7 +5,7 @@
 
 void WheelLeg_SpringComp_Init(void);
 
-void WheelLeg_SpringComp(float Leg_Length_Feedback,float Leg_Length_Target,float *GasSpring_Output,uint8_t Leg_LR);
+void WheelLeg_SpringComp(Chassis_Leg_StructTypedef *Leg);
 
 uint8_t WheelLeg_SpringComp_Measure_Task
 (const uint8_t Leg_LR,

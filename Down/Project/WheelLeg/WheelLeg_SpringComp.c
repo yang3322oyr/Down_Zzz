@@ -5,6 +5,7 @@
  * 
  */
 
+#include "Chassis.h"
 #include "WheelLeg_SpringComp.h"
 #include "Buzzer.h"
 #include <math.h>
@@ -19,12 +20,6 @@ typedef enum
     Down =  1,
     Up   = -1
 }Start_State_EnumTypedef;
-
-typedef enum 
-{
-	Leg_L = 0,
-	Leg_R = 1
-} Chassis_Leg_RL_State_EnumTypedef;
 
 typedef struct 
 {
@@ -213,24 +208,25 @@ void WheelLeg_SpringComp_Init(void)
 
 /**
  * ===| 氮气弹簧补偿 |===
- * @param Leg_Length_Feedback---当前腿长
- * @param Leg_Length_Target-----目标腿长
- * @param GasSpring_Output------[out]输出补偿力矩，沿腿方向，一般为负值(收腿方向为负方向)
- * @param Leg_LR----------------0:左腿(Leg_L)，1:右腿(Leg_R)
+ * @param Leg---------------Chassis_Leg_StructTypedef结构体包含如下内容
+ * @param Length_Feedback---当前腿长
+ * @param Length_Target-----目标腿长
+ * @param GasSpring_Output--[out]输出补偿力矩，沿腿方向，一般为负值(收腿方向为负方向)
+ * @param Leg_LR------------0:左腿(Leg_L)，1:右腿(Leg_R)
  **/
-void WheelLeg_SpringComp(float Leg_Length_Feedback,float Leg_Length_Target,float *GasSpring_Output,uint8_t Leg_LR)
+void WheelLeg_SpringComp(Chassis_Leg_StructTypedef *Leg)
 {
-    if(Leg_LR == Leg_L)
+    if(Leg->Leg_LR == Leg_L)
     {
-        *GasSpring_Output = Motor_Compensation_Get_Data(Leg_Length_Feedback, Leg_Length_Target-Leg_Length_Feedback, &L0_Leg_L_Compensation_Config);
+        Leg->GasSpring_Output = Motor_Compensation_Get_Data(Leg->Length_Feedback, Leg->Length_Target-Leg->Length_Feedback, &L0_Leg_L_Compensation_Config);
     }
-    else if(Leg_LR == Leg_R)
+    else if(Leg->Leg_LR == Leg_R)
     {
-        *GasSpring_Output = Motor_Compensation_Get_Data(Leg_Length_Feedback, Leg_Length_Target-Leg_Length_Feedback, &L0_Leg_R_Compensation_Config);
+        Leg->GasSpring_Output = Motor_Compensation_Get_Data(Leg->Length_Feedback, Leg->Length_Target-Leg->Length_Feedback, &L0_Leg_R_Compensation_Config);
     }
     else
     {
-        *GasSpring_Output = 0;
+        Leg->GasSpring_Output = 0;
     }
 }
 

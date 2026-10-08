@@ -3,27 +3,37 @@
 
 #include "main.h"
 
-
-
-
 void WheelLeg_Output_Init(void);
 
-/*
- * 目前只计算最终目标力矩。
- * 下一步再真正发送MIT。
- */
-void WheelLeg_Output_UpdateTarget(void);
+int8_t WheelLeg_Output
+(const uint8_t Control_State,
 
-void WheelLeg_Output_SetLegEnable(uint8_t left_enable,uint8_t right_enable);
+const float Leg_Left_Link_F_N_Add,
+const float Leg_Left_Angle_Torque_NM_Add,
+const float Leg_Right_Link_F_N_Add,
+const float Leg_Right_Angle_Torque_NM_Add,
 
-//更新使能输出
-void WheelLeg_Output_UpdateEnable(void);
+const float Leg_Left_L_Target,
+const float Leg_Left_L_Feedback,
+const float Leg_Left_L_Speed_Feedback,
+const float Leg_Left_Total_Angle_Target,
+const float Leg_Left_Total_Angle_Feedback,
+const float Leg_Left_Total_Angle_Speed_Feedback,
+const float Leg_Right_L_Target,
+const float Leg_Right_L_Feedback,
+const float Leg_Right_L_Speed_Feedback,
+const float Leg_Right_Total_Angle_Target,
+const float Leg_Right_Total_Angle_Feedback,
+const float Leg_Right_Total_Angle_Speed_Feedback,
 
-// target经过slew生成真正准备发送的command
-void WheelLeg_Output_UpdateCommand(float dt);
+const float K_PID_Control_Weight,
 
-// 将command真正发送给达妙
-void WheelLeg_Output_Send(void);
+const float Jt_Left[2][2],
+const float Jt_Right[2][2],
+
+const float Wheel_Left_Torque,
+const float Wheel_Right_Torque
+);
 
 
 #endif

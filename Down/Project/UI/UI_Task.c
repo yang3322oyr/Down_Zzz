@@ -52,8 +52,8 @@ void UI_Task(void const * argument)
 			UI_State.Left_Leg_Angle  = Chassis_Control_Struct.Left_Leg_Angle;
 			UI_State.Right_Leg_Angle = -Chassis_Control_Struct.Right_Leg_Angle;
 			
-			UI_State.Fric1_Speed	 = fabs(Motor_Data_Struct[Shoot_Fric_First_Left_ID].Speed_RPM *4.0f);		 
-			UI_State.Fric2_Speed	 = fabs(Motor_Data_Struct[Shoot_Fric_First_Right_ID].Speed_RPM*4.0f);
+			UI_State.Fric1_Speed	 = fabs(Motor.Shoot_Fric_First_Left.Speed_RPM *4.0f);		 
+			UI_State.Fric2_Speed	 = fabs(Motor.Shoot_Fric_First_Right.Speed_RPM*4.0f);
 			
             UI_State.Shoot_State = RoboControl_Struct.Shoot_State;
 			UI_State.Gimbal_State = RoboControl_Struct.Gimbal_State;

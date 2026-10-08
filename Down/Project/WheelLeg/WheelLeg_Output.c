@@ -66,6 +66,12 @@ static void WheelLeg_Output_LimitPair(float *back_nm,float *front_nm,float limit
 //发送电机电流，有1ms阻塞(等待修改fdcan接线后去掉)
 static void WheelLeg_Output_Motor_Send_Current(const float Joint1, const float Joint2, const float Joint3, const float Joint4, const float Wheel_Left,const float Wheel_Right);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// //输入数据
+// WheelLeg_Output_InputDate_StructTypedef WheelLeg_Output_InputDate_Struct;
+
 /**
  * @brief ===| PID控制的初始化 |===
  **/

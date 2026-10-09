@@ -149,15 +149,15 @@ void ErrorHandle_Task(void *argument)
         }
 
 		/*===| 轮电机离线检测 |===*/
-		Wheel_Motor1.Ticker++; 
-		if(Wheel_Motor1.Ticker >= 100) Wheel_Motor1.If_Online = 0; 
-		if(Wheel_Motor1.Ticker >  110) Wheel_Motor1.Ticker = 100;
+		Motor.Wheel_Motor1.Ticker++; 
+		if(Motor.Wheel_Motor1.Ticker >= 100) Motor.Wheel_Motor1.If_Online = 0; 
+		if(Motor.Wheel_Motor1.Ticker >  110) Motor.Wheel_Motor1.Ticker = 100;
 		
-        Wheel_Motor6.Ticker++; 
-		if(Wheel_Motor6.Ticker >= 100) Wheel_Motor6.If_Online = 0; 
-		if(Wheel_Motor6.Ticker >  110) Wheel_Motor6.Ticker = 100;
+        Motor.Wheel_Motor2.Ticker++; 
+		if(Motor.Wheel_Motor2.Ticker >= 100) Motor.Wheel_Motor2.If_Online = 0; 
+		if(Motor.Wheel_Motor2.Ticker >  110) Motor.Wheel_Motor2.Ticker = 100;
 		
-        if(Wheel_Motor1.If_Online == 0 && Wheel_Motor6.If_Online == 0)
+        if(Motor.Wheel_Motor1.If_Online == 0 && Motor.Wheel_Motor2.If_Online == 0)
         {
             Robo_Stop();
         }

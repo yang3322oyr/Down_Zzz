@@ -181,7 +181,7 @@ static void WheelLeg_ForwardKinematics(WheelLeg_LegKinematics_StructTypedef *Leg
 	
 	Xb = L1*arm_cos_f32(PHI1);
 	Yb = L1*arm_sin_f32(PHI1);
-	Xd = L1*arm_cos_f32(PHI4) + l5;
+	Xd = L1*arm_cos_f32(PHI4) + L5;
 	Yd = L1*arm_sin_f32(PHI4);
 	
 	lBD=sqrt((Xd-Xb)*(Xd-Xb)+(Yd-Yb)*(Yd-Yb));
@@ -195,8 +195,8 @@ static void WheelLeg_ForwardKinematics(WheelLeg_LegKinematics_StructTypedef *Leg
 	Xc=Xb+L2*arm_cos_f32(PHI2);
 	Yc=Yb+L2*arm_sin_f32(PHI2);
 
-	L0=sqrt((Xc-l5/2)*(Xc-l5/2)+Yc*Yc);
-	PHI0=atan2f(Yc,(Xc-l5/2));
+	L0=sqrt((Xc-L5/2)*(Xc-L5/2)+Yc*Yc);
+	PHI0=atan2f(Yc,(Xc-L5/2));
 	phi0=PHI0*Radain_to_Angle;
 	
 

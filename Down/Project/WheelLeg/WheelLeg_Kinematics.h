@@ -24,6 +24,6 @@ typedef struct
     WheelLeg_LegKinematics_StructTypedef Right;
 } WheelLeg_Kinematics_StructTypedef;
 
-void WheelLeg_Kinematics_Update(float dt);
+void WheelLeg_Kinematics_Update(Chassis_Control_StructTypedef *Chassis_Control_Struct,const float dt)
 
 #endif 

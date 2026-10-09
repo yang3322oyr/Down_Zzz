@@ -113,8 +113,7 @@
 
 
 /*===| 底盘计算参数定义 |===*/
-    #define    PI   3.1415927f
-
+	#define 	PI   3.14159265359f
 	#define 	Angle_to_Radain	 0.0174533f //角度to弧度(PI/180)
     #define	    Radain_to_Angle	 57.29578f  //弧度to角度(180/PI)
     

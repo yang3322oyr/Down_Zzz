@@ -198,32 +198,36 @@ static void calucateK(const float Length_Left_Feedback, const float Length_Right
     }
 }
 
+/**
+ * @brief LQR运控PID补丁
+ * 
+ */
+static void WheelLeg_LQR_PID_Patch(Chassis_Control_StructTypedef *Chassis_Control)
+{
+	PID_Position_Calculate(&WheelLeg_LQR_Struct.Wheel_Wz_Speed_PID ,Chassis_Control->Chassis_Control.Wz_Speed_Target, Chassis_Control->Chassis_Control.Yaw_Speed);
+
+	PID_Position_Calculate(&WheelLeg_LQR_Struct.Leg_Splits_PID ,0.0f, Chassis_Control->Leg_Left.Angle_Feedback+Chassis_Control->Leg_Right.Angle_Feedback);
+
+}
 
 void WheelLeg_LQR_Init(void)
 {
     /*===| 卡尔曼滤波初始化  |===*/
 	xvEstimateKF_Init(&L_vaEstimateKF,&R_vaEstimateKF);
+	//转向&小陀螺速度环
+	PID_Init(&WheelLeg_LQR_Struct.Wheel_Wz_Speed_PID, 3.0f,  0.0f, 0.1f, 0.0f,0.0f,3.0f);
+	//防劈叉PID
+	PID_Init(&WheelLeg_LQR_Struct.Leg_Splits_PID, 4.0f, 0.0f, 0.1f, 0.0f,0.0f,10.0f);
+
 }
 
-static void WheelLeg_LQR_calculation(Chassis_Leg_StructTypedef *Leg_Date)
-{
-    float K11 = Leg_Date->LQR_K[0];// 赋值K
-    float K12 = Leg_Date->LQR_K[1];
-    float K13 = Leg_Date->LQR_K[2];
-    float K14 = Leg_Date->LQR_K[3];
-    float K15 = Leg_Date->LQR_K[4];
-    float K16 = Leg_Date->LQR_K[5];		  
-    float K21 = Leg_Date->LQR_K[6];
-    float K22 = Leg_Date->LQR_K[7];
-    float K23 = Leg_Date->LQR_K[8];
-    float K24 = Leg_Date->LQR_K[9];
-    float K25 = Leg_Date->LQR_K[10];
-    float K26 = Leg_Date->LQR_K[11];
-
-
+static void WheelLeg_LQR_calculation(Chassis_Leg_StructTypedef *Leg_Date, const Chassis_State_EnumTypedef Chsssis_State)
+{	
+	float *LQR_K_LR;
 	float theta,theta_d,xb,xb_d,phi,phi_d;
 	if(Leg_Date->Leg_LR == Leg_L)
 	{
+		LQR_K_LR = WheelLeg_LQR_Struct.LQR_K_Left;
 		theta   = -WheelLeg_LQR_Struct.State[1];
     	theta_d = -WheelLeg_LQR_Struct.State[2];
 		xb    = -WheelLeg_LQR_Struct.State[3];
@@ -233,6 +237,7 @@ static void WheelLeg_LQR_calculation(Chassis_Leg_StructTypedef *Leg_Date)
 	}
 	else if(Leg_Date->Leg_RL_State == Leg_R)
 	{
+		LQR_K_LR = WheelLeg_LQR_Struct.LQR_K_Right;
 		theta   = WheelLeg_LQR_Struct.State[7];
     	theta_d = WheelLeg_LQR_Struct.State[8];
 		xb    = WheelLeg_LQR_Struct.State[3];
@@ -243,23 +248,37 @@ static void WheelLeg_LQR_calculation(Chassis_Leg_StructTypedef *Leg_Date)
     //板凳状态下输出力矩锁定关节摆角 若用LQR控制关节则注释掉此处的Tp的输出
 //	Chassis_Control_Struct.Torque_Joint_left=-Chassis_Control_Struct.Left_leg_Angle_PID.Output;
 	
-    float Torque_wheel_left = -( K11 * theta + K12 * theta_d + K13 * xb + K14 * xb_d + K15 * phi + K16 * phi_d );
-    Leg_Date->L_T_Target[1] =  ( K21 * theta + K22 * theta_d + K23 * xb + K24 * xb_d + K25 * phi + K26 * phi_d ) + (Chassis_Control_Struct.Chassis_Control.Leg_Splits_PID.Output);
+    float Torque_wheel_left = -( LQR_K_LR[0] * theta + LQR_K_LR[1] * theta_d + LQR_K_LR[2] * xb + LQR_K_LR[3] * xb_d + LQR_K_LR[4] * phi + LQR_K_LR[5] * phi_d );
+    Leg_Date->LQR_Link_Torque_Target[1] =  ( LQR_K_LR[6] * theta + LQR_K_LR[7] * theta_d + LQR_K_LR[8] * xb + LQR_K_LR[9] * xb_d + LQR_K_LR[10] * phi + LQR_K_LR[11] * phi_d ) + (Chassis_Control_Struct.Chassis_Control.Leg_Splits_PID.Output);
 
-	if(Chassis_Flag.Jump_Flag == 1)
+	if(Chsssis_State == Chassis_Jump)
 	{
-		Leg_Date->Wheel_T = Torque_wheel_left;
+		Leg_Date->LQR_Wheel_Torque_Target = Torque_wheel_left;
 	}
-	else if(Chassis_Flag.Off_ground_Flag == 1)
+	else if(Chsssis_State == Chassis_Off_ground)
 	{
-		Leg_Date->Wheel_T = 0;//左轮电机输出置0
-		Leg_Date->L_T_Target[1] =(K21*(theta) + K22*(theta_d)) + (Chassis_Control_Struct.Chassis_Control.Leg_Splits_PID.Output);//左关节力矩只保留摆角控制量
+		Leg_Date->LQR_Wheel_Torque_Target = 0;//左轮电机输出置0
+		Leg_Date->LQR_Link_Torque_Target[1] =(LQR_K_LR[6]*(theta) + LQR_K_LR[7]*(theta_d)) + (WheelLeg_LQR_Struct.Leg_Splits_PID.Output);//左关节力矩只保留摆角控制量
 	}
 	else
 	{
-		Leg_Date->Wheel_T = Torque_wheel_left + Chassis_Control_Struct.Chassis_Control.Wheel_Wz_Speed_RPM_PID.Output;
+		Leg_Date->LQR_Wheel_Torque_Target = Torque_wheel_left + WheelLeg_LQR_Struct.Wheel_Wz_Speed_PID;
 	}
 
-	Limit_float(&Leg_Date->L_T_Target[1],80.0f,-80.0f);
-	Limit_float(&Leg_Date->Wheel_T,5.0f,-5.0f);
+	Limit_float(&Leg_Date->LQR_Link_Torque_Target[1],80.0f,-80.0f);
+	Limit_float(&Leg_Date->LQR_Wheel_Torque_Target,5.0f,-5.0f);
+}
+
+void WheelLeg_LQR_Output(Chassis_Control_StructTypedef *Chassis_Control)
+{
+	WheelLeg_LQR_Calculated_Displacement(Chassis_Control);
+
+	WheelLeg_LQR_add_six_state(Chassis_Control);
+
+	calucateK(Chassis_Control->Leg_Left.Length_Feedback, Chassis_Control->Leg_Right.Length_Feedback);
+
+	WheelLeg_LQR_PID_Patch(Chassis_Control);
+
+	WheelLeg_LQR_calculation(&Chassis_Control->Leg_Left,  Chassis_Control->Chassis_Control.Chassis_State);
+	WheelLeg_LQR_calculation(&Chassis_Control->Leg_Right, Chassis_Control->Chassis_Control.Chassis_State);
 }

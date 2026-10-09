@@ -68,11 +68,12 @@ typedef struct
 		float Pitch;			//弧度,LQR使用的pitch,车头抬高pitch增大
 		float Pitch_dot;		//弧度
 		float Pitch_Last;		//弧度
-		float 
+		float Yaw_Speed;		//弧度/s，俯视逆时针为正方向，用于转向和小陀螺
 	//Chassis
 	float Vy_Target;	//前进为正方向
 	float Vy_Target_Last;	//前进为正方向
 	float Vx_Target;
+	float Wz_Speed_Target;
 
 	uint8_t Jump_Level;	//跳跃等级(RoboControl_Struct赋值)
 
@@ -138,7 +139,7 @@ typedef struct
 			float PID_Link_Torque_Target[2];
 			//关节电机目标力矩(未限幅,WheelLeg_Output函数中限幅)
 			//0:电机14，1:电机23
-			float Torque_Target[2];
+			float LQR_Wheel_Torque_Target[2];
 
 //Wheel
 	//轮电机力矩(PID输出和LQR)

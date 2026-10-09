@@ -45,8 +45,17 @@ typedef struct
     float Wheel_displacement_init;      //正常运动开始时的位移，恢复正常运动时的Wheel_Displacement_Feedback赋值
     float Wheel_Speed_Target_Last;
 
+    //LQR运控PID补丁
+        //转向&小陀螺
+	    PID_Struct_TypeDef Wheel_Wz_Speed_PID;
+        //防劈叉
+	    PID_Struct_TypeDef Leg_Splits_PID;
+        
+
 } WheelLeg_LQR_StructTypeDef;
 
 void WheelLeg_LQR_Init(void);
+
+void WheelLeg_LQR_Output(Chassis_Control_StructTypedef *Chassis_Control);
 
 #endif

@@ -135,11 +135,11 @@ typedef struct
 		//绕轴力矩：左(右)侧看逆时针为正方向
 			//LQR输出
 			float LQR_Link_Torque_Target[2];
-			//PID输出
-			float PID_Link_Torque_Target[2];
 			//关节电机目标力矩(未限幅,WheelLeg_Output函数中限幅)
 			//0:电机14，1:电机23
 			float LQR_Wheel_Torque_Target[2];
+			// //PID输出
+			// float PID_Link_Torque_Target[2];
 
 //Wheel
 	//轮电机力矩(PID输出和LQR)

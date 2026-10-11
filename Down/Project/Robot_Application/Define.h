@@ -113,6 +113,9 @@
 
 
 /*===| 底盘计算参数定义 |===*/
+    #define Leg_Length_Min  0.15f
+    #define Leg_Length_Max  0.38f
+
 	#define 	PI   3.14159265359f
 	#define 	Angle_to_Radain	 0.0174533f //角度to弧度(PI/180)
     #define	    Radain_to_Angle	 57.29578f  //弧度to角度(180/PI)

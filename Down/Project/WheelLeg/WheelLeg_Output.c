@@ -8,6 +8,8 @@
 #include "Motor_DAMIAO_Driver.h"
 #include "Motor_DJI_Driver.h"
 
+#include "Remote_Control.h"
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //内部定义
@@ -68,9 +70,9 @@ void WheelLeg_Output_Init(void)
  * @note 关节电机对应关系:关节1(左腿车头)、关节2(左腿车尾)、关节3(右腿车头)、关节4(右腿车尾)
  * @note //VMC:虚拟腿力/力矩经Jt映射成关节电机力矩(Jt行0为后关节，行1为前关节)
  * @note WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque13  = Chassis_Control->Leg_Left.Jt[0][0]  * Leg_Left_Link_F  + Chassis_Control->Leg_Left.Jt[0][1]  * Leg_Left_Angle_Torque;
- * @note WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque24   = Chassis_Control->Leg_Left.Jt[1][0]  * Leg_Left_Link_F  + Chassis_Control->Leg_Left.Jt[1][1]  * Leg_Left_Angle_Torque;
- * @note WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque13 = Chassis_Control->Leg_Right.Jt[0][0] * Leg_Right_Link_F + Chassis_Control->Leg_Right.Jt[0][1] * Leg_Right_Angle_Torque;
- * @note WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque24  = Chassis_Control->Leg_Right.Jt[1][0] * Leg_Right_Link_F + Chassis_Control->Leg_Right.Jt[1][1] * Leg_Right_Angle_Torque;
+ * @note WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque24  = Chassis_Control->Leg_Left.Jt[1][0]  * Leg_Left_Link_F  + Chassis_Control->Leg_Left.Jt[1][1]  * Leg_Left_Angle_Torque;
+ * @note WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque24 = Chassis_Control->Leg_Right.Jt[0][0] * Leg_Right_Link_F + Chassis_Control->Leg_Right.Jt[0][1] * Leg_Right_Angle_Torque;
+ * @note WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque13 = Chassis_Control->Leg_Right.Jt[1][0] * Leg_Right_Link_F + Chassis_Control->Leg_Right.Jt[1][1] * Leg_Right_Angle_Torque;
  * 
  * @note 说明：
  * @note Chassis_Control->Chassis_Control.Chassis_State==0:关节电机和轮电机电流全部输出0，函数直接返回0
@@ -131,7 +133,7 @@ int8_t WheelLeg_Output(Chassis_Control_StructTypedef *Chassis_Control)
     float Leg_Right_PID_Angle_Torque = 0.0f;
 
     //失能:关节电机和轮电机电流全部输出0
-    if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_OFF)
+    if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_OFF||Remote_Control_Struct.S2 == SW_Mid)
     {
         WheelLeg_Output_Struct.Leg_Left.Leg_Length_PID.I_Output = 0.0f;
         WheelLeg_Output_Struct.Leg_Left.Leg_Length_Speed_PID.I_Output = 0.0f;
@@ -196,20 +198,25 @@ int8_t WheelLeg_Output(Chassis_Control_StructTypedef *Chassis_Control)
 
     }
     else if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_Recover
-    && Chassis_Control->Chassis_Control.Chassis_State == Chassis_RESET
-    && Chassis_Control->Chassis_Control.Chassis_State == Chassis_RESET_Slow)
+    || Chassis_Control->Chassis_Control.Chassis_State == Chassis_RESET
+    || Chassis_Control->Chassis_Control.Chassis_State == Chassis_RESET_Slow)
     {
         Leg_Left_Link_F        = K_PID_Control_Weight * Leg_Left_PID_Link_F;
         Leg_Right_Link_F       = K_PID_Control_Weight * Leg_Right_PID_Link_F;
         Leg_Left_Angle_Torque  = K_PID_Control_Weight * Leg_Left_PID_Angle_Torque;
         Leg_Right_Angle_Torque = K_PID_Control_Weight * Leg_Right_PID_Angle_Torque;
+        if(Chassis_Control->Chassis_Control.Chassis_State != Chassis_Recover)
+        {
+            Leg_Left_Link_F  += Chassis_Control->Leg_Left.GasSpring_Output;
+            Leg_Right_Link_F += Chassis_Control->Leg_Right.GasSpring_Output;
+        }
     }
 
     //VMC:虚拟腿力/力矩经Jt映射成关节电机力矩(Jt行0为后关节，行1为前关节)
     WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque13  = Chassis_Control->Leg_Left.Jt[0][0]  * Leg_Left_Link_F  + Chassis_Control->Leg_Left.Jt[0][1]  * Leg_Left_Angle_Torque;
     WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque24  = Chassis_Control->Leg_Left.Jt[1][0]  * Leg_Left_Link_F  + Chassis_Control->Leg_Left.Jt[1][1]  * Leg_Left_Angle_Torque;
-    WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque13 = Chassis_Control->Leg_Right.Jt[0][0] * Leg_Right_Link_F + Chassis_Control->Leg_Right.Jt[0][1] * Leg_Right_Angle_Torque;
-    WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque24 = Chassis_Control->Leg_Right.Jt[1][0] * Leg_Right_Link_F + Chassis_Control->Leg_Right.Jt[1][1] * Leg_Right_Angle_Torque;
+    WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque24 = Chassis_Control->Leg_Right.Jt[0][0] * Leg_Right_Link_F + Chassis_Control->Leg_Right.Jt[0][1] * Leg_Right_Angle_Torque;
+    WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque13 = Chassis_Control->Leg_Right.Jt[1][0] * Leg_Right_Link_F + Chassis_Control->Leg_Right.Jt[1][1] * Leg_Right_Angle_Torque;
 
     //每条腿的两个关节按相同比例限幅，保证虚拟力方向不变
     WheelLeg_Output_LimitPair(&WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque24, &WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque13, WheelLeg_Joint_Output_Torque_Limit_NM);

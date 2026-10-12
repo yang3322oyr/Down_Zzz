@@ -135,6 +135,8 @@ static void WheelLeg_LQR_Calculated_Displacement(Chassis_Control_StructTypedef *
     Wheel_Left.Displacement  = -(Wheel_Left.Displacement_Now  - Wheel_Left.Displacement_Init);
     Wheel_Right.Displacement =   Wheel_Right.Displacement_Now - Wheel_Right.Displacement_Init;
 
+	WheelLeg_LQR_Struct.Wheel_Displacement_Feedback = (Wheel_Left.Displacement+Wheel_Right.Displacement)*0.5f;
+
 	Wheel_Left.Wheel_Speed_Feedback  = -Motor.Wheel_Motor1.Speed_RPM * Chassis_RPM_to_m_s;
 	Wheel_Right.Wheel_Speed_Feedback =  Motor.Wheel_Motor2.Speed_RPM * Chassis_RPM_to_m_s;
 

@@ -52,6 +52,8 @@ void Chassis_Task(void const * argument)
     Chassis_Control_Struct.Chassis_Control.Leg_Length_Feebback = Leg_Length_Max;
     DWT_GetDeltaT(&Chassis_Control_Struct.Chassis_Count);
 
+    //运动学解算初始化(卡尔曼滤波器参数)
+    WheelLeg_Kinematics_Init();
     //LQR运控初始化
     WheelLeg_LQR_Init();
     //电流输出初始化
@@ -108,6 +110,17 @@ void Get_Control_Data(Chassis_Control_StructTypedef *Chassis_Control_Struct)
 
     Chassis_Control_Struct->Chassis_Control.Jump_Level = RoboControl_Struct.Jump_Level;
     Chassis_Control_Struct->Chassis_Control.Leg_Length_Target = RoboControl_Struct.Leg_Length;
+    if(Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_FOLLOW
+    || Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_SPIN)
+    {
+        Chassis_Control_Struct->Leg_Left.Length_Target  = Chassis_Control_Struct->Chassis_Control.Leg_Length_Target;
+        Chassis_Control_Struct->Leg_Right.Length_Target = Chassis_Control_Struct->Chassis_Control.Leg_Length_Target;
+    }
+    else if(Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_OFF)
+    {
+        Chassis_Control_Struct->Leg_Left.Length_Target  = Chassis_Control_Struct->Leg_Left.Length_Feedback;
+        Chassis_Control_Struct->Leg_Right.Length_Target = Chassis_Control_Struct->Leg_Right.Length_Feedback;
+    }
     
 /*===| INS数据赋值 |===*/
     State_Filter(Chassis_Control_Struct,INS.MotionAccel_n[2]);

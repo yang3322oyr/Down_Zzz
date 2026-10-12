@@ -143,20 +143,14 @@ void Get_Chassis_Wz(void)
     {
         RoboControl_Struct.Robo_Target_Wz = 0;
     }
-    /*===| 底盘静止 WASD控制底盘转向朝向 |===*/
+    /*===| 底盘跟随 WASD控制底盘转向朝向 |===*/
     else if(RoboControl_Struct.Chassis_State == Chassis_FOLLOW)
     {
-		PID_Position_Calculate(&RoboWz_PID_Struct, -RoboControl_Struct.Target_Direction, RoboControl_Struct.Target_Direction_Err);
+        RoboControl_Struct.Target_Direction_Err = RoboControl_Struct.Yaw_Err;
+		PID_Position_Calculate(&RoboWz_PID_Struct, RoboControl_Struct.Target_Direction, RoboControl_Struct.Target_Direction_Err);
         RoboControl_Struct.Robo_Target_Wz = RoboWz_PID_Struct.Output;
 
 //		RoboControl_Struct.Robo_Target_Wz = 0;
-    }
-    /*===| 底盘跟随模式 |===*/
-    else if(RoboControl_Struct.Chassis_State == Chassis_FOLLOW)
-    {
-        PID_Position_Calculate(&RoboWz_PID_Struct, RoboControl_Struct.Target_Direction, RoboControl_Struct.Target_Direction_Err);
-        RoboControl_Struct.Robo_Target_Wz = RoboWz_PID_Struct.Output;
-		INS_Data_Self.Yaw_Round = 0;
     }
     /*===| 底盘小陀螺 |===*/
     else if(RoboControl_Struct.Chassis_State == Chassis_SPIN)

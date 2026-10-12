@@ -202,7 +202,7 @@ static void WheelLeg_ForwardKinematics(WheelLeg_LegKinematics_StructTypedef *Leg
 
 
 	//Feedback数据赋值
-	Leg_Date->Angle_Feedback_No_kalman = L0;
+	Leg_Date->Length_Feedback_No_kalman = L0;
 	Leg_Date->Angle_Feedback_No_kalman = Caculate_Included_Angle(90.0f,phi0);
 	
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -255,7 +255,7 @@ static void WheelLeg_Kinematics_Assign(Chassis_Leg_StructTypedef *Chassis_Leg_Da
 }
 
 //运动学数据更新
-void WheelLeg_Kinematics_Update(Chassis_Control_StructTypedef *Chassis_Control_Struct,const float dt)
+void WheelLeg_Kinematics_Update(Chassis_Control_StructTypedef *Chassis_Control_Struct)
 {
     //运动学结束算
     WheelLeg_ForwardKinematics(&wheelLeg_kinematics_Struct.Left,  Chassis_Control_Struct->Leg_Left.Jt,  Motor.Joint1.Angle, Motor.Joint2.Angle);
@@ -267,8 +267,8 @@ void WheelLeg_Kinematics_Update(Chassis_Control_StructTypedef *Chassis_Control_S
 
     //卡尔曼滤波
     //位置-速度卡尔曼滤波
-    Leg_State_KF_Update(&Chassis_Control_Struct->Leg_Left,  &L_L0_KF, &L_A0_KF, dt);
-    Leg_State_KF_Update(&Chassis_Control_Struct->Leg_Right, &R_L0_KF, &R_A0_KF, dt);
+    Leg_State_KF_Update(&Chassis_Control_Struct->Leg_Left,  &L_L0_KF, &L_A0_KF, Chassis_Control_Struct->Chassis_Dt);
+    Leg_State_KF_Update(&Chassis_Control_Struct->Leg_Right, &R_L0_KF, &R_A0_KF, Chassis_Control_Struct->Chassis_Dt);
 	
 	//底盘状态数据计算
 	Chassis_Control_Struct->Chassis_Control.Leg_Length_Feebback = (Chassis_Control_Struct->Leg_Left.Length_Feedback + Chassis_Control_Struct->Leg_Right.Length_Feedback)*0.5;

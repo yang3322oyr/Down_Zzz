@@ -49,8 +49,8 @@ int8_t Chassis_Smooth_Restand(Chassis_Control_StructTypedef *Chassis_Control)
     float R_Length_Err = Chassis_Control->Leg_Right.Length_Target-Chassis_Control->Leg_Right.Length_Feedback;
 
 	//储存Chassis_State值，用于比较底盘状态与赋值
-	Chassis_State_EnumTypedef Chassis_Return = *Chassis_Control->Chassis_Control.Chassis_State;
-	Chassis_State_EnumTypedef Chassis_RESET_Slow_FLag_Return = *Chassis_Control->WheelLeg_Control_Flag.Chassis_RESET_Slow_FLag;
+	Chassis_State_EnumTypedef Chassis_Return = Chassis_Control->Chassis_Control.Chassis_State;
+	Chassis_State_EnumTypedef Chassis_RESET_Slow_FLag_Return = Chassis_Control->WheelLeg_Control_Flag.Chassis_RESET_Slow_FLag;
 
 	//用于翻倒回正，左腿摆向，逆时针:1，顺时针:-1
 	//翻倒回正:腿摆角方向相同，前翻(Pitch<0车头触地)，左腿逆时针转
@@ -65,13 +65,13 @@ int8_t Chassis_Smooth_Restand(Chassis_Control_StructTypedef *Chassis_Control)
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//翻倒自起腿摆向和速度
 	//记录最终目标腿摆角Total_End
-	if(Chassis_Return != Last_State||Chassis_RESET_Slow_FLag_Last != Chassis_RESET_Slow_FLag_Return)
+	if(Chassis_Return != Last_State||(Chassis_RESET_Slow_FLag_Last != Chassis_RESET_Slow_FLag_Return&&Chassis_Return == Chassis_RESET_Slow))
 	{
-		if(Chassis_Return == Chassis_Recover&&Chassis_RESET_Slow_FLag_Return = 0)
+		if(Chassis_Return == Chassis_Recover)
 		{
 			//起点 = 当前总角度反馈
-			*Chassis_Control->Leg_Left.Total_Angle_Target = Chassis_Control->Leg_Left.Total_Angle_Feedback;
-			*Chassis_Control->Leg_Right.Total_Angle_Target = Chassis_Control->Leg_Right.Total_Angle_Feedback;
+			Chassis_Control->Leg_Left.Total_Angle_Target = Chassis_Control->Leg_Left.Total_Angle_Feedback;
+			Chassis_Control->Leg_Right.Total_Angle_Target = Chassis_Control->Leg_Right.Total_Angle_Feedback;
 			//车头触地,左腿逆时针转
 			if(Chassis_Control->Chassis_Control.Pitch<0.0f)
 			{
@@ -83,11 +83,11 @@ int8_t Chassis_Smooth_Restand(Chassis_Control_StructTypedef *Chassis_Control)
 				Angle_Speed = -1;
 			}
 		}
-		if(Chassis_Return == Chassis_RESET_Slow&&Chassis_RESET_Slow_FLag_Return = 1)
+		if(Chassis_Return == Chassis_RESET_Slow&&Chassis_RESET_Slow_FLag_Return == 2)
 		{
 			//起点 = 当前总角度反馈
-			*Chassis_Control->Leg_Left.Total_Angle_Target = Chassis_Control->Leg_Left.Total_Angle_Feedback;
-			*Chassis_Control->Leg_Right.Total_Angle_Target = Chassis_Control->Leg_Right.Total_Angle_Feedback;
+			Chassis_Control->Leg_Left.Total_Angle_Target = Chassis_Control->Leg_Left.Total_Angle_Feedback;
+			Chassis_Control->Leg_Right.Total_Angle_Target = Chassis_Control->Leg_Right.Total_Angle_Feedback;
 
 			//把总角包到 (-180,180],只用于判断"是否落在允许区间"
 			float L_A0 = Caculate_Included_Angle(0.0f, Chassis_Control->Leg_Left.Total_Angle_Feedback);
@@ -114,7 +114,7 @@ int8_t Chassis_Smooth_Restand(Chassis_Control_StructTypedef *Chassis_Control)
 			}
 
 		}
-		else if(Chassis_Return == Chassis_RESET_Slow&&Chassis_RESET_Slow_FLag_Return = 2)
+		else if(Chassis_Return == Chassis_RESET_Slow&&Chassis_RESET_Slow_FLag_Return == 3)
 		{
 			//收腿阶段:端点 = 从当前总角度走"最短弧"回到 0°
 			L_Total_End = Chassis_Control->Leg_Left.Total_Angle_Feedback + Caculate_Included_Angle(Chassis_Control->Leg_Left.Total_Angle_Feedback, 0.0f);
@@ -130,56 +130,65 @@ int8_t Chassis_Smooth_Restand(Chassis_Control_StructTypedef *Chassis_Control)
 	if(Chassis_Return == Chassis_Recover)
 	{
 		//自由腿长
-		*Chassis_Control->Chassis_Control.Leg_Length_Target = Chassis_Control->Chassis_Control.Leg_Length_Feebback;
+		Chassis_Control->Chassis_Control.Leg_Length_Target = Chassis_Control->Chassis_Control.Leg_Length_Feebback;
 
 		//根据摆角夹角设置固定速度归中
 		float CenterSpeed_Target = Caculate_Included_Angle(Chassis_Control->Leg_Left.Total_Angle_Feedback, -Chassis_Control->Leg_Right.Total_Angle_Feedback);
 		Limit_float(&CenterSpeed_Target, 50.0f, -50.0f);
 
 		if(fabsf(L_Angle_Err)< 50.0f)
-		*Chassis_Control->Leg_Left.Total_Angle_Target += (125 * Angle_Speed + CenterSpeed_Target)*Chassis_Control->Chassis_Dt;
+		Chassis_Control->Leg_Left.Total_Angle_Target += (125 * Angle_Speed + CenterSpeed_Target)*Chassis_Control->Chassis_Dt;
 		if(fabsf(R_Angle_Err)< 50.0f)
-		*Chassis_Control->Leg_Right.Total_Angle_Target +=(-125 * Angle_Speed + CenterSpeed_Target)*Chassis_Control->Chassis_Dt;
+		Chassis_Control->Leg_Right.Total_Angle_Target +=(-125 * Angle_Speed + CenterSpeed_Target)*Chassis_Control->Chassis_Dt;
 		//翻倒回正检测
 		//Pitch：机体正置-25~25，翻倒：>100||<-100，其他区间：不稳定平衡姿态
 		if(fabsf(Chassis_Control->Chassis_Control.Pitch)<25.0f)
 		{
-			Chassis_Return = Chassis_RESET_Slow;
-            Chassis_RESET_Slow_FLag_Return = 1;
+            if(Chassis_RESET_Slow_FLag_Return ==1 )
+            {
+                Chassis_Return = Chassis_RESET_Slow;
+                Chassis_RESET_Slow_FLag_Return = 2;
+            }
+            else
+            {
+                Chassis_Return = Chassis_RESET;
+                Chassis_RESET_Slow_FLag_Return = 0;
+            }
+			
 		}
 	}
 	
 	//倒地缓自起(摆腿至90度)
-	else if(Chassis_Return == Chassis_RESET_Slow&&Chassis_RESET_Slow_FLag_Return = 1)
+	else if(Chassis_Return == Chassis_RESET_Slow&&Chassis_RESET_Slow_FLag_Return == 2)
 	{
 		//自由腿长
-		*Chassis_Control->Chassis_Control.Leg_Length_Target = Chassis_Control->Chassis_Control.Leg_Length_Feebback;
+		Chassis_Control->Chassis_Control.Leg_Length_Target = Chassis_Control->Chassis_Control.Leg_Length_Feebback;
 		
 		/*===| 摆腿阶段:双腿总角度分别缓摆至 90° / -90°(速率与原来一致:45°/s) |===*/
-		Acc_and_Dec(L_Total_End, Chassis_Control->Leg_Left.Total_Angle_Target, 45.0f, 45.0f, Chassis_Control->Chassis_Dt);
-		Acc_and_Dec(R_Total_End, Chassis_Control->Leg_Right.Total_Angle_Target, 45.0f, 45.0f, Chassis_Control->Chassis_Dt);
+		Acc_and_Dec(L_Total_End, &Chassis_Control->Leg_Left.Total_Angle_Target, 45.0f, 45.0f, Chassis_Control->Chassis_Dt);
+		Acc_and_Dec(R_Total_End, &Chassis_Control->Leg_Right.Total_Angle_Target, 45.0f, 45.0f, Chassis_Control->Chassis_Dt);
 
 		/*===| 摆腿到位:锁存当前腿长(自由腿长)并进入收腿阶段 |===*/
-		if(fabsf(L_Total_End - *Chassis_Control->Leg_Left.Total_Angle_Target) < 0.05f
-		&& fabsf(R_Total_End - *Chassis_Control->Leg_Right.Total_Angle_Target) < 0.05f
+		if(fabsf(L_Total_End - Chassis_Control->Leg_Left.Total_Angle_Target) < 0.05f
+		&& fabsf(R_Total_End - Chassis_Control->Leg_Right.Total_Angle_Target) < 0.05f
 		&& fabsf(L_Angle_Err) < 5.0f
 		&& fabsf(R_Angle_Err) < 5.0f)
 		{
 			Chassis_Return     = Chassis_RESET_Slow;
-            Chassis_RESET_Slow_FLag_Return = 2;
-			*Chassis_Control->Chassis_Control.Leg_Length_Target = Chassis_Control->Chassis_Control.Leg_Length_Feebback;
+            Chassis_RESET_Slow_FLag_Return = 3;
+			Chassis_Control->Chassis_Control.Leg_Length_Target = Chassis_Control->Chassis_Control.Leg_Length_Feebback;
 		}
 	}
 	//倒地缓自起(收腿)
-	else if(Chassis_Return == Chassis_RESET_Slow&&Chassis_RESET_Slow_FLag_Return = 2)
+	else if(Chassis_Return == Chassis_RESET_Slow&&Chassis_RESET_Slow_FLag_Return == 3)
 	{
 		/*===| 收腿阶段:总角度回零、腿长缓收至最短(速率与原来一致:90°/s、0.5m/s) |===*/
-		Acc_and_Dec(L_Total_End, Chassis_Control->Leg_Left.Total_Angle_Target, 90.0f, 90.0f, Chassis_Control->Chassis_Dt);
-		Acc_and_Dec(R_Total_End, Chassis_Control->Leg_Right.Total_Angle_Target, 90.0f, 90.0f, Chassis_Control->Chassis_Dt);
-		Acc_and_Dec(Leg_Length_MIN, Chassis_Control->Chassis_Control.Leg_Length_Target, 0.5f, 0.5f, Chassis_Control->Chassis_Dt);
+		Acc_and_Dec(L_Total_End, &Chassis_Control->Leg_Left.Total_Angle_Target, 90.0f, 90.0f, Chassis_Control->Chassis_Dt);
+		Acc_and_Dec(R_Total_End, &Chassis_Control->Leg_Right.Total_Angle_Target, 90.0f, 90.0f, Chassis_Control->Chassis_Dt);
+		Acc_and_Dec(Leg_Length_Min, &Chassis_Control->Chassis_Control.Leg_Length_Target, 0.5f, 0.5f, Chassis_Control->Chassis_Dt);
 
-		if(fabsf(L_Total_End - *Chassis_Control->Leg_Left.Total_Angle_Target)  < 0.05f
-		&& fabsf(R_Total_End - *Chassis_Control->Leg_Right.Total_Angle_Target)  < 0.05f
+		if(fabsf(L_Total_End - Chassis_Control->Leg_Left.Total_Angle_Target)  < 0.05f
+		&& fabsf(R_Total_End - Chassis_Control->Leg_Right.Total_Angle_Target)  < 0.05f
 		&& fabsf(L_Angle_Err)  < 5.0f
 		&& fabsf(R_Angle_Err)  < 5.0f
 		&& fabsf(L_Length_Err) < 0.1f
@@ -208,8 +217,16 @@ int8_t Chassis_Smooth_Restand(Chassis_Control_StructTypedef *Chassis_Control)
 		{
 			//持续0.1s后重新翻倒回正
 			Chassis_Return = Chassis_Recover;
+            Chassis_RESET_Slow_FLag_Return = 1;
 			Chassis_Pitch_Error_Tim = 0.0f;
 		}
+        else if(Chassis_Return==Chassis_RESET)
+        {
+			//持续0.1s后重新翻倒回正
+			Chassis_Return = Chassis_Recover;
+            Chassis_RESET_Slow_FLag_Return = 0;
+			Chassis_Pitch_Error_Tim = 0.0f;
+        }
 		//意外翻倒
 		else if(Chassis_Pitch_Error_Tim>0.05f)
 		{
@@ -224,13 +241,13 @@ int8_t Chassis_Smooth_Restand(Chassis_Control_StructTypedef *Chassis_Control)
 
 	//检测底盘状态改变时间计数器，单位:s
 	static float Chassis_State_Change_Tim = 0.0f;
-	if(*Chassis_Control->Chassis_Control.Chassis_State != Chassis_Return||*Chassis_Control->WheelLeg_Control_Flag.Chassis_RESET_Slow_FLag != Chassis_RESET_Slow_FLag_Return)
+	if(Chassis_Control->Chassis_Control.Chassis_State != Chassis_Return||Chassis_Control->WheelLeg_Control_Flag.Chassis_RESET_Slow_FLag != Chassis_RESET_Slow_FLag_Return)
 	{
 		Chassis_State_Change_Tim += Chassis_Control->Chassis_Dt;
 		if(Chassis_State_Change_Tim>0.1f)
 		{
-			*Chassis_Control->Chassis_Control.Chassis_State = Chassis_Return;
-			*Chassis_Control->WheelLeg_Control_Flag.Chassis_RESET_Slow_FLag = Chassis_RESET_Slow_FLag_Return;
+			Chassis_Control->Chassis_Control.Chassis_State = Chassis_Return;
+			Chassis_Control->WheelLeg_Control_Flag.Chassis_RESET_Slow_FLag = Chassis_RESET_Slow_FLag_Return;
 			Chassis_State_Change_Tim = 0.0f;
 		}
 	}
@@ -239,4 +256,11 @@ int8_t Chassis_Smooth_Restand(Chassis_Control_StructTypedef *Chassis_Control)
 		Chassis_State_Change_Tim = 0.0f;
 	}
 	return 1;
+}
+
+
+//错误状态检测
+int Chassis_ErrorState_Detect(void)
+{
+    
 }

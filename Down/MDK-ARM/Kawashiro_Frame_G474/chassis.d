@@ -103,4 +103,8 @@
   ..\Project\Algorithm_Drivers\Vofa.h ..\Project\Robot_Application\INS.h \
   ..\Project\Algorithm_Drivers\user_lib.h \
   ..\Project\Hardware_Drivers\Remote_Control.h \
-  ..\Project\Algorithm_Drivers\kalman_filter.h
+  ..\Project\Algorithm_Drivers\kalman_filter.h \
+  ..\Project\WheelLeg\WheelLeg_SpringComp.h \
+  ..\Project\WheelLeg\WheelLeg_Kinematics.h \
+  ..\Project\WheelLeg\WheelLeg_LQR.h \
+  ..\Project\WheelLeg\WheelLeg_Output.h

@@ -4,4 +4,6 @@
 #include "main.h"
 #include "Chassis.h"
 
+Chassis_Smooth_Restand(Chassis_Control_StructTypedef *Chassis_Control);
+
 #endif

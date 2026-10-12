@@ -28,9 +28,6 @@ PID_Struct_TypeDef RoboWz_PID_Struct;
 uint16_t Board_Commnuicate_Error_Ticker;
 uint8_t IF_Chassis_Online;
 
-extern float Steer_Total_angle_Target;
-extern float Steer_Total_angle_Feedback;
-
 
 void Robo_Task(void *argument)
 {
@@ -160,7 +157,6 @@ void Get_Chassis_Wz(void)
         PID_Position_Calculate(&RoboWz_PID_Struct, RoboControl_Struct.Target_Direction, RoboControl_Struct.Target_Direction_Err);
         RoboControl_Struct.Robo_Target_Wz = RoboWz_PID_Struct.Output;
 		INS_Data_Self.Yaw_Round = 0;
-		Steer_Total_angle_Target = 0;
     }
     /*===| 底盘小陀螺 |===*/
     else if(RoboControl_Struct.Chassis_State == Chassis_SPIN)
@@ -279,7 +275,6 @@ void RemoteControl_Bool(void)
 		if((RoboControl_Struct.Robo_Enable == 1) && Remote_Control_Struct.RC_Side > 0.7f)
 		{
 			RoboControl_Struct.Leg_Length += 0.16f * Remote_Control_Struct.RC_Right_Y * RoboControl_Struct.Dt;//控制腿长
-			RoboControl_Struct.Leg_Angle  += 10.0f * Remote_Control_Struct.RC_Right_X * RoboControl_Struct.Dt;//板凳状态下控制摆角
 			 
 			/*===| 自定义功能-左摇杆向右 |===*/
             if(Remote_Control_Struct.RC_Left_X > 0.8f && Remote_Control_Last_Struct.RC_Left_X < 0.8f)
@@ -401,7 +396,6 @@ void RemoteControl_Bool(void)
 				RoboControl_Struct.Chassis_State = Chassis_FOLLOW;
 				RoboControl_Struct.SPIN_Direction_Flag = !RoboControl_Struct.SPIN_Direction_Flag;
 				INS_Data_Self.Yaw_Round = 0;
-				Steer_Total_angle_Target = 0;
 			}
 			
 		}
@@ -680,18 +674,17 @@ void Robo_Restart(void)
 	//0:LQR自起，1:PID倒地缓自起
 	if(Remote_Control_Struct.S2 == SW_Down)
 	{
-		Remote_Control_Struct.Slow_RESET_Flag = 1;
+		RoboControl_Struct.Chassis_Control_Flag.Chassis_RESET_Slow_FLag = 1;
 	}
 	else
 	{
-		Remote_Control_Struct.Slow_RESET_Flag = 0;
+		RoboControl_Struct.Chassis_Control_Flag.Chassis_RESET_Slow_FLag = 0;
 	}
 	/*===| 默认模块状态 |===*/
 	RoboControl_Struct.Chassis_State  = Chassis_Recover;
     RoboControl_Struct.SuperCap_State = 0;
 	
 	RoboControl_Struct.Leg_Length = Leg_Length_Min;
-	RoboControl_Struct.Leg_length_Level = 1;
 	RoboControl_Struct.Jump_Level = 1;
 
 	INS_Data_Self.Yaw_Round  = 0;

@@ -31,6 +31,9 @@
 
 #include "WheelLeg_SpringComp.h"
 #include "WheelLeg_Kinematics.h"
+#include "WheelLeg_LQR.h"
+#include "WheelLeg_Output.h"
+#include "WheelLeg_Chassis.h"
 
 Chassis_Control_StructTypedef Chassis_Control_Struct = 
 {
@@ -47,7 +50,7 @@ void Chassis_Task(void const * argument)
     Chassis_Control_Struct.Chassis_Control.Chassis_State = Chassis_OFF;
     Chassis_Control_Struct.Chassis_Control.Jump_Level = 1;
     Chassis_Control_Struct.Chassis_Control.Leg_Length_Feebback = Leg_Length_Max;
-    DWT_GetDeltaT(Chassis_Control_Struct.Chassis_Count);
+    DWT_GetDeltaT(&Chassis_Control_Struct.Chassis_Count);
 
     //LQR运控初始化
     WheelLeg_LQR_Init();
@@ -57,11 +60,14 @@ void Chassis_Task(void const * argument)
     WheelLeg_SpringComp_Init();
     for(;;)
     {
-        Chassis_Control_Struct.Chassis_Dt = DWT_GetDeltaT(Chassis_Control_Struct.Chassis_Count);
+        Chassis_Control_Struct.Chassis_Dt = DWT_GetDeltaT(&Chassis_Control_Struct.Chassis_Count);
         
         /*===| 获得外部数据 |===*/
         Get_Control_Data(&Chassis_Control_Struct);
         
+        /*===| 翻倒自起 |===*/
+        Chassis_Smooth_Restand(Chassis_Control_StructTypedef *Chassis_Control);
+
         /*===| 底盘运动学解算 |===*/
         WheelLeg_Kinematics_Update(&Chassis_Control_Struct);
         
@@ -90,6 +96,11 @@ void Get_Control_Data(Chassis_Control_StructTypedef *Chassis_Control_Struct)
 /*===| RoboControl_Struct数据赋值 |===*/
     //地盘状态赋值
     Chassis_Control_Struct->Chassis_Control.Chassis_State = RoboControl_Struct.Chassis_State;
+    if(RoboControl_Struct.Chassis_Control_Flag.Chassis_RESET_Slow_FLag)
+    {
+        Chassis_Control_Struct->WheelLeg_Control_Flag.Chassis_RESET_Slow_FLag = RoboControl_Struct.Chassis_Control_Flag.Chassis_RESET_Slow_FLag;
+        RoboControl_Struct.Chassis_Control_Flag.Chassis_RESET_Slow_FLag = 0;
+    }
     //目标运动速度
     Chassis_Control_Struct->Chassis_Control.Vy_Target = RoboControl_Struct.Robo_Target_Vy;
     Chassis_Control_Struct->Chassis_Control.Vx_Target = RoboControl_Struct.Robo_Target_Vx;

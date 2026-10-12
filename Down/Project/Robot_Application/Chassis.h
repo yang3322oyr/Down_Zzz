@@ -59,13 +59,13 @@ typedef struct
 {
 
     //倒地缓自起(PID自起)
-    //0：非倒地自起状态
-    //1：摆腿至90度
-    //2：收腿
+    //0：非倒地自起状态或标志位赋值完成
+	//1：准备状态(标志位挂起)
     uint8_t Chassis_RESET_Slow_FLag;
     
     //跳跃
-    //0：非跳跃状态
+    //0：非跳跃状态或标志位赋值完成
+	//1：准备状态(标志位挂起)
     uint8_t Chassis_Jump_FLag;
 
 } WheelLeg_Control_Flag_StructTypeDef;
@@ -98,8 +98,7 @@ typedef struct
 	//Leg
 		float Leg_Length_Target;	//目标腿长(RoboControl_Struct赋值,用于记录)
 		float Leg_Length_Feebback;	//当前腿长(赋值,用于LQR计算)
-		float Leg_Angle_Target;		//目标腿摆角(PID控腿摆角时使用)
-	
+		float Chassis_Speed_Feedback;	//滤波后底盘速度
 } Chassis_Date_StructTypeDef;
 
 /**
@@ -148,15 +147,14 @@ typedef struct
 		//绕轴力矩：左(右)侧看逆时针为正方向
 			//LQR输出
 			float LQR_Link_Torque_Target[2];
-			//关节电机目标力矩(未限幅,WheelLeg_Output函数中限幅)
-			//0:电机14，1:电机23
-			float LQR_Wheel_Torque_Target[2];
+			//轮电机目标力矩(未限幅,WheelLeg_Output函数中限幅)
+			float LQR_Wheel_Torque_Target;
 			// //PID输出
 			// float PID_Link_Torque_Target[2];
 
-//Wheel
-	//轮电机力矩(PID输出和LQR)
-	float Wheel_Torque;
+// //Wheel
+// 	//轮电机力矩(PID输出和LQR)
+// 	float Wheel_Torque;
 
 } Chassis_Leg_StructTypedef;
 
@@ -178,5 +176,7 @@ typedef struct
 } Chassis_Control_StructTypedef;
 
 extern Chassis_Control_StructTypedef Chassis_Control_Struct;
+
+void Get_Control_Data(Chassis_Control_StructTypedef *Chassis_Control_Struct);
 
 #endif

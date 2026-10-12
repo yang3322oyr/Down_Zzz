@@ -26,6 +26,7 @@ typedef struct
 /*===| 底盘控制 |===*/
 
 	Chassis_State_EnumTypedef Chassis_State;//底盘运动状态
+    WheelLeg_Control_Flag_StructTypeDef Chassis_Control_Flag;
     uint8_t Slow_RESET_Flag;    //0:LQR自起，1:PID倒地缓自起
     
 	uint8_t If_SettingZero;		//设零点

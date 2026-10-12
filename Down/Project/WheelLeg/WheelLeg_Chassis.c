@@ -259,8 +259,8 @@ int8_t Chassis_Smooth_Restand(Chassis_Control_StructTypedef *Chassis_Control)
 }
 
 
-//错误状态检测
-int Chassis_ErrorState_Detect(void)
-{
-    
-}
+////错误状态检测
+//int8_t Chassis_ErrorState_Detect(void)
+//{
+//    
+//}

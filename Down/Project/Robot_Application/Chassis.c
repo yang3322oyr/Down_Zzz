@@ -66,7 +66,7 @@ void Chassis_Task(void const * argument)
         Get_Control_Data(&Chassis_Control_Struct);
         
         /*===| 翻倒自起 |===*/
-        Chassis_Smooth_Restand(Chassis_Control_StructTypedef *Chassis_Control);
+        Chassis_Smooth_Restand(&Chassis_Control_Struct);
 
         /*===| 底盘运动学解算 |===*/
         WheelLeg_Kinematics_Update(&Chassis_Control_Struct);

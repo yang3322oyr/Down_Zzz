@@ -107,4 +107,5 @@
   ..\Project\WheelLeg\WheelLeg_SpringComp.h \
   ..\Project\WheelLeg\WheelLeg_Kinematics.h \
   ..\Project\WheelLeg\WheelLeg_LQR.h \
-  ..\Project\WheelLeg\WheelLeg_Output.h
+  ..\Project\WheelLeg\WheelLeg_Output.h \
+  ..\Project\WheelLeg\WheelLeg_Chassis.h

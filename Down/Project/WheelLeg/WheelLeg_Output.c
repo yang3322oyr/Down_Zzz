@@ -112,7 +112,7 @@ void WheelLeg_Output_Init(void)
  **/
 WheelLeg_Output(Chassis_Control_StructTypedef *Chassis_Control)
 {
-    float K_PID_Control_Weight;
+    float K_PID_Control_Weight = 1.0f;
 
     //赋个值
     WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque = Chassis_Control->Leg_Left.Wheel_Torque;
@@ -176,11 +176,30 @@ WheelLeg_Output(Chassis_Control_StructTypedef *Chassis_Control)
         WheelLeg_Output_Struct.Leg_Right.Leg_Angle_Speed_PID.I_Output = 0.0f;
     }
 
-    //期望虚拟力/力矩 = Add前馈 + K*PID输出(K_PID_Control_Weight用于PID权重和平滑切入)
-    Leg_Left_Link_F        = Chassis_Control->Leg_Left.LQR_Link_Torque_Target[0]  + K_PID_Control_Weight * Leg_Left_PID_Link_F;
-    Leg_Right_Link_F       = Chassis_Control->Leg_Right.LQR_Link_Torque_Target[0] + K_PID_Control_Weight * Leg_Right_PID_Link_F;
-    Leg_Left_Angle_Torque  = Chassis_Control->Leg_Left.LQR_Link_Torque_Target[1]  + K_PID_Control_Weight * Leg_Left_PID_Angle_Torque;
-    Leg_Right_Angle_Torque = Chassis_Control->Leg_Right.LQR_Link_Torque_Target[1] + K_PID_Control_Weight * Leg_Right_PID_Angle_Torque;
+    //期望虚拟力/力矩 = Add前馈 + K*PID输出(K_PID_Control_Weight用于PID权重)
+    if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_FOLLOW
+    && Chassis_Control->Chassis_Control.Chassis_State == Chassis_SPIN
+    && Chassis_Control->Chassis_Control.Chassis_State == Chassis_Jump
+    && Chassis_Control->Chassis_Control.Chassis_State == Chassis_UpStep)
+    {
+        Leg_Left_Link_F        = Chassis_Control->Leg_Left.LQR_Link_Torque_Target[0]  
+                                + Chassis_Control->Leg_Left.GasSpring_Output
+                                + K_PID_Control_Weight * Leg_Left_PID_Link_F;
+        Leg_Right_Link_F       = Chassis_Control->Leg_Right.LQR_Link_Torque_Target[0] 
+                                + Chassis_Control->Leg_Right.GasSpring_Output
+                                + K_PID_Control_Weight * Leg_Right_PID_Link_F;
+        Leg_Left_Angle_Torque  = Chassis_Control->Leg_Left.LQR_Link_Torque_Target[1]  + K_PID_Control_Weight * Leg_Left_PID_Angle_Torque;
+        Leg_Right_Angle_Torque = Chassis_Control->Leg_Right.LQR_Link_Torque_Target[1] + K_PID_Control_Weight * Leg_Right_PID_Angle_Torque;
+    }
+    else if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_Recover
+    && Chassis_Control->Chassis_Control.Chassis_State == Chassis_RESET
+    && Chassis_Control->Chassis_Control.Chassis_State == Chassis_RESET_Slow)
+    {
+        Leg_Left_Link_F        = K_PID_Control_Weight * Leg_Left_PID_Link_F;
+        Leg_Right_Link_F       = K_PID_Control_Weight * Leg_Right_PID_Link_F;
+        Leg_Left_Angle_Torque  = K_PID_Control_Weight * Leg_Left_PID_Angle_Torque;
+        Leg_Right_Angle_Torque = K_PID_Control_Weight * Leg_Right_PID_Angle_Torque;
+    }
 
     //VMC:虚拟腿力/力矩经Jt映射成关节电机力矩(Jt行0为后关节，行1为前关节)
     WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque13  = Chassis_Control->Leg_Left.Jt[0][0]  * Leg_Left_Link_F  + Chassis_Control->Leg_Left.Jt[0][1]  * Leg_Left_Angle_Torque;

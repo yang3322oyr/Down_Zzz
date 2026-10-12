@@ -270,5 +270,7 @@ void WheelLeg_Kinematics_Update(Chassis_Control_StructTypedef *Chassis_Control_S
     Leg_State_KF_Update(&Chassis_Control_Struct->Leg_Left,  &L_L0_KF, &L_A0_KF, dt);
     Leg_State_KF_Update(&Chassis_Control_Struct->Leg_Right, &R_L0_KF, &R_A0_KF, dt);
 	
+	//底盘状态数据计算
+	Chassis_Control_Struct->Chassis_Control.Leg_Length_Feebback = (Chassis_Control_Struct->Leg_Left.Length_Feedback + Chassis_Control_Struct->Leg_Right.Length_Feedback)*0.5;
 }
 

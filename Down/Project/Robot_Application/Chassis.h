@@ -54,6 +54,23 @@ typedef enum
 	Leg_R = 1
 } Chassis_Leg_RL_State_EnumTypedef;
 
+/*===| 对底盘状态的详细描述Flag |===*/
+typedef struct
+{
+
+    //倒地缓自起(PID自起)
+    //0：非倒地自起状态
+    //1：摆腿至90度
+    //2：收腿
+    uint8_t Chassis_RESET_Slow_FLag;
+    
+    //跳跃
+    //0：非跳跃状态
+    uint8_t Chassis_Jump_FLag;
+
+} WheelLeg_Control_Flag_StructTypeDef;
+
+
 /*===| 底盘数据和一些底盘控制数据结构体定义 |===*/
 typedef struct
 {
@@ -63,23 +80,24 @@ typedef struct
 	/*===| 外部数据 |===*/
 	//INS
 		float Acceleration_Z;	//Z轴加速度(滤波后)
-		float Acceleration_Y;	//Y轴加速度:INS.MotionAccel_n[1]
+		float Acceleration_Y;	//Y轴加速度:-INS.MotionAccel_n[1]
 		float Pitch;			//弧度,LQR使用的pitch,车头抬高pitch增大
 		float Pitch_dot;		//弧度
 		float Pitch_Last;		//弧度
 		float Yaw_Speed;		//弧度/s，俯视逆时针为正方向，用于转向和小陀螺
+								//INS.Gyro[Z]角速度，rad/s
 	//Chassis
 	float Vy_Target;	//前进为正方向
 	float Vy_Target_Last;	//前进为正方向
 	float Vx_Target;
-	float Wz_Speed_Target;	//当前值：INS_Data_Self.Yaw_Speed
+	float Wz_Speed_Target;	//当前值：INS.Gyro[Z]角速度，rad/s
 
 	uint8_t Jump_Level;	//跳跃等级(RoboControl_Struct赋值)
 
 	/*===| 底盘数据 |===*/
 	//Leg
 		float Leg_Length_Target;	//目标腿长(RoboControl_Struct赋值,用于记录)
-		float Leg_Length_Length;	//当前腿长(赋值,用于LQR计算)
+		float Leg_Length_Feebback;	//当前腿长(赋值,用于LQR计算)
 		float Leg_Angle_Target;		//目标腿摆角(PID控腿摆角时使用)
 	
 } Chassis_Date_StructTypeDef;
@@ -145,6 +163,9 @@ typedef struct
 /*===| 底盘控制结构体定义 |===*/
 typedef struct
 {
+	
+	WheelLeg_Control_Flag_StructTypeDef WheelLeg_Control_Flag;
+
 	Chassis_Date_StructTypeDef Chassis_Control;
 
 	Chassis_Leg_StructTypedef Leg_Left;
@@ -155,4 +176,7 @@ typedef struct
 	uint32_t Chassis_Count;
 
 } Chassis_Control_StructTypedef;
+
+extern Chassis_Control_StructTypedef Chassis_Control_Struct;
+
 #endif

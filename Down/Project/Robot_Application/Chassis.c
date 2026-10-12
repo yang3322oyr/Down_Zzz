@@ -46,15 +46,15 @@ void Chassis_Task(void const * argument)
     /*===| 默认模块赋值 |===*/
     Chassis_Control_Struct.Chassis_Control.Chassis_State = Chassis_OFF;
     Chassis_Control_Struct.Chassis_Control.Jump_Level = 1;
-    Chassis_Control_Struct.Chassis_Control.Leg_Length_Length = Leg_Length_Max;
+    Chassis_Control_Struct.Chassis_Control.Leg_Length_Feebback = Leg_Length_Max;
     DWT_GetDeltaT(Chassis_Control_Struct.Chassis_Count);
 
-    //氮气弹簧补偿初始化
-    WheelLeg_SpringComp_Init();
     //LQR运控初始化
     WheelLeg_LQR_Init();
     //电流输出初始化
     WheelLeg_Output_Init();
+    //氮气弹簧补偿初始化
+    WheelLeg_SpringComp_Init();
     for(;;)
     {
         Chassis_Control_Struct.Chassis_Dt = DWT_GetDeltaT(Chassis_Control_Struct.Chassis_Count);
@@ -64,9 +64,16 @@ void Chassis_Task(void const * argument)
         
         /*===| 底盘运动学解算 |===*/
         WheelLeg_Kinematics_Update(&Chassis_Control_Struct);
-
-        /*===|LQR运控解算 |===*/
+        
+        /*===| LQR运控解算 |===*/
         WheelLeg_LQR_Output(&Chassis_Control_Struct);
+
+        /*===| 氮气弹簧补偿 |===*/
+        WheelLeg_SpringComp(&Chassis_Control_Struct.Leg_Left);
+        WheelLeg_SpringComp(&Chassis_Control_Struct.Leg_Right);
+
+        /*===| 输出 |===*/
+        WheelLeg_Output(&Chassis_Control_Struct);
 
         osDelay(1);
     }
@@ -92,7 +99,75 @@ void Get_Control_Data(Chassis_Control_StructTypedef *Chassis_Control_Struct)
     Chassis_Control_Struct->Chassis_Control.Leg_Length_Target = RoboControl_Struct.Leg_Length;
     
 /*===| INS数据赋值 |===*/
+    State_Filter(Chassis_Control_Struct,INS.MotionAccel_n[2]);
+    Chassis_Control_Struct->Chassis_Control.Acceleration_Y = -INS.MotionAccel_n[1];
+    Chassis_Control_Struct->Chassis_Control.Pitch_Last  = Chassis_Control_Struct->Chassis_Control.Pitch;
+    Chassis_Control_Struct->Chassis_Control.Pitch       = -INS.Pitch * Angle2Radain;
+    Chassis_Control_Struct->Chassis_Control.Pitch_dot   = (Chassis_Control_Struct->Chassis_Control.Pitch-Chassis_Control_Struct->Chassis_Control.Pitch_Last)/Chassis_Control_Struct->Chassis_Dt;
+    Chassis_Control_Struct->Chassis_Control.Yaw_Speed   = INS.Gyro[Z];
+}
 
 
-    
+void State_Filter(Chassis_Control_StructTypedef *Chassis_Control_Struct, float INS_MotionAccel_n_Z)
+{
+////	Chassis_Control_Struct.Left_Leg_Angle_dot_last  = Filter_Left_Leg_Angle_dot;
+////	Chassis_Control_Struct.Right_Leg_Angle_dot_last = Filter_Right_Leg_Angle_dot;
+////	Chassis_Control_Struct.Pitch_Speed_fdb_last		= Filter_Pitch_Speed_fdb;
+////	Chassis_Control_Struct.Volecity_Fdb_last		= Filter_Volecity_Fdb;
+	
+////	Filter_Left_Leg_Angle_dot  = K_Lowpass_fliter*Chassis_Control_Struct.Left_Leg_Angle_dot  + (1.0f-K_Lowpass_fliter)*Chassis_Control_Struct.Left_Leg_Angle_dot_last;
+////	Filter_Right_Leg_Angle_dot = K_Lowpass_fliter*Chassis_Control_Struct.Right_Leg_Angle_dot + (1.0f-K_Lowpass_fliter)*Chassis_Control_Struct.Right_Leg_Angle_dot_last;
+////	Filter_Pitch_Speed_fdb     = K_Lowpass_fliter*Chassis_Control_Struct.Pitch_Speed_fdb     + (1.0f-K_Lowpass_fliter)*Chassis_Control_Struct.Pitch_Speed_fdb_last;
+////	Filter_Volecity_Fdb		   = K_Lowpass_fliter*Chassis_Control_Struct.Volecity_Fdb        + (1.0f-K_Lowpass_fliter)*Chassis_Control_Struct.Volecity_Fdb_last;
+	
+    static float MotionAccel_n_Z_last = 0.0f, Filter_MotionAccel_n_Z =0.0f;
+	MotionAccel_n_Z_last = Filter_MotionAccel_n_Z;
+
+//================== Z轴加速度：中值滤波(去毛刺) + 低通滤波(去波动) ==================
+	static float z_buf[3] = {0.0f, 0.0f, 0.0f}; // 存储3次原始数据
+	static uint8_t z_idx = 0;
+	static uint8_t z_init_cnt = 0;
+	float Median_MotionAccel_n_Z;
+	float z_a, z_b, z_c;
+
+	// 1. 更新滑动窗口
+	z_buf[z_idx] = INS_MotionAccel_n_Z;
+	z_idx++;
+	if(z_idx >= 3) z_idx = 0;
+
+	// 2. 启动保护：前3次直接透传，防止初始0.0f污染中值
+	if(z_init_cnt < 3) 
+	{
+		Median_MotionAccel_n_Z = INS_MotionAccel_n_Z;
+		z_init_cnt++;
+	}
+	else 
+	{
+		// 3. 提取窗口数据
+		z_a = z_buf[0];
+		z_b = z_buf[1];
+		z_c = z_buf[2];
+
+		// 4. 纯逻辑判断求中值（无排序、无额外函数调用，最高效）
+		if (z_a > z_b) 
+		{
+			if (z_b > z_c) Median_MotionAccel_n_Z = z_b;
+			else if (z_a > z_c) Median_MotionAccel_n_Z = z_c;
+			else Median_MotionAccel_n_Z = z_a;
+		} 
+		else 
+		{
+			if (z_a > z_c) Median_MotionAccel_n_Z = z_a;
+			else if (z_b > z_c) Median_MotionAccel_n_Z = z_c;
+			else Median_MotionAccel_n_Z = z_b;
+		}
+	}
+
+	// 5. 一阶低通滤波（输入源从原始数据改为中值数据）
+	Filter_MotionAccel_n_Z = 0.05f * Median_MotionAccel_n_Z + 0.95f * MotionAccel_n_Z_last;//中值滤波+低通滤波
+//	Filter_MotionAccel_n_Z = Median_MotionAccel_n_Z;//中值滤波
+//	Filter_MotionAccel_n_Z = K_Lowpass_fliter*INS_MotionAccel_Z + (1.0f-K_Lowpass_fliter)*MotionAccel_n_Z_last;//低通滤波
+	
+	Chassis_Control_Struct->Chassis_Control.Acceleration_Z = Filter_MotionAccel_n_Z;
+//=========================================================================
 }

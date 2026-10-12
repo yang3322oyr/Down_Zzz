@@ -139,8 +139,8 @@ static void WheelLeg_LQR_Calculated_Displacement(Chassis_Control_StructTypedef *
 	Wheel_Right.Wheel_Speed_Feedback =  Motor.Chassis_DriverMotor2.Speed_RPM * Chassis_RPM_to_m_s;
 
 /*===| 卡尔曼滤波得到底盘实际位移和速度 |===*/
-		xvEstimateKF_Update(&L_vaEstimateKF,-Chassis_Control_Struct.Acceleration_Y,Wheel_Left.Wheel_Speed_Feedback);//得到卡尔曼滤波后左轮的速度
-		xvEstimateKF_Update(&R_vaEstimateKF,-Chassis_Control_Struct.Acceleration_Y,Wheel_Right.Wheel_Speed_Feedback);//得到卡尔曼滤波后右轮的速度
+		xvEstimateKF_Update(&L_vaEstimateKF,Chassis_Control_Struct.Acceleration_Y,Wheel_Left.Wheel_Speed_Feedback);//得到卡尔曼滤波后左轮的速度
+		xvEstimateKF_Update(&R_vaEstimateKF,Chassis_Control_Struct.Acceleration_Y,Wheel_Right.Wheel_Speed_Feedback);//得到卡尔曼滤波后右轮的速度
 		WheelLeg_LQR_Struct.Wheel_Speed_Feedback = (L_vaEstimateKF.FilteredValue[0]+R_vaEstimateKF.FilteredValue[0])*0.5;
 
 /*===|根据底盘状态更新底盘Init位移|===*/

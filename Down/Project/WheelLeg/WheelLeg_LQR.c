@@ -173,8 +173,8 @@ static void WheelLeg_LQR_add_six_state(Chassis_Control_StructTypedef *Chassis_Co
 	WheelLeg_LQR_Struct.State[7] = (-Chassis_Control->Leg_Right.Angle_Feedback    - (Chassis_Control->Chassis_Control.Pitch-2.5))*Angle2Radain;//θ  右腿后摆 θ  为正 增大
     WheelLeg_LQR_Struct.State[8] = (-Chassis_Control->Leg_Right.Total_Angle_Speed -  Chassis_Control->Chassis_Control.Pitch_dot)*Angle2Radain;               //θ’ 右腿后摆 θ’ 为正 增大
 
-	VOFA_JustFloat_AddValue(8,Chassis_Control->Leg_Right.Total_Angle_Speed);
-	VOFA_JustFloat_AddValue(9,Chassis_Control->Leg_Left.Total_Angle_Speed);
+	// VOFA_JustFloat_AddValue(8,Chassis_Control->Leg_Right.Total_Angle_Speed);
+	// VOFA_JustFloat_AddValue(9,Chassis_Control->Leg_Left.Total_Angle_Speed);
     WheelLeg_LQR_Struct.State[3] = (WheelLeg_LQR_Struct.Wheel_Displacement_Feedback-WheelLeg_LQR_Struct.Wheel_Displacement_Target);		//位移							
     WheelLeg_LQR_Struct.State[4] = (WheelLeg_LQR_Struct.Wheel_Speed_Feedback-WheelLeg_LQR_Struct.Wheel_Speed_Target);	//位移一阶导	 
     WheelLeg_LQR_Struct.State[5] = (Chassis_Control->Chassis_Control.Pitch-2.5)*Angle2Radain;	//机体pitch,翘头pitch增大
@@ -270,19 +270,19 @@ static void WheelLeg_LQR_calculation(Chassis_Leg_StructTypedef *Leg_Date, const 
 	{
 		Leg_Date->LQR_Wheel_Torque_Target = Torque_wheel_left + WheelLeg_LQR_Struct.Wheel_Wz_Speed_PID.Output;
 	}
-	//theta_d
-	//R当前腿长好像有问题
-	if(Leg_Date->Leg_LR == Leg_R)
-	{
-		VOFA_JustFloat_AddValue(0,Chsssis_State);
-		VOFA_JustFloat_AddValue(1,Leg_Date->LQR_Link_Torque_Target[1]);
-		VOFA_JustFloat_AddValue(2,LQR_K_LR[7] * theta_d);
-	}
-	if(Leg_Date->Leg_LR == Leg_L)
-	{
-		VOFA_JustFloat_AddValue(3,Leg_Date->LQR_Link_Torque_Target[1]);
-		VOFA_JustFloat_AddValue(4,LQR_K_LR[7] * theta_d);
-	}
+	// //theta_d
+	// //R当前腿长好像有问题
+	// if(Leg_Date->Leg_LR == Leg_R)
+	// {
+	// 	VOFA_JustFloat_AddValue(0,Chsssis_State);
+	// 	VOFA_JustFloat_AddValue(1,Leg_Date->LQR_Link_Torque_Target[1]);
+	// 	VOFA_JustFloat_AddValue(2,LQR_K_LR[7] * theta_d);
+	// }
+	// if(Leg_Date->Leg_LR == Leg_L)
+	// {
+	// 	VOFA_JustFloat_AddValue(3,Leg_Date->LQR_Link_Torque_Target[1]);
+	// 	VOFA_JustFloat_AddValue(4,LQR_K_LR[7] * theta_d);
+	// }
 
 	Limit_float(&Leg_Date->LQR_Link_Torque_Target[1],80.0f,-80.0f);
 	Limit_float(&Leg_Date->LQR_Wheel_Torque_Target,5.0f,-5.0f);
@@ -292,8 +292,8 @@ void WheelLeg_LQR_Output(Chassis_Control_StructTypedef *Chassis_Control)
 {
 	WheelLeg_LQR_Calculated_Displacement(Chassis_Control);
 
-	// if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_FOLLOW
-	// || Chassis_Control->Chassis_Control.Chassis_State == Chassis_SPIN)
+	if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_FOLLOW
+	|| Chassis_Control->Chassis_Control.Chassis_State == Chassis_SPIN)
 	{
 		WheelLeg_LQR_add_six_state(Chassis_Control);
 

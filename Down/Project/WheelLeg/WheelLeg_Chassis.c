@@ -173,6 +173,7 @@ int8_t Chassis_Smooth_Restand(Chassis_Control_StructTypedef *Chassis_Control)
 			if(Chassis_Recover_Angle_Stop_Error_Tim>1.0f)
 			{
 				Angle_Speed = -Angle_Speed;
+				Chassis_Recover_Angle_Stop_Error_Tim = 0.0f;
 			}
 		}
 	}

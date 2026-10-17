@@ -157,18 +157,34 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>38</LineNumber>
+          <LineNumber>361</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134326908</Address>
+          <Address>134298902</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Project\WheelLeg\WheelLeg_Output.c</Filename>
+          <Filename>..\Project\Robot_Application\RoboControl.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Kawashiro_Frame_G474\../Project/WheelLeg/WheelLeg_Output.c\38</Expression>
+          <Expression>\\Kawashiro_Frame_G474\../Project/Robot_Application/RoboControl.c\361</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>77</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134231082</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\Project\Robot_Application\Chassis.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\Kawashiro_Frame_G474\../Project/Robot_Application/Chassis.c\77</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -176,6 +192,16 @@
           <count>0</count>
           <WinNumber>1</WinNumber>
           <ItemText>WheelLeg_Output_Struct</ItemText>
+        </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Motor</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Jump_state_change_Tim</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>

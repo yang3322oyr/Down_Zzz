@@ -16,6 +16,7 @@ typedef enum
 	//失能
 		//失能
 		Chassis_OFF = 0,
+		//仅测试使用，比赛禁用
 		//缓失能
 		Chassis_OFF_Slow=1,
 
@@ -67,7 +68,10 @@ typedef struct
     
     //跳跃
     //0：非跳跃状态或标志位赋值完成
-	//1：准备状态(标志位挂起)
+	//1：准备状态(标志位挂起与蓄力，保证腿长低于Chassis_Jump_Ready_Link_Arrive蓄力腿长阈值)
+	//2：蹬腿跳跃
+	//3：空中收腿(LQR仅保留控制摆角的控制量,轮电机输出0)
+	//4：落地缓冲(空中伸腿，落地缓冲)
     uint8_t Chassis_Jump_FLag;
 
 } WheelLeg_Control_Flag_StructTypeDef;
@@ -150,7 +154,8 @@ typedef struct
 		//0：L沿杆方向的，1：T关节为绕轴力矩
 		//沿杆的力：伸腿方向为正方向
 		//绕轴力矩：左(右)侧看逆时针为正方向
-			//LQR输出
+			//LQR运控下的沿杆的额外力(跳跃)[0]
+			//LQR输出(Torque)[1]
 			float LQR_Link_Torque_Target[2];
 			//轮电机目标力矩(未限幅,WheelLeg_Output函数中限幅)
 			float LQR_Wheel_Torque_Target;

@@ -71,7 +71,13 @@ void Chassis_Task(void const * argument)
         WheelLeg_Kinematics_Update(&Chassis_Control_Struct);
 
         /*===| 翻倒自起 |===*/
-        Chassis_Smooth_Restand(&Chassis_Control_Struct);
+        Chassis_Smooth_Restand_Fun(&Chassis_Control_Struct);
+
+        /*===| 跳跃 |===*/
+        Chassis_Jump_Fun(&Chassis_Control_Struct);
+
+        /*===| 缓失能 |===*/
+        Chassis_OFF_Slow_Fun(&Chassis_Control_Struct,RoboControl_Struct.Smooth_Start_K);
         
         /*===| LQR运控解算 |===*/
         WheelLeg_LQR_Output(&Chassis_Control_Struct);
@@ -115,6 +121,11 @@ void Get_Control_Data(Chassis_Control_StructTypedef *Chassis_Control_Struct)
         Chassis_Control_Struct->WheelLeg_Control_Flag.Chassis_RESET_Slow_FLag = RoboControl_Struct.Chassis_Control_Flag.Chassis_RESET_Slow_FLag;
         RoboControl_Struct.Chassis_Control_Flag.Chassis_RESET_Slow_FLag = 0;
     }
+    if(RoboControl_Struct.Chassis_Control_Flag.Chassis_Jump_FLag)
+    {
+        Chassis_Control_Struct->WheelLeg_Control_Flag.Chassis_Jump_FLag = RoboControl_Struct.Chassis_Control_Flag.Chassis_Jump_FLag;
+        RoboControl_Struct.Chassis_Control_Flag.Chassis_Jump_FLag = 0;
+    }
 
     //底盘运动目标速度
     Chassis_Control_Struct->Chassis_Control.Vy_Target = RoboControl_Struct.Robo_Target_Vy;
@@ -122,9 +133,8 @@ void Get_Control_Data(Chassis_Control_StructTypedef *Chassis_Control_Struct)
     Chassis_Control_Struct->Chassis_Control.Wz_Speed_Target = RoboControl_Struct.Robo_Target_Wz;
 
     Chassis_Control_Struct->Chassis_Control.Jump_Level = RoboControl_Struct.Jump_Level;
-    // Chassis_Control_Struct->Chassis_Control.Leg_Length_Target = RoboControl_Struct.Leg_Length;
 
-    //腿部数据
+    //腿部腿长数据
     if(Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_FOLLOW
     || Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_SPIN)
     {

@@ -39,7 +39,7 @@ const float Chassis_Jump_Push_Link_F        = 330.0f;
 const float Chassis_Jump_Push_Slope_Up      = 25.0f;
 //空中收腿沿杆力最大前馈(N，收腿方向为负)与其实际前馈权重的变化速率(0->1,需要1/Chassis_Jump_Fold_Slope_Up时间)
 const float Chassis_Jump_Fold_Link_F        = -50.0f;
-const float Chassis_Jump_Fold_Slope_Up      = 20.0f;
+const float Chassis_Jump_Fold_Slope_Up      = 10.0f;
 //各子状态到位确认时间(s)
 const float Chassis_Jump_Crouch_Tick = 0.06f;
 const float Chassis_Jump_Push_Tick   = 0.03f;
@@ -330,7 +330,7 @@ int8_t Chassis_Smooth_Restand_Fun(Chassis_Control_StructTypedef *Chassis_Control
  * @attention 蹬腿跳跃状态时LQR仅保留正常控制量,PID控制腿长输出为0
  * @attention 跳跃至空中收腿状态时LQR仅保留控制摆角的控制量,轮电机输出0
  * @attention 开始跳跃过程中赋值RoboControl_Struct.Leg_Length = Chassis_Jump_End_Leg_length;保证落地后腿长连续并有足够的缓冲
- * @attention 蹬腿跳跃、空中收腿不要Roll补偿，落地缓冲中不要加Roll补偿(吧？)
+ * @attention 蹬腿跳跃、空中收腿不要Roll补偿，落地缓冲中不要加Roll补偿
  * 
  * @note 参数与运动过程
  * @note 进入跳跃后依次经过 Chassis_Control_Struct->WheelLeg_Control_Flag.Chassis_Jump_FLag有4个状态:
@@ -479,12 +479,13 @@ int8_t Chassis_Jump_Fun(Chassis_Control_StructTypedef *Chassis_Control_Struct)
     /*===| 子状态3:空中调整快速收腿 |===*/
     else if(Chassis_Control_Struct->WheelLeg_Control_Flag.Chassis_Jump_FLag == 3&&Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_Jump)
     {
-        //腿长目标压回最短,快速收腿
-        Chassis_Control_Struct->Chassis_Control.Leg_Length_Target = Leg_Length_Min;
-
         //收腿前馈斜坡淡入
         K_slope += Chassis_Jump_Fold_Slope_Up * Chassis_Control_Struct->Chassis_Dt;
         Limit_float(&K_slope,1.0f,0.0f);
+
+        
+        //腿长目标压回最短,快速收腿
+        Chassis_Control_Struct->Chassis_Control.Leg_Length_Target = K_slope*Leg_Length_Min+(1-K_slope)*Leg_Length_Max;
 
         Chassis_Control_Struct->Leg_Left.LQR_Link_Torque_Target[0]  = K_slope * Chassis_Jump_Fold_Link_F;
         Chassis_Control_Struct->Leg_Right.LQR_Link_Torque_Target[0] = K_slope * Chassis_Jump_Fold_Link_F;
@@ -524,7 +525,7 @@ int8_t Chassis_Jump_Fun(Chassis_Control_StructTypedef *Chassis_Control_Struct)
         Chassis_Control_Struct->Chassis_Control.Leg_Length_Target = Chassis_Jump_End_Leg_length;
         // RoboControl_Struct.Leg_Length = Chassis_Jump_End_Leg_length;
 
-        //交还底盘跟随并清除跳跃进行中标志位
+        //底盘跟随并清除跳跃进行中标志位
         Chassis_Control_Struct->Chassis_Control.Chassis_State = Chassis_FOLLOW;
         Chassis_Control_Struct->WheelLeg_Control_Flag.Chassis_Jump_FLag = 0;
     }

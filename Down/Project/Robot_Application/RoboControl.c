@@ -261,6 +261,7 @@ void RemoteControl_Bool(void)
 {
 	static uint32_t Remote_DWT_Count;
     float Dt = DWT_GetDeltaT(&Remote_DWT_Count);
+    if(Dt>1.0f) Dt=0;
 	
 		// /*===| 滑键滑至C模式关闭所有设备 |===*/     
         // if(Remote.Mode == Remote_Mode_C && RoboControl_Struct.Robo_Enable == 1) Robo_Stop();

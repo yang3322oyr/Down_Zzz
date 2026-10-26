@@ -204,8 +204,10 @@ int8_t WheelLeg_Output(Chassis_Control_StructTypedef *Chassis_Control)
         case 3:
         //空中收腿(LQR仅保留控制摆角的控制量,轮电机输出0)
             Leg_Left_Link_F = Chassis_Control->Leg_Left.GasSpring_Output
+                            + Chassis_Control->Leg_Left.LQR_Link_Torque_Target[0]
                             + WheelLeg_Output_Struct.Leg_Left.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
             Leg_Right_Link_F= Chassis_Control->Leg_Right.GasSpring_Output
+                            + Chassis_Control->Leg_Right.LQR_Link_Torque_Target[0]
                             + WheelLeg_Output_Struct.Leg_Right.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
             Leg_Left_Angle_Torque  = Chassis_Control->Leg_Left.LQR_Link_Torque_Target[1];
             Leg_Right_Angle_Torque = Chassis_Control->Leg_Right.LQR_Link_Torque_Target[1];

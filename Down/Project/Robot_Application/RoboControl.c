@@ -106,7 +106,7 @@ void Robo_Task(void *argument)
         if(RoboControl_Struct.Robo_Enable)
             RoboControl_Struct.Smooth_Start_K += 0.00033333f;
         else 
-            RoboControl_Struct.Smooth_Start_K -= 0.0006f;
+            RoboControl_Struct.Smooth_Start_K -= 0.0007f;
         Limit_float(&RoboControl_Struct.Smooth_Start_K, 1, 0);
 				
 		/*===| 遥控器断连处理 |===*/
@@ -144,7 +144,8 @@ void Get_Chassis_Wz(void)
         RoboControl_Struct.Robo_Target_Wz = 0;
     }
     /*===| 底盘跟随 WASD控制底盘转向朝向 |===*/
-    else if(RoboControl_Struct.Chassis_State == Chassis_FOLLOW)
+    else if(RoboControl_Struct.Chassis_State == Chassis_FOLLOW
+    ||      RoboControl_Struct.Chassis_State == Chassis_UpStep)//上台阶准备态运控与跟随一致
     {
         RoboControl_Struct.Target_Direction_Err = RoboControl_Struct.Yaw_Err;
 		PID_Position_Calculate(&RoboWz_PID_Struct, RoboControl_Struct.Target_Direction, RoboControl_Struct.Target_Direction_Err);
@@ -231,7 +232,8 @@ void RemoteControl_Float(void)
 		}
 	   
 	   /*===| 底盘静止状态下 以云台为正方向 左摇杆直接控制底盘全向移动 先转向再前进 与云台控制解耦 |===*/
-	   if(RoboControl_Struct.Chassis_State == Chassis_FOLLOW || RoboControl_Struct.Chassis_State == Chassis_SPIN)
+	   if(RoboControl_Struct.Chassis_State == Chassis_FOLLOW || RoboControl_Struct.Chassis_State == Chassis_SPIN
+	   || RoboControl_Struct.Chassis_State == Chassis_UpStep)//上台阶准备态运控与跟随一致
 	   {
 		   switch(RoboControl_Struct.Chassis_Speed_Level)
 			{

@@ -14,9 +14,10 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //内部定义
 
-//单腿的重力补偿
-//整机质量M*9.8,重约200牛
+//单腿的重力补偿100N
+//整机质量M*9.8,重约200N
 float Gravity_Comp = 100.0f;
+float Soft_landing_Comp_F = 135.0f;//离地检测落地缓冲力(恒力):向下缓冲力:120N - 100N(原重力+PID限幅)= 35N
 
 static WheelLeg_Output_StructTypedef WheelLeg_Output_Struct;
 
@@ -158,17 +159,36 @@ int8_t WheelLeg_Output(Chassis_Control_StructTypedef *Chassis_Control)
     //期望虚拟力/力矩 = Add前馈 + K*PID输出(K_PID_Control_Weight用于PID权重)
     //使能
     if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_FOLLOW
-    || Chassis_Control->Chassis_Control.Chassis_State == Chassis_SPIN)
+    || Chassis_Control->Chassis_Control.Chassis_State == Chassis_SPIN
+    //上台阶准备态(Up_Step_Flag = 1):与Chassis_FOLLOW运控完全一致
+    || (Chassis_Control->Chassis_Control.Chassis_State == Chassis_UpStep
+    &&  Chassis_Control->WheelLeg_Control_Flag.Up_Step_Flag   != 2))
     {
-        Leg_Left_Link_F = Chassis_Control->Leg_Left.GasSpring_Output- WheelLeg_Output_Struct.Leg_Roll_PID.Output + Gravity_Comp 
-                        + WheelLeg_Output_Struct.Leg_Left.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
-        Leg_Right_Link_F= Chassis_Control->Leg_Right.GasSpring_Output + WheelLeg_Output_Struct.Leg_Roll_PID.Output + Gravity_Comp
-                        + WheelLeg_Output_Struct.Leg_Right.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
-        Leg_Left_Angle_Torque  = Chassis_Control->Leg_Left.LQR_Link_Torque_Target[1];
-        Leg_Right_Angle_Torque = Chassis_Control->Leg_Right.LQR_Link_Torque_Target[1];
+        if(Chassis_Control->WheelLeg_Control_Flag.Off_ground_Flag == 1)
+        {
+            Leg_Left_Link_F = Chassis_Control->Leg_Left.GasSpring_Output + Soft_landing_Comp_F
+                            + WheelLeg_Output_Struct.Leg_Left.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
+            Leg_Right_Link_F= Chassis_Control->Leg_Right.GasSpring_Output + Soft_landing_Comp_F
+                            + WheelLeg_Output_Struct.Leg_Right.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
+            Leg_Left_Angle_Torque  = Chassis_Control->Leg_Left.LQR_Link_Torque_Target[1];
+            Leg_Right_Angle_Torque = Chassis_Control->Leg_Right.LQR_Link_Torque_Target[1];
+            
+            WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque = 0;
+            WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque = 0;
+        }
+        else
+        {
+            Leg_Left_Link_F = Chassis_Control->Leg_Left.GasSpring_Output- WheelLeg_Output_Struct.Leg_Roll_PID.Output + Gravity_Comp 
+                            + WheelLeg_Output_Struct.Leg_Left.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
+            Leg_Right_Link_F= Chassis_Control->Leg_Right.GasSpring_Output + WheelLeg_Output_Struct.Leg_Roll_PID.Output + Gravity_Comp
+                            + WheelLeg_Output_Struct.Leg_Right.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
+            Leg_Left_Angle_Torque  = Chassis_Control->Leg_Left.LQR_Link_Torque_Target[1];
+            Leg_Right_Angle_Torque = Chassis_Control->Leg_Right.LQR_Link_Torque_Target[1];
+            
+            WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque = Chassis_Control->Leg_Left.LQR_Wheel_Torque_Target*WheelLeg_Wheel_Output_Current2Torque;
+            WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque = Chassis_Control->Leg_Right.LQR_Wheel_Torque_Target*WheelLeg_Wheel_Output_Current2Torque;
+        }
         
-        WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque = Chassis_Control->Leg_Left.LQR_Wheel_Torque_Target*WheelLeg_Wheel_Output_Current2Torque;
-        WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque = Chassis_Control->Leg_Right.LQR_Wheel_Torque_Target*WheelLeg_Wheel_Output_Current2Torque;
     }
     //功能函数
     else if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_Jump)
@@ -223,10 +243,6 @@ int8_t WheelLeg_Output(Chassis_Control_StructTypedef *Chassis_Control)
             break;
         }
     }
-    else if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_UpStep)
-    {
-
-    }
     //翻倒自起
     else if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_Recover
     || Chassis_Control->Chassis_Control.Chassis_State == Chassis_RESET_Slow
@@ -242,6 +258,31 @@ int8_t WheelLeg_Output(Chassis_Control_StructTypedef *Chassis_Control)
             Leg_Right_Link_F       = WheelLeg_Output_Struct.Leg_Right.Leg_Length_Speed_PID.Output * K_PID_Control_Weight+ Chassis_Control->Leg_Right.GasSpring_Output;
         }
     }
+    //上台阶(Up_Step_Flag = 1的准备态在上面与Chassis_FOLLOW同分支处理)
+    else if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_UpStep)
+    {
+        if(Chassis_Control->WheelLeg_Control_Flag.Up_Step_Flag == 2)
+        {
+            //磕到台阶后:摆角由PID摆到 Chassis_Up_Step_Angle_Target(目标由Chassis_Up_Step_Fun给定)
+            Leg_Left_Angle_Torque  = WheelLeg_Output_Struct.Leg_Left.Leg_Angle_Speed_PID.Output * K_PID_Control_Weight;
+            Leg_Right_Angle_Torque = WheelLeg_Output_Struct.Leg_Right.Leg_Angle_Speed_PID.Output * K_PID_Control_Weight;
+
+            //收腿:腿长PID把腿收到最短(Leg_Length_Min)
+            Leg_Left_Link_F  = Chassis_Control->Leg_Left.GasSpring_Output  + Gravity_Comp
+                             + WheelLeg_Output_Struct.Leg_Left.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
+            Leg_Right_Link_F = Chassis_Control->Leg_Right.GasSpring_Output + Gravity_Comp
+                             + WheelLeg_Output_Struct.Leg_Right.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
+
+            //轮电机不输出:顶住台阶,防止轮子继续转把车往回推
+            WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque  = 0.0f;
+            WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque = 0.0f;
+        }
+    }
+    //记录本周期实际输出的虚拟沿杆力(N,伸腿方向为正),供离地检测等使用
+    Chassis_Control->Leg_Left.Link_Output  =Gravity_Comp + WheelLeg_Output_Struct.Leg_Left.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
+    Chassis_Control->Leg_Right.Link_Output = Gravity_Comp + WheelLeg_Output_Struct.Leg_Right.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
+    Chassis_Control->Leg_Left.Torque_Output  = Leg_Left_Angle_Torque;
+    Chassis_Control->Leg_Right.Torque_Output = Leg_Right_Angle_Torque;
 
     //VMC:虚拟腿力/力矩经Jt映射成关节电机力矩(Jt行0为后关节，行1为前关节)
     WheelLeg_Output_Struct.Leg_Left.Motor_Send_Torque13  = Chassis_Control->Leg_Left.Jt[0][0]  * Leg_Left_Link_F  + Chassis_Control->Leg_Left.Jt[0][1]  * Leg_Left_Angle_Torque;
@@ -254,10 +295,10 @@ int8_t WheelLeg_Output(Chassis_Control_StructTypedef *Chassis_Control)
     WheelLeg_Output_LimitPair(&WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque24, &WheelLeg_Output_Struct.Leg_Right.Motor_Send_Torque13, WheelLeg_Joint_Output_Torque_Limit_NM);
 
     // VOFA_JustFloat_AddValue(0,Chassis_Control->Chassis_Control.Chassis_State);
-    VOFA_JustFloat_AddValue(9,Leg_Right_Link_F);
-    VOFA_JustFloat_AddValue(10,Leg_Right_Angle_Torque);
-    VOFA_JustFloat_AddValue(11,Leg_Left_Link_F);
-    VOFA_JustFloat_AddValue(12,Leg_Left_Angle_Torque);
+    // VOFA_JustFloat_AddValue(9,Leg_Right_Link_F);
+    // VOFA_JustFloat_AddValue(10,Leg_Right_Angle_Torque);
+    // VOFA_JustFloat_AddValue(11,Leg_Left_Link_F);
+    // VOFA_JustFloat_AddValue(12,Leg_Left_Angle_Torque);
     // VOFA_JustFloat_AddValue(5,WheelLeg_Output_Struct.Leg_Right.Leg_Angle_PID.Feedback);
     // VOFA_JustFloat_AddValue(6,WheelLeg_Output_Struct.Leg_Right.Leg_Angle_PID.Target);
     // VOFA_JustFloat_AddValue(7,WheelLeg_Output_Struct.Leg_Right.Leg_Angle_Speed_PID.Feedback);
@@ -375,7 +416,10 @@ static void Wheel_Output_PID_calculation(Chassis_Control_StructTypedef *Chassis_
     //摆角串级PID:位置外环输出目标摆角速度，速度内环输出虚拟摆角力矩(不需要PID控制摆角时不生效)
     if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_Recover
     || Chassis_Control->Chassis_Control.Chassis_State == Chassis_RESET_Slow
-    || Chassis_Control->Chassis_Control.Chassis_State == Chassis_OFF_Slow)
+    || Chassis_Control->Chassis_Control.Chassis_State == Chassis_OFF_Slow
+    //上台阶磕台阶后(Up_Step_Flag = 2)由PID控制摆角
+    || (Chassis_Control->Chassis_Control.Chassis_State == Chassis_UpStep
+    &&  Chassis_Control->WheelLeg_Control_Flag.Up_Step_Flag   == 2))
     {
         PID_Position_Calculate(&WheelLeg_Output_Struct.Leg_Left.Leg_Angle_PID,        Chassis_Control->Leg_Left.Total_Angle_Target,          Chassis_Control->Leg_Left.Total_Angle_Feedback);
         PID_Position_Calculate(&WheelLeg_Output_Struct.Leg_Left.Leg_Angle_Speed_PID,  WheelLeg_Output_Struct.Leg_Left.Leg_Angle_PID.Output,  Chassis_Control->Leg_Left.Total_Angle_Speed);

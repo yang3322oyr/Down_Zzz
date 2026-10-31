@@ -273,15 +273,20 @@ static void WheelLeg_LQR_calculation(Chassis_Leg_StructTypedef *Leg_Date, const 
 		}
 		
 	}
-	else if(Chassis_Control.Chassis_Control.Chassis_State == Chassis_Off_ground)
-	{
-		Leg_Date->LQR_Wheel_Torque_Target = 0;//左轮电机输出置0
-		Leg_Date->LQR_Link_Torque_Target[1] =(LQR_K_LR[6]*(theta) + LQR_K_LR[7]*(theta_d)) + (WheelLeg_LQR_Struct.Leg_Splits_PID.Output);//左关节力矩只保留摆角控制量
-	}
+	// else if(Chassis_Control.Chassis_Control.Chassis_State == Chassis_Off_ground)
+	
 	else//正常使能
 	{
-		Leg_Date->LQR_Wheel_Torque_Target = Torque_wheel_left + WheelLeg_LQR_Struct.Wheel_Wz_Speed_PID.Output;
-		Leg_Date->LQR_Link_Torque_Target[1] =  ( LQR_K_LR[6] * theta + LQR_K_LR[7] * theta_d + LQR_K_LR[8] * xb + LQR_K_LR[9] * xb_d + LQR_K_LR[10] * phi + LQR_K_LR[11] * phi_d ) + (WheelLeg_LQR_Struct.Leg_Splits_PID.Output);
+		if(Chassis_Control.WheelLeg_Control_Flag.Off_ground_Flag == 1)
+		{
+			Leg_Date->LQR_Wheel_Torque_Target = 0;//左轮电机输出置0
+			Leg_Date->LQR_Link_Torque_Target[1] =(LQR_K_LR[6]*(theta) + LQR_K_LR[7]*(theta_d)) + (WheelLeg_LQR_Struct.Leg_Splits_PID.Output);//左关节力矩只保留摆角控制量
+		}
+		else
+		{
+			Leg_Date->LQR_Wheel_Torque_Target = Torque_wheel_left + WheelLeg_LQR_Struct.Wheel_Wz_Speed_PID.Output;
+			Leg_Date->LQR_Link_Torque_Target[1] =  ( LQR_K_LR[6] * theta + LQR_K_LR[7] * theta_d + LQR_K_LR[8] * xb + LQR_K_LR[9] * xb_d + LQR_K_LR[10] * phi + LQR_K_LR[11] * phi_d ) + (WheelLeg_LQR_Struct.Leg_Splits_PID.Output);
+		}
 	}
 	// //theta_d
 	// //R当前腿长好像有问题
@@ -305,9 +310,11 @@ void WheelLeg_LQR_Output(Chassis_Control_StructTypedef *Chassis_Control)
 {
 	WheelLeg_LQR_Calculated_Displacement(Chassis_Control);
 
+	//Chassis_UpStep也照常解算LQR:准备态(Up_Step_Flag = 1)与Chassis_FOLLOW运控完全一致
 	if(Chassis_Control->Chassis_Control.Chassis_State == Chassis_FOLLOW
 	|| Chassis_Control->Chassis_Control.Chassis_State == Chassis_SPIN
-	|| Chassis_Control->Chassis_Control.Chassis_State == Chassis_Jump)
+	|| Chassis_Control->Chassis_Control.Chassis_State == Chassis_Jump
+	|| Chassis_Control->Chassis_Control.Chassis_State == Chassis_UpStep)
 	{
 		WheelLeg_LQR_add_six_state(Chassis_Control);
 

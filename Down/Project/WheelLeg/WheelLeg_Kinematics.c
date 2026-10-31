@@ -154,11 +154,11 @@ static void PosVelKF_Update(PosVelKF_t *kf, float z, float dt)
  */
 static void Leg_State_KF_Update(Chassis_Leg_StructTypedef *Leg_Date, PosVelKF_t *kf_L0, PosVelKF_t *kf_A0, float dt)
 {
-	PosVelKF_Update(kf_L0, Leg_Date->Length_Feedback, dt);
-	PosVelKF_Update(kf_A0, Leg_Date->Total_Angle_Feedback, dt);
+	// PosVelKF_Update(kf_L0, Leg_Date->Length_Feedback, dt);
+	// PosVelKF_Update(kf_A0, Leg_Date->Total_Angle_Feedback, dt);
 
-	Leg_Date->Length_Feedback       = kf_L0->x;
-	Leg_Date->Length_Speed          = kf_L0->v;
+	// Leg_Date->Length_Feedback       = kf_L0->x;
+	// Leg_Date->Length_Speed          = kf_L0->v;
 	// Leg_Date->Total_Angle_Feedback  = kf_A0->x;
 	// Leg_Date->Total_Angle_Speed     = kf_A0->v;
     // if(Leg_Date->Leg_LR == Leg_R)
@@ -304,6 +304,9 @@ static void WheelLeg_Kinematics_Assign(Chassis_Leg_StructTypedef *Chassis_Leg_Da
     Chassis_Leg_Date->Total_Angle_Feedback = 360.0f * Chassis_Leg_Date->Angle_Round + Chassis_Leg_Date->Angle_Feedback;
     //计算速度(腿长在滤波波中赋值)
     Chassis_Leg_Date->Total_Angle_Speed = (Chassis_Leg_Date->Total_Angle_Feedback - Chassis_Leg_Date->Total_Angle_Last)/Dt;
+
+    Chassis_Leg_Date->Length_Speed = (Chassis_Leg_Date->Length_Feedback - Chassis_Leg_Date->Length_Last)/Dt;
+
 
     //雅可比矩阵
     Chassis_Leg_Date->Jt[0][0] = LegKinematics_Leg_Date.Jt[0][0];

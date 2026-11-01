@@ -132,6 +132,11 @@ void Get_Control_Data(Chassis_Control_StructTypedef *Chassis_Control_Struct)
         Chassis_Control_Struct->WheelLeg_Control_Flag.Chassis_Jump_FLag = RoboControl_Struct.Chassis_Control_Flag.Chassis_Jump_FLag;
         RoboControl_Struct.Chassis_Control_Flag.Chassis_Jump_FLag = 0;
     }
+    if(RoboControl_Struct.Chassis_Control_Flag.Up_Step_Flag)
+    {
+        Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag = RoboControl_Struct.Chassis_Control_Flag.Up_Step_Flag;
+        RoboControl_Struct.Chassis_Control_Flag.Up_Step_Flag = 0;
+    }
 
     //底盘运动目标速度
     Chassis_Control_Struct->Chassis_Control.Vy_Target = RoboControl_Struct.Robo_Target_Vy;

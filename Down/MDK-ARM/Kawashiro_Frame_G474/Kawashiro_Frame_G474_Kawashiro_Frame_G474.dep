@@ -103,7 +103,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\BSP\bmi088driver.h)(0x6ABF7454)
@@ -210,7 +210,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (../Core/Src/app_freertos.c)(0x6ACD443E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/app_freertos.o -MMD)
@@ -316,7 +316,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\WheelLeg\WheelLeg_Chassis.h)(0x6AE60552)
@@ -424,7 +424,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (../Core/Src/crc.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/crc.o -MMD)
@@ -530,7 +530,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (../Core/Src/dac.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/dac.o -MMD)
@@ -636,7 +636,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (../Core/Src/dma.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/dma.o -MMD)
@@ -742,7 +742,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (../Core/Src/fdcan.c)(0x6AC0EA54)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/fdcan.o -MMD)
@@ -848,7 +848,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (../Core/Src/i2c.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/i2c.o -MMD)
@@ -954,7 +954,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (../Core/Src/opamp.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/opamp.o -MMD)
@@ -1060,7 +1060,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (../Core/Src/spi.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/spi.o -MMD)
@@ -1166,7 +1166,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (../Core/Src/tim.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/tim.o -MMD)
@@ -1272,7 +1272,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (../Core/Src/usart.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/usart.o -MMD)
@@ -1378,7 +1378,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (../Core/Src/stm32g4xx_it.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/stm32g4xx_it.o -MMD)
@@ -1484,7 +1484,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Core\Inc\stm32g4xx_it.h)(0x6ABF7454)
@@ -1591,7 +1591,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (../Core/Src/stm32g4xx_hal_timebase_tim.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/stm32g4xx_hal_timebase_tim.o -MMD)
@@ -1637,7 +1637,7 @@ I (..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_hal_tim.h)(0x6A7D6C24)
 I (..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_hal_tim_ex.h)(0x6A7D6C24)
 I (..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_hal_uart.h)(0x6A7D6C24)
 I (..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_hal_uart_ex.h)(0x6A7D6C24)
-F (..\Project\Robot_Application\RoboControl.c)(0x6AE71255)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/robocontrol.o -MMD)
+F (..\Project\Robot_Application\RoboControl.c)(0x6AE7134B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/robocontrol.o -MMD)
 I (..\Project\Robot_Application\RoboControl.h)(0x6AD29803)
 I (..\Core\Inc\main.h)(0x6ACD409D)
 I (..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_hal.h)(0x6A7D6C24)
@@ -1741,7 +1741,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Robot_Application\Chassis.h)(0x6AE704C3)
@@ -1755,8 +1755,7 @@ I (..\Project\Hardware_Drivers\Motor_DAMIAO_Driver.h)(0x6ABF7454)
 I (..\Project\Hardware_Drivers\Motor_Unitree_Driver.h)(0x6ABF7454)
 I (..\Project\Robot_Application\Aim.h)(0x6ABF7454)
 I (..\Project\Hardware_Drivers\SuperCap_Driver.h)(0x6ABF7454)
-I (..\Project\WheelLeg\WheelLeg_Output.h)(0x6AE2A726)
-F (..\Project\Robot_Application\Chassis.c)(0x6AE71107)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/chassis.o -MMD)
+F (..\Project\Robot_Application\Chassis.c)(0x6AE739C7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/chassis.o -MMD)
 I (..\Project\Robot_Application\Chassis.h)(0x6AE704C3)
 I (..\Core\Inc\main.h)(0x6ACD409D)
 I (..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_hal.h)(0x6A7D6C24)
@@ -1860,7 +1859,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Robot_Application\RoboControl.h)(0x6AD29803)
@@ -1984,7 +1983,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Robot_Application\RoboControl.h)(0x6AD29803)
@@ -2100,7 +2099,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Robot_Application\INS.h)(0x6ACBEF6B)
@@ -2213,7 +2212,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Algorithm_Drivers\QuaternionEKF.h)(0x6ABF7454)
@@ -2323,7 +2322,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Robot_Application\RoboControl.h)(0x6AD29803)
@@ -2440,7 +2439,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Robot_Application\RoboControl.h)(0x6AD29803)
@@ -2556,13 +2555,13 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\BSP\Key.h)(0x6ABF7454)
 I (..\Project\BSP\LED.h)(0x6ABF7454)
 F (..\Project\Robot_Application\Define.h)(0x6AD232C3)()
-F (..\Project\WheelLeg\WheelLeg_Chassis.c)(0x6AE71101)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/wheelleg_chassis.o -MMD)
+F (..\Project\WheelLeg\WheelLeg_Chassis.c)(0x6AE760B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/wheelleg_chassis.o -MMD)
 I (..\Project\WheelLeg\WheelLeg_Chassis.h)(0x6AE60552)
 I (..\Core\Inc\main.h)(0x6ACD409D)
 I (..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_hal.h)(0x6A7D6C24)
@@ -2666,11 +2665,11 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Robot_Application\Chassis.h)(0x6AE704C3)
-F (..\Project\WheelLeg\WheelLeg_Kinematics.c)(0x6AE5E8B4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/wheelleg_kinematics.o -MMD)
+F (..\Project\WheelLeg\WheelLeg_Kinematics.c)(0x6AE738B0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/wheelleg_kinematics.o -MMD)
 I (..\Project\WheelLeg\WheelLeg_Kinematics.h)(0x6ACD34E2)
 I (..\Core\Inc\main.h)(0x6ACD409D)
 I (..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_hal.h)(0x6A7D6C24)
@@ -2774,7 +2773,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Robot_Application\Chassis.h)(0x6AE704C3)
@@ -2883,7 +2882,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\WheelLeg\WheelLeg_SpringComp.h)(0x6AD3ED60)
@@ -2991,12 +2990,12 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Robot_Application\Chassis.h)(0x6AE704C3)
 I (..\Project\Algorithm_Drivers\kalman_filter.h)(0x6ABF7454)
-F (..\Project\WheelLeg\WheelLeg_Output.c)(0x6AE6E20B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/wheelleg_output.o -MMD)
+F (..\Project\WheelLeg\WheelLeg_Output.c)(0x6AE73B0E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/wheelleg_output.o -MMD)
 I (..\Project\WheelLeg\WheelLeg_Output.h)(0x6AE2A726)
 I (..\Core\Inc\main.h)(0x6ACD409D)
 I (..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_hal.h)(0x6A7D6C24)
@@ -3100,7 +3099,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Robot_Application\Chassis.h)(0x6AE704C3)
@@ -3211,7 +3210,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Hardware_Drivers\SuperCap_Driver.h)(0x6ABF7454)
@@ -3322,7 +3321,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Hardware_Drivers\Remote_Control.h)(0x6ABF7454)
@@ -3430,7 +3429,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\USB_Device\App\usbd_cdc_if.h)(0x6ABF7454)
@@ -3543,7 +3542,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Hardware_Drivers\Remote_Control.h)(0x6ABF7454)
@@ -3651,7 +3650,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Hardware_Drivers\Referee_Unpack.h)(0x6ABF7454)
@@ -3763,7 +3762,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Robot_Application\RoboControl.h)(0x6AD29803)
@@ -3875,10 +3874,10 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
-F (..\Project\Hardware_Drivers\Motor_DAMIAO_Driver.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/motor_damiao_driver.o -MMD)
+F (..\Project\Hardware_Drivers\Motor_DAMIAO_Driver.c)(0x6AE73766)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/motor_damiao_driver.o -MMD)
 I (..\Project\Hardware_Drivers\Motor_DAMIAO_Driver.h)(0x6ABF7454)
 I (..\Core\Inc\main.h)(0x6ACD409D)
 I (..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_hal.h)(0x6A7D6C24)
@@ -3982,7 +3981,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\Hardware_Drivers\Motor_Unitree_Driver.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/motor_unitree_driver.o -MMD)
@@ -4089,11 +4088,11 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\Hardware_Drivers\Motor_Driver.c)(0x6AC76058)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/motor_driver.o -MMD)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Core\Inc\main.h)(0x6ACD409D)
 I (..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_hal.h)(0x6A7D6C24)
 I (..\Core\Inc\stm32g4xx_hal_conf.h)(0x6ABF7454)
@@ -4302,7 +4301,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Algorithm_Drivers\user_lib.h)(0x6ABF7454)
@@ -4409,7 +4408,7 @@ I (..\Project\Commnuicate_Drivers\USB_Driver.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\Algorithm_Drivers\Function.c)(0x6AD24354)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/function.o -MMD)
@@ -4515,7 +4514,7 @@ I (..\Project\Commnuicate_Drivers\USB_Driver.h)(0x6ABF7454)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\Algorithm_Drivers\kalman_filter.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/kalman_filter.o -MMD)
@@ -4622,7 +4621,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\Algorithm_Drivers\PID.c)(0x6ADF5763)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/pid.o -MMD)
@@ -4728,7 +4727,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\Algorithm_Drivers\Power_Limit.c)(0x6ACD1C28)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/power_limit.o -MMD)
@@ -4835,7 +4834,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Robot_Application\Chassis.h)(0x6AE704C3)
@@ -4945,7 +4944,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Algorithm_Drivers\kalman_filter.h)(0x6ABF7454)
@@ -5052,7 +5051,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\Algorithm_Drivers\user_lib.h)(0x6ABF7454)
@@ -5160,7 +5159,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 F (..\Project\BSP\BMI088driver.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/bmi088driver.o -MMD)
 I (..\Core\Inc\main.h)(0x6ACD409D)
@@ -5265,7 +5264,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 I (..\Project\BSP\BMI088driver.h)(0x6ABF7454)
@@ -5375,7 +5374,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\BSP\Buzzer.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/buzzer.o -MMD)
@@ -5481,7 +5480,7 @@ I (..\Project\Commnuicate_Drivers\USB_Driver.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\BSP\DWT.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/dwt.o -MMD)
@@ -5587,7 +5586,7 @@ I (..\Project\Commnuicate_Drivers\USB_Driver.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\BSP\PWM.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/pwm.o -MMD)
@@ -5694,7 +5693,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\BSP\Key.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/key.o -MMD)
@@ -5801,7 +5800,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\BSP\LED.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/led.o -MMD)
@@ -5908,7 +5907,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\BSP\Flash.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/flash.o -MMD)
@@ -6015,7 +6014,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\UI\UI_Task.c)(0x6ACD2027)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/ui_task.o -MMD)
 F (..\Project\UI\ui_interface.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/ui_interface.o -MMD)
@@ -6123,7 +6122,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (..\Project\UI\ui_g.c)(0x6ABF7454)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/ui_g.o -MMD)
@@ -7851,7 +7850,7 @@ I (..\Project\Algorithm_Drivers\Function.h)(0x6ACCF43D)
 I (..\Project\BSP\DWT.h)(0x6ABF7454)
 I (..\Project\BSP\Buzzer.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\crc8_crc16.h)(0x6ABF7454)
-I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6ACD2412)
+I (..\Project\Hardware_Drivers\Motor_Driver.h)(0x6AE73744)
 I (..\Project\BSP\flash.h)(0x6ABF7454)
 I (..\Project\Algorithm_Drivers\Vofa.h)(0x6AC11166)
 F (../Middlewares/Third_Party/FreeRTOS/Source/croutine.c)(0x6A7D6C0D)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../USB_Device/App -I ../USB_Device/Target -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Project/Algorithm_Drivers -I ../Project/BSP -I ../Project/Commnuicate_Drivers -I ../Project/Hardware_Drivers -I ../Project/Robot_Application -I ../Project/UI -I ../Project/WheelLeg -I D:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-I./RTE/_Kawashiro_Frame_G474-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/Include-ID:/Keil/Arm/Packs/ARM/CMSIS-DSP/1.17.0/PrivateInclude-ID:/Keil/Arm/Packs/ARM/CMSIS/6.3.0/CMSIS/Core/Include-D__UVISION_VERSION="543" -DSTM32G474xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G474xx -DARM_MATH_CM4 -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o ./kawashiro_frame_g474/croutine.o -MMD)

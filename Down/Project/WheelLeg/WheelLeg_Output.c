@@ -268,9 +268,9 @@ int8_t WheelLeg_Output(Chassis_Control_StructTypedef *Chassis_Control)
             Leg_Right_Angle_Torque = WheelLeg_Output_Struct.Leg_Right.Leg_Angle_Speed_PID.Output * K_PID_Control_Weight;
 
             //收腿:腿长PID把腿收到最短(Leg_Length_Min)
-            Leg_Left_Link_F  = Chassis_Control->Leg_Left.GasSpring_Output  + Gravity_Comp
+            Leg_Left_Link_F  = Chassis_Control->Leg_Left.GasSpring_Output
                              + WheelLeg_Output_Struct.Leg_Left.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
-            Leg_Right_Link_F = Chassis_Control->Leg_Right.GasSpring_Output + Gravity_Comp
+            Leg_Right_Link_F = Chassis_Control->Leg_Right.GasSpring_Output
                              + WheelLeg_Output_Struct.Leg_Right.Leg_Length_Speed_PID.Output * K_PID_Control_Weight;
 
             //轮电机不输出:顶住台阶,防止轮子继续转把车往回推

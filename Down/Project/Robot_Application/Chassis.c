@@ -141,10 +141,20 @@ void Get_Control_Data(Chassis_Control_StructTypedef *Chassis_Control_Struct)
     Chassis_Control_Struct->Chassis_Control.Jump_Level = RoboControl_Struct.Jump_Level;
 
     //腿部腿长数据
+    static float Leg_Length_Target_Last;
     if(Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_FOLLOW
     || Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_SPIN)
     {
+        if(Leg_Length_Target_Last != RoboControl_Struct.Leg_Length)
+        {
             Chassis_Control_Struct->Chassis_Control.Leg_Length_Target = RoboControl_Struct.Leg_Length;
+            Leg_Length_Target_Last = RoboControl_Struct.Leg_Length;
+        }
+        else if(Leg_Length_Target_Last != Chassis_Control_Struct->Chassis_Control.Leg_Length_Target)
+        {
+            RoboControl_Struct.Leg_Length = Chassis_Control_Struct->Chassis_Control.Leg_Length_Target;
+            Leg_Length_Target_Last = RoboControl_Struct.Leg_Length;
+        }
     }
     else if(Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_OFF)
     {

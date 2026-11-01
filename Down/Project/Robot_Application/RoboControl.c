@@ -366,10 +366,10 @@ void RemoteControl_Bool(void)
             /*===| 自定义功能-滑轮下滑 右摇杆向左 |===*/
             else if (Remote_Control_Struct.RC_Right_X < -0.8f && Remote_Control_Last_Struct.RC_Right_X > -0.8f)
             {
-				// Chassis_Control_Struct.UpStep_Dect_Flag = 1;//机器人上台阶磕碰检测标志位
-				// Buzzer_Set_SoundEffect(Buzzer_SoundEffect_Aim_ON);
-                RoboControl_Struct.Chassis_State = Chassis_FOLLOW;
-                RoboControl_Struct.Chassis_Control_Flag.Chassis_Jump_FLag = 0;
+				RoboControl_Struct.Chassis_Control_Flag.Up_Step_Flag = 1;//机器人上台阶磕碰检测标志位
+				Buzzer_Set_SoundEffect(Buzzer_SoundEffect_Aim_ON);
+                // RoboControl_Struct.Chassis_State = Chassis_FOLLOW;
+                // RoboControl_Struct.Chassis_Control_Flag.Chassis_Jump_FLag = 0;
             }
             /*===| 自定义功能-右摇杆向上 |===*/
             if      (Remote_Control_Struct.RC_Right_Y > 0.8f && Remote_Control_Last_Struct.RC_Right_Y < 0.8f)

@@ -4,9 +4,6 @@
  * @details 
  */
 #include "WheelLeg_Chassis.h"
-//上台阶收腿/恢复腿长需要同步改写腿长目标来源RoboControl_Struct.Leg_Length
-#include "RoboControl.h"
-
 //Chassis_Smooth_Restand_Fun翻倒自起函数相关宏定义
 #define Chassis_Recover_Angle_Speed 			125.0f		//翻倒回正摆角速度(°/s)
 #define Chassis_RESET_Slow_Frist_Angle_Speed 	125.0f		//缓倒地自起只动摆角时速度(°/s)
@@ -52,9 +49,8 @@ const float Chassis_Jump_Air_Torque_K = 0.25f;
 //Chassis_Up_Step_Fun上台阶函数相关宏定义
 //腿摆角θ = 腿相对世界竖直的摆角(°),与LQR状态量State[1]、State[7]一致,双腿后摆θ为正
 //磕碰检测阈值(需根据当前车辆LQR参数反映出的关节软硬实际调节)
-#define Chassis_Up_Step_Dect_Enable 		1			//1:开启上台阶磕碰自动检测/0:关闭
 #define Chassis_Up_Step_Angle_Gate 			14.0f		//双腿摆角检测阈值(°)
-#define Chassis_Up_Step_Angle_Speed_Gate 	1.7f		//双腿摆角速度检测阈值(rad/s)
+#define Chassis_Up_Step_Angle_Speed_Gate 	90.0f		//双腿摆角速度检测阈值(°/s)
 //准备态(Up_Step_Flag = 1):进入Chassis_UpStep,运控与Chassis_FOLLOW完全一致,并确认车轮是否真的被台阶顶住
 #define Chassis_Up_Step_Ready_Angle_Gate 	10.0f		//准备态双腿摆角仍超此值(°)才认为车轮被台阶顶住
 #define Chassis_Up_Step_Ready_Tick 			30			//被台阶顶住持续该周期数(≈30ms)后转入Up_Step_Flag = 2
@@ -379,14 +375,14 @@ int8_t Chassis_Smooth_Restand_Fun(Chassis_Control_StructTypedef *Chassis_Control
  *=========================================================================================*/
 int8_t Chassis_Off_Ground_Fun(Chassis_Control_StructTypedef *Chassis_Control_Struct)
 {
-    VOFA_JustFloat_AddValue(0,Chassis_Control_Struct->Chassis_Control.Chassis_State);
-    VOFA_JustFloat_AddValue(1,Chassis_Control_Struct->WheelLeg_Control_Flag.Off_ground_Flag);
-    VOFA_JustFloat_AddValue(2,WheelLeg_Chassis_Off_ground_Struct.Leg_Left_Support_Force);
-    VOFA_JustFloat_AddValue(3,WheelLeg_Chassis_Off_ground_Struct.Leg_Right_Support_Force);
-    VOFA_JustFloat_AddValue(4,Chassis_Control_Struct->Chassis_Control.Acceleration_Z);
-    VOFA_JustFloat_AddValue(5,Chassis_Control_Struct->Leg_Left.Length_Feedback);
-    VOFA_JustFloat_AddValue(6,Chassis_Control_Struct->Leg_Right.Length_Feedback);
-    VOFA_JustFloat_AddValue(7,Chassis_Control_Struct->Chassis_Control.Leg_Length_Target);
+    // VOFA_JustFloat_AddValue(0,Chassis_Control_Struct->Chassis_Control.Chassis_State);
+    // VOFA_JustFloat_AddValue(1,Chassis_Control_Struct->WheelLeg_Control_Flag.Off_ground_Flag);
+    // VOFA_JustFloat_AddValue(2,WheelLeg_Chassis_Off_ground_Struct.Leg_Left_Support_Force);
+    // VOFA_JustFloat_AddValue(3,WheelLeg_Chassis_Off_ground_Struct.Leg_Right_Support_Force);
+    // VOFA_JustFloat_AddValue(4,Chassis_Control_Struct->Chassis_Control.Acceleration_Z);
+    // VOFA_JustFloat_AddValue(5,Chassis_Control_Struct->Leg_Left.Length_Feedback);
+    // VOFA_JustFloat_AddValue(6,Chassis_Control_Struct->Leg_Right.Length_Feedback);
+    // VOFA_JustFloat_AddValue(7,Chassis_Control_Struct->Chassis_Control.Leg_Length_Target);
     /*===| 上台阶过程中不检测离地:磕台阶时双腿会大幅后摆,避免误判为离地(同时清掉旧标志位) |===*/
     /*===| 非平衡状态不检测:清除标志位 |===*/
     if(Chassis_Control_Struct->Chassis_Control.Chassis_State != Chassis_FOLLOW
@@ -692,10 +688,22 @@ int8_t Chassis_Jump_Fun(Chassis_Control_StructTypedef *Chassis_Control_Struct)
  *=========================================================================================*/
 int8_t Chassis_Up_Step_Fun(Chassis_Control_StructTypedef *Chassis_Control_Struct)
 {
-    //准备态被台阶顶住的持续计时(周期数)
-    static uint16_t Up_Step_Ready_Tick_Count = 0;
-    //准备态已持续的周期数(超时后确认只是一次磕碰,退回Chassis_FOLLOW)
-    static uint16_t Up_Step_Ready_Run_Count = 0;
+    // VOFA_JustFloat_AddValue(0,Chassis_Control_Struct->Chassis_Control.Chassis_State);
+    // VOFA_JustFloat_AddValue(1,Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag);
+    // VOFA_JustFloat_AddValue(2,Chassis_Control_Struct->Leg_Left.Angle_Feedback);
+    // VOFA_JustFloat_AddValue(3,Chassis_Control_Struct->Leg_Left.Total_Angle_Speed);
+    // VOFA_JustFloat_AddValue(4,Chassis_Control_Struct->Leg_Right.Angle_Feedback);
+    // VOFA_JustFloat_AddValue(5,Chassis_Control_Struct->Leg_Right.Total_Angle_Speed);
+    // VOFA_JustFloat_AddValue(6,Chassis_Control_Struct->Leg_Right.Length_Feedback);
+    // VOFA_JustFloat_AddValue(7,Chassis_Control_Struct->Leg_Right.Length_Speed);
+    // VOFA_JustFloat_AddValue(4,Motor.Joint1.Ticker);
+    // VOFA_JustFloat_AddValue(5,Motor.Joint2.Ticker);
+    // VOFA_JustFloat_AddValue(6,Motor.Joint3.Ticker);
+    // VOFA_JustFloat_AddValue(7,Motor.Joint4.Ticker);
+    // //准备态被台阶顶住的持续计时(周期数)
+    // static uint16_t Up_Step_Ready_Tick_Count = 0;
+    // //准备态已持续的周期数(超时后确认只是一次磕碰,退回Chassis_FOLLOW)
+    // static uint16_t Up_Step_Ready_Run_Count = 0;
     //后摆/收腿到位确认计时(周期数)
     static uint16_t Up_Step_Arrive_Tick_Count = 0;
     //后摆收腿动作已持续的周期数(超时保护)
@@ -703,17 +711,12 @@ int8_t Chassis_Up_Step_Fun(Chassis_Control_StructTypedef *Chassis_Control_Struct
     //动作结束后禁止再次检测的冷却周期数
     static uint16_t Up_Step_Cool_Down_Count = 0;
 
-    //当前底盘状态(本函数会改写Chassis_State,用局部量保存并在结尾统一回写)
-    Chassis_State_EnumTypedef Chassis_State = Chassis_Control_Struct->Chassis_Control.Chassis_State;
-    //上台阶标志位(本函数会改写,用局部量保存并在结尾统一回写)
-    uint8_t Up_Step_Flag = Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag;
-
     /*===| 只在Chassis_FOLLOW(检测)与Chassis_UpStep(准备/执行)下工作,其它状态立即中断 |===*/
-    if(Chassis_State != Chassis_FOLLOW && Chassis_State != Chassis_UpStep)
+    if(Chassis_Control_Struct->Chassis_Control.Chassis_State != Chassis_FOLLOW && Chassis_Control_Struct->Chassis_Control.Chassis_State != Chassis_UpStep)
     {
         Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag = 0;
-        Up_Step_Ready_Tick_Count  = 0;
-        Up_Step_Ready_Run_Count   = 0;
+        // Up_Step_Ready_Tick_Count  = 0;
+        // Up_Step_Ready_Run_Count   = 0;
         Up_Step_Arrive_Tick_Count = 0;
         Up_Step_Run_Tick_Count    = 0;
         Up_Step_Cool_Down_Count   = 0;
@@ -721,10 +724,10 @@ int8_t Chassis_Up_Step_Fun(Chassis_Control_StructTypedef *Chassis_Control_Struct
     }
 
     /*===| 腿相对世界竖直的摆角(°)与摆角速度(rad/s),与LQR状态量State[1]、State[2]一致 |===*/
-    const float L_theta = ( Chassis_Control_Struct->Leg_Left.Angle_Feedback  - (Chassis_Control_Struct->Chassis_Control.Pitch-2.5f));
-    const float R_theta = (-Chassis_Control_Struct->Leg_Right.Angle_Feedback - (Chassis_Control_Struct->Chassis_Control.Pitch-2.5f));
-    const float L_theta_dot = ( Chassis_Control_Struct->Leg_Left.Total_Angle_Speed  - Chassis_Control_Struct->Chassis_Control.Pitch_dot)*Angle2Radain;
-    const float R_theta_dot = (-Chassis_Control_Struct->Leg_Right.Total_Angle_Speed - Chassis_Control_Struct->Chassis_Control.Pitch_dot)*Angle2Radain;
+    // const float L_theta = Chassis_Control_Struct->Leg_Left.Angle_Feedback;
+    // const float R_theta =-Chassis_Control_Struct->Leg_Right.Angle_Feedback;
+    // const float Chassis_Control_Struct->Leg_Left.Total_Angle_Speed = Chassis_Control_Struct->Leg_Left.Total_Angle_Speed;
+    // const float (-Chassis_Control_Struct->Leg_Right.Total_Angle_Speed) = -Chassis_Control_Struct->Leg_Right.Total_Angle_Speed;
 
     /*===| 冷却计时:动作刚结束时短时间内不再检测,避免卡在台阶上反复触发 |===*/
     if(Up_Step_Cool_Down_Count > 0)
@@ -733,105 +736,116 @@ int8_t Chassis_Up_Step_Fun(Chassis_Control_StructTypedef *Chassis_Control_Struct
     }
 
     /*===| Up_Step_Flag被外部置位时(底盘使能Chassis_FOLLOW或Chassis_UpStep时可修改),同步进入Chassis_UpStep执行 |===*/
-    if(Chassis_State == Chassis_FOLLOW && Up_Step_Flag != 0)
+    if(Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_FOLLOW
+    && Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag != 0)
     {
-        Chassis_State = Chassis_UpStep;
-        Up_Step_Ready_Tick_Count  = 0;
-        Up_Step_Ready_Run_Count   = 0;
+        Chassis_Control_Struct->Chassis_Control.Chassis_State = Chassis_UpStep;
+        // Up_Step_Ready_Tick_Count  = 0;
+        // Up_Step_Ready_Run_Count   = 0;
         Up_Step_Arrive_Tick_Count = 0;
         Up_Step_Run_Tick_Count    = 0;
     }
-    /*===| 反过来:状态已在Chassis_UpStep但标志位为0(外部直接切状态)时按准备态处理 |===*/
-    else if(Chassis_State == Chassis_UpStep && Up_Step_Flag == 0)
+    /*===| 状态已在Chassis_UpStep但标志位为0时切回Chassis_FOLLOW |===*/
+    else if(Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_UpStep
+        &&  Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag == 0)
     {
-        Up_Step_Flag = 1;
-        Up_Step_Ready_Tick_Count  = 0;
-        Up_Step_Ready_Run_Count   = 0;
+        Chassis_Control_Struct->Chassis_Control.Chassis_State = Chassis_FOLLOW;
+        // Up_Step_Ready_Tick_Count  = 0;
+        // Up_Step_Ready_Run_Count   = 0;
         Up_Step_Arrive_Tick_Count = 0;
         Up_Step_Run_Tick_Count    = 0;
     }
 
-    /*===| 磕碰检测:双腿同时后摆且后摆角速度同时超阈值(不需要时把Chassis_Up_Step_Dect_Enable置0) |===*/
-    if(Chassis_State == Chassis_FOLLOW
-    && Up_Step_Flag   == 0
-    && Chassis_Up_Step_Dect_Enable == 1
-    && Up_Step_Cool_Down_Count == 0)
+    // /*===| 磕碰检测:双腿同时后摆且后摆角速度同时超阈值 |===*/
+    // if(Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_FOLLOW
+    // && Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag   == 0
+    // && Up_Step_Cool_Down_Count == 0)
+    // {
+    //     //跳跃、离地时不检测(这些状态下本来就允许腿大幅度摆动)
+    //     if(Chassis_Control_Struct->WheelLeg_Control_Flag.Off_ground_Flag == 0
+    //     && Chassis_Control_Struct->WheelLeg_Control_Flag.Chassis_Jump_FLag == 0
+    //     && hassis_Control_Struct->Leg_Left.Angle_Feedback     > Chassis_Up_Step_Angle_Gate
+    //     && (-Chassis_Control_Struct->Leg_Right.Angle_Feedback)     > Chassis_Up_Step_Angle_Gate
+    //     && Chassis_Control_Struct->Leg_Left.Total_Angle_Speed > Chassis_Up_Step_Angle_Speed_Gate
+    //     && (-Chassis_Control_Struct->Leg_Right.Total_Angle_Speed) > Chassis_Up_Step_Angle_Speed_Gate)
+    //     {
+    //         //进入准备态:底盘切到Chassis_UpStep,本周期输出仍走与Chassis_FOLLOW一致的运控(无跳变)
+    //         Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag = 1;
+    //         Chassis_Control_Struct->Chassis_Control.Chassis_State = Chassis_UpStep;
+    //         Up_Step_Ready_Tick_Count  = 0;
+    //         Up_Step_Ready_Run_Count   = 0;
+    //         Up_Step_Arrive_Tick_Count = 0;
+    //         Up_Step_Run_Tick_Count    = 0;
+    //     }
+    // }
+    // /*===| 准备态(Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag = 1):底盘已在Chassis_UpStep,运控与Chassis_FOLLOW完全一致 |===*/
+    // if(Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag == 1)
+    // {
+
+    //     Up_Step_Ready_Run_Count++;
+
+    //     //被台阶顶住:双腿摆角一直超阈值,持续一段时间后确认磕到台阶,转入后摆收腿
+    //     if(hassis_Control_Struct->Leg_Left.Angle_Feedback > Chassis_Up_Step_Ready_Angle_Gate && (-Chassis_Control_Struct->Leg_Right.Angle_Feedback) > Chassis_Up_Step_Ready_Angle_Gate)
+    //     {
+    //         Up_Step_Ready_Tick_Count++;
+    //     }
+    //     else
+    //     {
+    //         Up_Step_Ready_Tick_Count = 0;
+    //     }
+
+    //     if(Up_Step_Ready_Tick_Count >= Chassis_Up_Step_Ready_Tick)
+    //     {
+    //         //确认磕到台阶:进入后摆收腿
+    //         Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag = 2;
+    //         Up_Step_Ready_Tick_Count  = 0;
+    //         Up_Step_Ready_Run_Count   = 0;
+    //         Up_Step_Arrive_Tick_Count = 0;
+    //         Up_Step_Run_Tick_Count    = 0;
+    //     }
+    //     else if(Up_Step_Ready_Run_Count >= Chassis_Up_Step_Ready_Timeout_Tick)
+    //     {
+    //         //准备态超时:只是一次磕碰,腿已恢复,退回Chassis_FOLLOW
+    //         Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag = 0;
+    //         Chassis_Control_Struct->Chassis_Control.Chassis_State = Chassis_FOLLOW;
+    //         Up_Step_Ready_Tick_Count  = 0;
+    //         Up_Step_Ready_Run_Count   = 0;
+    //         Up_Step_Cool_Down_Count   = Chassis_Up_Step_Cool_Down_Tick;
+    //     }
+    // }
+    //跳跃、离地时不检测(这些状态下本来就允许腿大幅度摆动)
+    if(Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag == 1
+    && Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_UpStep
+    && Chassis_Control_Struct->Leg_Left.Angle_Feedback     > Chassis_Up_Step_Angle_Gate
+    && (-Chassis_Control_Struct->Leg_Right.Angle_Feedback) > Chassis_Up_Step_Angle_Gate
+    && Chassis_Control_Struct->Leg_Left.Total_Angle_Speed  > Chassis_Up_Step_Angle_Speed_Gate
+    && (-Chassis_Control_Struct->Leg_Right.Total_Angle_Speed) > Chassis_Up_Step_Angle_Speed_Gate)
     {
-        //跳跃、离地时不检测(这些状态下本来就允许腿大幅度摆动)
-        if(Chassis_Control_Struct->WheelLeg_Control_Flag.Off_ground_Flag == 0
-        && Chassis_Control_Struct->WheelLeg_Control_Flag.Chassis_Jump_FLag == 0
-        && L_theta     > Chassis_Up_Step_Angle_Gate
-        && R_theta     > Chassis_Up_Step_Angle_Gate
-        && L_theta_dot > Chassis_Up_Step_Angle_Speed_Gate
-        && R_theta_dot > Chassis_Up_Step_Angle_Speed_Gate)
-        {
-            //进入准备态:底盘切到Chassis_UpStep,本周期输出仍走与Chassis_FOLLOW一致的运控(无跳变)
-            Up_Step_Flag = 1;
-            Chassis_State = Chassis_UpStep;
-            Up_Step_Ready_Tick_Count  = 0;
-            Up_Step_Ready_Run_Count   = 0;
-            Up_Step_Arrive_Tick_Count = 0;
-            Up_Step_Run_Tick_Count    = 0;
-        }
+        Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag = 2;
+        // Up_Step_Ready_Tick_Count  = 0;
+        // Up_Step_Ready_Run_Count   = 0;
+        Up_Step_Arrive_Tick_Count = 0;
+        Up_Step_Run_Tick_Count    = 0;
     }
-
-    /*===| 准备态(Up_Step_Flag = 1):底盘已在Chassis_UpStep,运控与Chassis_FOLLOW完全一致 |===*/
-    if(Up_Step_Flag == 1)
-    {
-        //与Chassis_FOLLOW一致:腿长目标取RoboControl(Get_Control_Data不为Chassis_UpStep赋值,这里自己同步)
-        Chassis_Control_Struct->Chassis_Control.Leg_Length_Target = RoboControl_Struct.Leg_Length;
-
-        Up_Step_Ready_Run_Count++;
-
-        //被台阶顶住:双腿摆角一直超阈值,持续一段时间后确认磕到台阶,转入后摆收腿
-        if(L_theta > Chassis_Up_Step_Ready_Angle_Gate && R_theta > Chassis_Up_Step_Ready_Angle_Gate)
-        {
-            Up_Step_Ready_Tick_Count++;
-        }
-        else
-        {
-            Up_Step_Ready_Tick_Count = 0;
-        }
-
-        if(Up_Step_Ready_Tick_Count >= Chassis_Up_Step_Ready_Tick)
-        {
-            //确认磕到台阶:进入后摆收腿
-            Up_Step_Flag = 2;
-            Up_Step_Ready_Tick_Count  = 0;
-            Up_Step_Ready_Run_Count   = 0;
-            Up_Step_Arrive_Tick_Count = 0;
-            Up_Step_Run_Tick_Count    = 0;
-        }
-        else if(Up_Step_Ready_Run_Count >= Chassis_Up_Step_Ready_Timeout_Tick)
-        {
-            //准备态超时:只是一次磕碰,腿已恢复,退回Chassis_FOLLOW
-            Up_Step_Flag = 0;
-            Chassis_State = Chassis_FOLLOW;
-            Up_Step_Ready_Tick_Count  = 0;
-            Up_Step_Ready_Run_Count   = 0;
-            Up_Step_Cool_Down_Count   = Chassis_Up_Step_Cool_Down_Tick;
-        }
-    }
-    /*===| 后摆收腿(Up_Step_Flag = 2):腿长收到最短,双腿后摆到目标角度(摆角/腿长PID在WheelLeg_Output计算) |===*/
-    else if(Up_Step_Flag == 2)
+    /*===| 后摆收腿(Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag = 2):腿长收到最短,双腿后摆到目标角度(摆角/腿长PID在WheelLeg_Output计算) |===*/
+    else if(Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag == 2)
     {
         //收腿:腿长目标收至最短,并同步RoboControl腿长(腿长目标来源,见Get_Control_Data)
-        RoboControl_Struct.Leg_Length = Leg_Length_Min;
         Chassis_Control_Struct->Chassis_Control.Leg_Length_Target = Leg_Length_Min;
 
         //后摆:给双腿总摆角目标(°),摆角PID把腿摆到相对世界竖直的 Chassis_Up_Step_Angle_Target
         Chassis_Control_Struct->Leg_Left.Total_Angle_Target  = Chassis_Control_Struct->Leg_Left.Total_Angle_Feedback
-                                                             + (Chassis_Up_Step_Angle_Target - L_theta);
+                                                             + Caculate_Included_Angle(Chassis_Control_Struct->Leg_Left.Total_Angle_Feedback, Chassis_Up_Step_Angle_Target);
         Chassis_Control_Struct->Leg_Right.Total_Angle_Target = Chassis_Control_Struct->Leg_Right.Total_Angle_Feedback
-                                                             + (R_theta - Chassis_Up_Step_Angle_Target);
+                                                             + Caculate_Included_Angle(Chassis_Control_Struct->Leg_Right.Total_Angle_Feedback, Chassis_Up_Step_Angle_Target);
 
         //轮电机不输出:顶住台阶,防止轮子继续转把车往回推
         Chassis_Control_Struct->Leg_Left.LQR_Wheel_Torque_Target  = 0.0f;
         Chassis_Control_Struct->Leg_Right.LQR_Wheel_Torque_Target = 0.0f;
 
         //到位确认:双腿摆角到位且腿长已收到位,连续保持一段时间才认定上台阶完成
-        if(L_theta > Chassis_Up_Step_Angle_Arrive
-        && R_theta > Chassis_Up_Step_Angle_Arrive
+        if(Chassis_Control_Struct->Leg_Left.Angle_Feedback > Chassis_Up_Step_Angle_Arrive
+        && (-Chassis_Control_Struct->Leg_Right.Angle_Feedback) > Chassis_Up_Step_Angle_Arrive
         && Chassis_Control_Struct->Leg_Left.Length_Feedback  < Chassis_Up_Step_Link_Arrive
         && Chassis_Control_Struct->Leg_Right.Length_Feedback < Chassis_Up_Step_Link_Arrive)
         {
@@ -848,24 +862,20 @@ int8_t Chassis_Up_Step_Fun(Chassis_Control_StructTypedef *Chassis_Control_Struct
         if(Up_Step_Arrive_Tick_Count >= Chassis_Up_Step_Arrive_Tick
         || Up_Step_Run_Tick_Count    >= Chassis_Up_Step_Timeout_Tick)
         {
-            RoboControl_Struct.Leg_Length = Chassis_Up_Step_End_Leg_Length;
             Chassis_Control_Struct->Chassis_Control.Leg_Length_Target = Chassis_Up_Step_End_Leg_Length;
-            Up_Step_Flag  = 0;
-            Chassis_State = Chassis_FOLLOW;
-            Up_Step_Ready_Tick_Count  = 0;
-            Up_Step_Ready_Run_Count   = 0;
+            Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag  = 0;
+            Chassis_Control_Struct->Chassis_Control.Chassis_State = Chassis_FOLLOW;
+            // Up_Step_Ready_Tick_Count  = 0;
+            // Up_Step_Ready_Run_Count   = 0;
             Up_Step_Arrive_Tick_Count = 0;
             Up_Step_Run_Tick_Count    = 0;
-            //进入冷却:短时间内不再重新检测,避免卡在台阶上反复触发
-            Up_Step_Cool_Down_Count = Chassis_Up_Step_Cool_Down_Tick;
         }
     }
 
     /*===| 回写上台阶标志位与底盘状态 |===*/
-    Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag = Up_Step_Flag;
-    Chassis_Control_Struct->Chassis_Control.Chassis_State = Chassis_State;
+    Chassis_Control_Struct->Chassis_Control.Chassis_State = Chassis_Control_Struct->Chassis_Control.Chassis_State;
 
-    return (Up_Step_Flag != 0) ? 1 : 0;
+    return (Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag != 0) ? 1 : 0;
 }
 /**
  * ===| 缓失能 |===

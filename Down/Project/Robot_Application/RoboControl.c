@@ -78,7 +78,10 @@ void Robo_Task(void *argument)
         {
             Robo_Stop(); 
         }
-        
+        // if      (Remote_Control_Struct.RC_Left_Y > 0.8f && Remote_Control_Last_Struct.RC_Left_Y < 0.8f&&(Remote_Control_Struct.RC_Side < -0.7f))
+        // {
+        //     RoboControl_Struct.If_SettingZero = 1;//设零点
+        // }
         /*===| 遥控方式 |===*/
         /*===| 遥控器摇杆控制 |===*/
         if(RoboControl_Struct.Controler == Joystick)

@@ -29,11 +29,11 @@ void Communicate_Task(void *argument)
 {
     for(;;)
     {
-		Gimbal_Send_Remote_Pack1();
-		osDelay(5);
-		// Gimbal_Send_Remote_Pack2();
-		// osDelay(5);
-		Gimbal_Send_attitude_Pack();
+//		Gimbal_Send_Remote_Pack1();
+//		osDelay(5);
+//		// Gimbal_Send_Remote_Pack2();
+//		// osDelay(5);
+//		Gimbal_Send_attitude_Pack();
 		osDelay(5);
 	}
 }

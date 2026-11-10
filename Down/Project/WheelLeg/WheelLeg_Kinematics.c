@@ -163,10 +163,10 @@ static void Leg_State_KF_Update(Chassis_Leg_StructTypedef *Leg_Date, PosVelKF_t 
 	Leg_Date->Total_Angle_Speed     = kf_A0->v;
     if(Leg_Date->Leg_LR == Leg_R)
     {
-        VOFA_JustFloat_AddValue(0,Leg_Date->Total_Angle_Feedback);
-        VOFA_JustFloat_AddValue(1,Leg_Date->Total_Angle_Speed);
-        VOFA_JustFloat_AddValue(2,kf_A0->x);
-        VOFA_JustFloat_AddValue(3,kf_A0->v);
+        // VOFA_JustFloat_AddValue(0,Leg_Date->Total_Angle_Feedback);
+        // VOFA_JustFloat_AddValue(1,Leg_Date->Total_Angle_Speed);
+        // VOFA_JustFloat_AddValue(2,kf_A0->x);
+        // VOFA_JustFloat_AddValue(3,kf_A0->v);
 
     }
 

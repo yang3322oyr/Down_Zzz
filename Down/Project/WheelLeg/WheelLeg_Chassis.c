@@ -692,17 +692,17 @@ int8_t Chassis_Jump_Fun(Chassis_Control_StructTypedef *Chassis_Control_Struct)
  *=========================================================================================*/
 int8_t Chassis_Up_Step_Fun(Chassis_Control_StructTypedef *Chassis_Control_Struct)
 {
-    VOFA_JustFloat_AddValue(0,Chassis_Control_Struct->Chassis_Control.Chassis_State);
-    VOFA_JustFloat_AddValue(1,Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag);
-    VOFA_JustFloat_AddValue(2,Chassis_Control_Struct->Leg_Left.Total_Angle_Feedback);
-    VOFA_JustFloat_AddValue(3,Chassis_Control_Struct->Leg_Left.Total_Angle_Speed);
-    VOFA_JustFloat_AddValue(4,Chassis_Control_Struct->Leg_Right.Total_Angle_Feedback);
-    VOFA_JustFloat_AddValue(5,Chassis_Control_Struct->Leg_Right.Total_Angle_Speed);
-    VOFA_JustFloat_AddValue(6,Chassis_Control_Struct->Leg_Right.Length_Feedback);
-    VOFA_JustFloat_AddValue(7,Chassis_Control_Struct->Leg_Right.Length_Speed);
-    VOFA_JustFloat_AddValue(8,Chassis_Control_Struct->Leg_Left.Total_Angle_Target);
-    VOFA_JustFloat_AddValue(9,Chassis_Control_Struct->Leg_Right.Total_Angle_Target);
-    VOFA_JustFloat_AddValue(10,Chassis_Control_Struct->Chassis_Control.Pitch);
+    // VOFA_JustFloat_AddValue(0,Chassis_Control_Struct->Chassis_Control.Chassis_State);
+    // VOFA_JustFloat_AddValue(1,Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag);
+    // VOFA_JustFloat_AddValue(2,Chassis_Control_Struct->Leg_Left.Total_Angle_Feedback);
+    // VOFA_JustFloat_AddValue(3,Chassis_Control_Struct->Leg_Left.Total_Angle_Speed);
+    // VOFA_JustFloat_AddValue(4,Chassis_Control_Struct->Leg_Right.Total_Angle_Feedback);
+    // VOFA_JustFloat_AddValue(5,Chassis_Control_Struct->Leg_Right.Total_Angle_Speed);
+    // VOFA_JustFloat_AddValue(6,Chassis_Control_Struct->Leg_Right.Length_Feedback);
+    // VOFA_JustFloat_AddValue(7,Chassis_Control_Struct->Leg_Right.Length_Speed);
+    // VOFA_JustFloat_AddValue(8,Chassis_Control_Struct->Leg_Left.Total_Angle_Target);
+    // VOFA_JustFloat_AddValue(9,Chassis_Control_Struct->Leg_Right.Total_Angle_Target);
+    // VOFA_JustFloat_AddValue(10,Chassis_Control_Struct->Chassis_Control.Pitch);
     // VOFA_JustFloat_AddValue(4,Motor.Joint1.Ticker);
     // VOFA_JustFloat_AddValue(5,Motor.Joint2.Ticker);
     // VOFA_JustFloat_AddValue(6,Motor.Joint3.Ticker);
@@ -832,7 +832,7 @@ int8_t Chassis_Up_Step_Fun(Chassis_Control_StructTypedef *Chassis_Control_Struct
     //         Up_Step_Cool_Down_Tim   = Chassis_Up_Step_Cool_Down_Tick;
     //     }
     // }
-    //跳跃、离地时不检测(这些状态下本来就允许腿大幅度摆动)
+    /*===| 磕碰检测:双腿同时后摆且后摆角速度同时超阈值 |===*/
     if(Chassis_Control_Struct->WheelLeg_Control_Flag.Up_Step_Flag == 1
     && Chassis_Control_Struct->Chassis_Control.Chassis_State == Chassis_UpStep
     && Chassis_Control_Struct->Leg_Left.Angle_Feedback     > Chassis_Up_Step_Angle_Gate

@@ -175,7 +175,18 @@ void INS_Task(void)
         INS_Data_Self.YawTotalAngle = INS_Data_Self.Yaw_Round * 360.0f + INS.Yaw;
         
         INS.Last_Yaw = INS.Yaw;
-        
+        VOFA_JustFloat_AddValue(0, INS.Roll);
+        VOFA_JustFloat_AddValue(1, INS.Pitch);
+        VOFA_JustFloat_AddValue(2, INS.Yaw);
+        VOFA_JustFloat_AddValue(3, INS.MotionAccel_n[0]);
+        VOFA_JustFloat_AddValue(4, INS.MotionAccel_n[1]);
+        VOFA_JustFloat_AddValue(5, INS.MotionAccel_n[2]);
+        VOFA_JustFloat_AddValue(6, rawAccel[0]);
+        VOFA_JustFloat_AddValue(7, rawAccel[1]);
+        VOFA_JustFloat_AddValue(8, rawAccel[2]);
+        VOFA_JustFloat_AddValue(9, rawGyro[0]);
+        VOFA_JustFloat_AddValue(10, rawGyro[1]);
+        VOFA_JustFloat_AddValue(11, rawGyro[2]);
         osDelay(2);
     }
 }

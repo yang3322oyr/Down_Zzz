@@ -130,8 +130,8 @@ static void WheelLeg_LQR_Calculated_Displacement(Chassis_Control_StructTypedef *
     WheelLeg_LQR_Struct.Wheel_Speed_Target = Chassis_Control_Struct->Chassis_Control.Vy_Target;
 
 //得到轮子的实际位移 Wheel_Displacement_Feedback
-    Wheel_Left.Displacement_Now  = Motor.Wheel_Motor1.Total_Angle / Motor_3508_Reduction * Chassis_Wheel_Radius * Angle_to_Radain;
-    Wheel_Right.Displacement_Now = Motor.Wheel_Motor2.Total_Angle / Motor_3508_Reduction * Chassis_Wheel_Radius * Angle_to_Radain;
+    Wheel_Left.Displacement_Now  = Motor.Wheel_Motor1.Total_Angle / Motor_3508_Reduction * Chassis_Wheel_Radius * Angle2Radain;
+    Wheel_Right.Displacement_Now = Motor.Wheel_Motor2.Total_Angle / Motor_3508_Reduction * Chassis_Wheel_Radius * Angle2Radain;
     Wheel_Left.Displacement  = -(Wheel_Left.Displacement_Now  - Wheel_Left.Displacement_Init);
     Wheel_Right.Displacement =   Wheel_Right.Displacement_Now - Wheel_Right.Displacement_Init;
 

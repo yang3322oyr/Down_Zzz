@@ -78,11 +78,6 @@ void Robo_Task(void *argument)
             Robo_Stop(); 
         }
         
-        // /*===| 自定义功能-左摇杆向上 |===*/
-        // if      (Remote_Control_Struct.RC_Left_Y > 0.8f && Remote_Control_Last_Struct.RC_Left_Y < 0.8f&&Remote_Control_Struct.RC_Side < -0.7f)
-        // {
-        //     RoboControl_Struct.If_SettingZero = 1;//设零点
-        // }
         /*===| 遥控方式 |===*/
         /*===| 遥控器摇杆控制 |===*/
         if(RoboControl_Struct.Controler == Joystick)
@@ -409,6 +404,7 @@ void RemoteControl_Bool(void)
             else if (Remote_Control_Struct.RC_Right_Y < -0.8f && Remote_Control_Last_Struct.RC_Right_Y > -0.8f)
             {
                 // Chassis_Control_Struct.Up_Slope_Mode_Flag = 0;
+                RoboControl_Struct.If_SettingZero = 1;//设零点
             }
 		}
 		 /*===| 开启小陀螺 |===*/

@@ -116,7 +116,7 @@ void C_IMU_Reset(void)
 
 void INS_Task(void)
 {
-    
+
     INS_Init();
 
     for(;;)

@@ -77,6 +77,7 @@ void Chassis_Task(void const * argument)
         VOFA_JustFloat_AddValue(1,INS_Chassis_Data.Roll);
         VOFA_JustFloat_AddValue(2,INS_Chassis_Data.Pitch);
         VOFA_JustFloat_AddValue(3,INS_Chassis_Data.Yaw);
+        VOFA_JustFloat_AddValue(4,Chassis_Control_Struct.Chassis_Dt);
         /*===| 底盘运动学解算 |===*/
         WheelLeg_Kinematics_Update(&Chassis_Control_Struct);
 

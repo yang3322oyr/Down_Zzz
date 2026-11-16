@@ -53,8 +53,8 @@ typedef StaticTask_t osStaticThreadDef_t;
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 256 * 4,
+  .priority = (osPriority_t) osPriorityNormal7,
 };
 /* Definitions for Key */
 osThreadId_t KeyHandle;
@@ -85,13 +85,13 @@ osThreadId_t RoboHandle;
 const osThreadAttr_t Robo_attributes = {
   .name = "Robo",
   .stack_size = 512 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityNormal4,
 };
 /* Definitions for Chassis */
 osThreadId_t ChassisHandle;
 const osThreadAttr_t Chassis_attributes = {
   .name = "Chassis",
-  .stack_size = 1024 * 4,
+  .stack_size = 2048 * 4,
   .priority = (osPriority_t) osPriorityNormal6,
 };
 /* Definitions for ErrorHandle */
@@ -113,7 +113,7 @@ osThreadId_t CommunicateHandle;
 const osThreadAttr_t Communicate_attributes = {
   .name = "Communicate",
   .stack_size = 512 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityNormal4,
 };
 /* Definitions for UI */
 osThreadId_t UIHandle;

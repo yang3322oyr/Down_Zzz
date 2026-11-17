@@ -8,7 +8,7 @@
 #define Chassis_Recover_Angle_Speed 			125.0f		//翻倒回正摆角速度(°/s)
 #define Chassis_RESET_Slow_Frist_Angle_Speed 	200.0f		//缓倒地自起只动摆角时速度(°/s)
 //保持比例200:1左右(收腿的前中段恰好不碰地，后段碰地)
-//激进参数，请确保电池电量在一格及以上
+//激进参数，请确保电池电量在一格及以上或有缓冲电容
 #define Chassis_RESET_Slow_Second_Angle_Speed 	100.0f		//缓倒地自起收腿时摆角速度(°/s)
 #define Chassis_RESET_Slow_Second_Link_Speed 	0.4f		//缓倒地自起收腿时腿长速度(m/s)
 // //保守参数

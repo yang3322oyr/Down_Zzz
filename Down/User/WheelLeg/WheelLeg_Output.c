@@ -45,8 +45,8 @@ void WheelLeg_Output_Init(void)
 	//腿长位置环PID
 	PID_Init(&WheelLeg_Output_Struct.Leg_Length_PID,   20.0f, 	0.0f, 	100.0f, 	0.0f, 	0.0f, 	3.0f);
 	//腿长速度环PID
-	PID_Init(&WheelLeg_Output_Struct.Leg_Left.Leg_Length_Speed_PID, 100.0f, 0.4f, 	0.0f, 	30.0f, 20.0f, 50.0f);
-	PID_Init(&WheelLeg_Output_Struct.Leg_Right.Leg_Length_Speed_PID,100.0f, 0.4f, 	0.0f, 	30.0f, 20.0f, 50.0f);
+	PID_Init(&WheelLeg_Output_Struct.Leg_Left.Leg_Length_Speed_PID, 120.0f, 0.4f, 	0.0f, 	30.0f, 20.0f, 50.0f);
+	PID_Init(&WheelLeg_Output_Struct.Leg_Right.Leg_Length_Speed_PID,120.0f, 0.4f, 	0.0f, 	30.0f, 20.0f, 50.0f);
     //Roll轴横滚角补偿PID
 	PID_Init(&WheelLeg_Output_Struct.Leg_Roll_PID,      15.0f, 0.0f, 500.0f, 0.0f, 0.0f, 50.0f);//Roll轴角速度°/s
 	PID_Init(&WheelLeg_Output_Struct.Leg_Roll_Speed_PID,2.0f, 0.0f, 0.0f, 1.0f, 0.0f, 80.0f);

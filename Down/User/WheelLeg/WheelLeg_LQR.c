@@ -287,8 +287,8 @@ static void WheelLeg_LQR_calculation(Chassis_Leg_StructTypedef *Leg_Date, const 
 		else if(Chassis_Control.WheelLeg_Control_Flag.Chassis_Jump_FLag == 3)
 		{
 			Leg_Date->LQR_Wheel_Torque_Target = 0.0f;
-			Leg_Date->LQR_Link_Torque_Target[1] =  (LQR_K_LR[6] * theta + LQR_K_LR[7] * theta_d) + (WheelLeg_LQR_Struct.Leg_Splits_PID.Output);
-			// Leg_Date->LQR_Link_Torque_Target[1] =  (LQR_K_LR[6] * theta + LQR_K_LR[7] * theta_d + LQR_K_LR[10] * phi + LQR_K_LR[11] * phi_d) + (WheelLeg_LQR_Struct.Leg_Splits_PID.Output);
+			// Leg_Date->LQR_Link_Torque_Target[1] =  (LQR_K_LR[6] * theta + LQR_K_LR[7] * theta_d) + (WheelLeg_LQR_Struct.Leg_Splits_PID.Output);
+			Leg_Date->LQR_Link_Torque_Target[1] =  (LQR_K_LR[6] * theta + LQR_K_LR[7] * theta_d + LQR_K_LR[10] * phi + LQR_K_LR[11] * phi_d) + (WheelLeg_LQR_Struct.Leg_Splits_PID.Output);
 		}
 		
 	}
@@ -299,8 +299,8 @@ static void WheelLeg_LQR_calculation(Chassis_Leg_StructTypedef *Leg_Date, const 
 		if(Chassis_Control.WheelLeg_Control_Flag.Off_ground_Flag == 1)
 		{
 			Leg_Date->LQR_Wheel_Torque_Target = 0.0f;//左轮电机输出置0
-			Leg_Date->LQR_Link_Torque_Target[1] =(LQR_K_LR[6]*(theta) + LQR_K_LR[7]*(theta_d)) + (WheelLeg_LQR_Struct.Leg_Splits_PID.Output);//左关节力矩只保留摆角控制量
-			// Leg_Date->LQR_Link_Torque_Target[1] =(LQR_K_LR[6] * theta + LQR_K_LR[7] * theta_d + LQR_K_LR[10] * phi + LQR_K_LR[11] * phi_d) + (WheelLeg_LQR_Struct.Leg_Splits_PID.Output);//左关节力矩只保留摆角控制量
+			// Leg_Date->LQR_Link_Torque_Target[1] =(LQR_K_LR[6]*(theta) + LQR_K_LR[7]*(theta_d)) + (WheelLeg_LQR_Struct.Leg_Splits_PID.Output);//左关节力矩只保留摆角控制量
+			Leg_Date->LQR_Link_Torque_Target[1] =(LQR_K_LR[6] * theta + LQR_K_LR[7] * theta_d + LQR_K_LR[10] * phi + LQR_K_LR[11] * phi_d) + (WheelLeg_LQR_Struct.Leg_Splits_PID.Output);//左关节力矩只保留摆角控制量
 		}
 		else
 		{
